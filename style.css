@@ -321,6 +321,36 @@ body {
   display: block;
 }
 
+/* ── Project thumbnail ── */
+.project-thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ecebe6;
+  margin-bottom: 20px;
+}
+
+.project-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.project-card--chatbot .project-thumbnail img {
+  object-position: center center;
+}
+
+/* ── Project category label ── */
+.project-category {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--olive);
+  margin-bottom: 8px;
+}
+
 .project-card .work-visual {
   margin-bottom: 20px;
   transition: opacity 0.2s ease;
