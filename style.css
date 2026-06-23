@@ -1548,3 +1548,276 @@ body { overflow-x: hidden; }
     border-top: 1px solid var(--border);
   }
 }
+
+/* =====================================================
+   INTERACTIVE NARRATIVE — The Enigma of Bamboo Fox
+===================================================== */
+
+.enigma-hero img,
+.character-card img,
+.artifact-figure img,
+.prototype-grid img,
+.battle-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.challenge-grid,
+.interaction-loop,
+.outcome-grid,
+.limitation-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.interaction-loop,
+.outcome-grid,
+.limitation-list {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.challenge-grid article,
+.interaction-loop article,
+.development-stages article,
+.limitation-list article {
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.challenge-grid span,
+.interaction-loop span,
+.battle-number {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.experience-concept-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  gap: 72px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.artifact-figure {
+  margin: 0;
+}
+
+.artifact-figure img {
+  max-height: 540px;
+}
+
+.artifact-figure figcaption,
+.prototype-grid figcaption,
+.battle-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 18px;
+  font-style: normal;
+}
+
+.artifact-figure figcaption span,
+.prototype-grid figcaption span,
+.battle-card figcaption p {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.experience-concept-copy {
+  display: grid;
+  gap: 30px;
+}
+
+.experience-concept-copy article {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.narrative-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.narrative-themes span {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 56px 36px;
+  margin-top: 56px;
+}
+
+.character-card {
+  min-width: 0;
+}
+
+.character-card img {
+  width: 100%;
+  max-height: 460px;
+  margin-bottom: 24px;
+}
+
+.character-card h3 {
+  margin: 8px 0 12px;
+}
+
+.character-card p:last-child {
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.prototype-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.prototype-grid figure {
+  margin: 0;
+}
+
+.prototype-grid img {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.battle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+  align-items: start;
+}
+
+.battle-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+}
+
+.battle-card img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+  object-fit: contain;
+  aspect-ratio: auto;
+}
+
+.battle-card figcaption {
+  max-width: none;
+  margin: 18px 0 0;
+}
+
+.battle-card figcaption strong {
+  display: block;
+  min-height: 2.8em;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.battle-card figcaption p {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+.battle-number {
+  margin-bottom: 12px;
+}
+
+.development-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.outcome-grid {
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.outcome-grid > div {
+  min-width: 0;
+}
+
+@media (max-width: 1100px) {
+  .battle-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 56px 32px;
+  }
+
+  .battle-card figcaption strong {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .character-grid,
+  .development-stages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .interaction-loop,
+  .outcome-grid,
+  .limitation-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .experience-concept-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .challenge-grid,
+  .prototype-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prototype-grid {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 700px) {
+  .character-grid,
+  .battle-grid,
+  .development-stages,
+  .interaction-loop,
+  .outcome-grid,
+  .limitation-list {
+    grid-template-columns: 1fr;
+  }
+
+  .character-grid {
+    gap: 48px;
+  }
+
+  .battle-grid {
+    gap: 64px;
+  }
+}
