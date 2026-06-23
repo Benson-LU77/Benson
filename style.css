@@ -846,15 +846,19 @@ body { overflow-x: hidden; }
 
 /* ── Contribution note ── */
 .contribution-note {
-  margin-top: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
 }
 .contribution-note p:not(.meta-label) {
   font-size: 14px;
   opacity: 0.8;
   line-height: 1.65;
   max-width: none;
+}
+.contribution-note > p:last-child {
+  max-width: 980px;
+  margin-top: 14px;
 }
 
 /* ── Analysis image list ── */

@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260623-kkday-en-headings">
+<link rel="stylesheet" href="style.css?v=20260623-kkday-finding-team">
 </head>
 <body>
 
@@ -53,15 +53,16 @@
     <h2>Understanding the Travel Booking Decision Journey</h2>
 
     <p>
-      本專案聚焦於 KKday 網頁版的旅遊商品搜尋、比較與預訂流程，
-      結合質化與量化研究方法，分析資訊呈現、篩選邏輯、
-      價格判斷與平台信任如何影響旅客的決策過程。
+      本專案為課程團隊研究，聚焦於 KKday 網頁版的旅遊商品搜尋、
+      比較與預訂流程。團隊結合質化與量化研究方法，
+      分析資訊呈現、篩選邏輯、價格判斷與平台信任
+      如何影響旅客的決策過程。
     </p>
 
     <p class="paragraph-spaced">
-      研究依序涵蓋使用者訪談、操作觀察、競品分析、問卷調查、
+      團隊依序進行使用者訪談、操作觀察、競品分析、問卷調查、
       Heuristic Evaluation 與 Usability Testing，
-      並將不同階段的研究發現整理為介面問題與優先改善方向。
+      並共同將不同階段的研究發現整理為介面問題與優先改善方向。
     </p>
 
     <div class="meta-grid">
@@ -89,6 +90,20 @@
         <p>Figma · Google Forms · SPSS · PowerPoint · Excel</p>
       </div>
 
+      <div class="meta-item">
+        <p class="meta-label">Project Context</p>
+        <p>Academic Team Project</p>
+      </div>
+
+    </div>
+
+    <div class="contribution-note">
+      <p class="meta-label">My Contribution</p>
+      <p>
+        我參與研究問題與訪談架構整理、使用者資料分析、
+        Heuristic Evaluation、跨階段研究結果統整，
+        並協助將團隊發現轉化為介面問題與設計改善方向。
+      </p>
     </div>
   </div>
 </section>
@@ -454,6 +469,7 @@
 
   <div class="finding-list">
 
+    <!-- Finding 01 — unchanged -->
     <div class="finding-row">
       <figure class="finding-image">
         <img
@@ -472,6 +488,7 @@
       </div>
     </div>
 
+    <!-- Finding 02 — unchanged -->
     <div class="finding-row finding-row--reverse">
       <figure class="finding-image">
         <img
@@ -490,6 +507,7 @@
       </div>
     </div>
 
+    <!-- Finding 03 — unchanged -->
     <div class="finding-row">
       <figure class="finding-image">
         <img
@@ -508,11 +526,12 @@
       </div>
     </div>
 
+    <!-- Finding 04 — 兩張搜尋結果比較畫面 -->
     <div class="finding-row finding-row--reverse">
       <figure class="finding-image">
         <img
           src="assets/kkday/kkday-finding-search-result-inconsistency.png"
-          alt="發現 04 — 相似搜尋入口產生不同的結果邏輯"
+          alt="KKday 不同搜尋入口產生不同結果頁與篩選條件"
           loading="lazy"
         >
       </figure>
@@ -520,17 +539,19 @@
         <span>Finding 04 · Severity 2.6</span>
         <h3>Similar Search Entries Produce Inconsistent Results</h3>
         <p>
-          使用者從不同搜尋入口進入相似情境時，
-          結果數量、分類方式與可用篩選器不一致。
+          使用者從不同搜尋入口進入相似的搜尋情境時，
+          結果頁的呈現邏輯、結果數量與可用篩選器並不一致，
+          使使用者難以理解不同入口之間的差異。
         </p>
       </div>
     </div>
 
+    <!-- Finding 05 — 富士山商品頁資訊層級 -->
     <div class="finding-row">
       <figure class="finding-image">
         <img
           src="assets/kkday/kkday-finding-product-information-hierarchy.png"
-          alt="發現 05 — 商品資訊完整但缺乏清楚的優先順序"
+          alt="KKday 富士山商品頁資訊層級與重要性排序問題"
           loading="lazy"
         >
       </figure>
@@ -538,17 +559,19 @@
         <span>Finding 05 · Severity 2.4</span>
         <h3>Product Information Lacks a Clear Hierarchy</h3>
         <p>
-          商品標題、地點、方案與限制條件同時呈現，
-          缺乏依照使用者決策順序建立的視覺層級。
+          商品頁雖提供完整資訊，但商品標題同時包含多個地點、
+          景點與行程關鍵字，缺乏依照使用者決策順序建立的資訊層級，
+          增加使用者辨識主要出發地與核心行程的負擔。
         </p>
       </div>
     </div>
 
+    <!-- Finding 06 — 結帳資料填寫頁 -->
     <div class="finding-row finding-row--reverse">
       <figure class="finding-image">
         <img
           src="assets/kkday/kkday-finding-checkout-state-loss.png"
-          alt="發現 06 — 返回流程後已填寫資料未被保留"
+          alt="KKday 返回結帳流程後旅客與付款資料未被保留"
           loading="lazy"
         >
       </figure>
@@ -556,17 +579,19 @@
         <span>Finding 06 · Severity 2.8</span>
         <h3>Checkout Information Is Lost When Navigating Back</h3>
         <p>
-          使用者從付款流程返回上一頁時，
-          旅客資料、訂購人資訊或付款選擇可能需要重新填寫。
+          使用者在付款流程返回上一頁後，
+          先前填寫的旅客資料、訂購人資訊或付款選擇未被完整保留，
+          必須重新輸入，增加操作成本與流程中斷感。
         </p>
       </div>
     </div>
 
+    <!-- Finding 07 — 首頁熱門城市卡片 -->
     <div class="finding-row">
       <figure class="finding-image">
         <img
           src="assets/kkday/kkday-finding-city-card-clickability.png"
-          alt="發現 07 — 視覺樣式與實際可點擊範圍不一致"
+          alt="KKday 首頁熱門城市卡片視覺樣式與可點擊範圍不一致"
           loading="lazy"
         >
       </figure>
@@ -574,8 +599,9 @@
         <span>Finding 07 · Severity 2.6</span>
         <h3>Visual Affordance Does Not Match the Clickable Area</h3>
         <p>
-          首頁城市圖片看起來像完整的可點擊卡片，
-          但實際上必須點擊特定文字或標籤才能進入相關頁面。
+          首頁熱門城市的圖片看起來像完整的可點擊卡片，
+          但實際上必須點擊特定文字或標籤才能進入相關頁面，
+          視覺暗示與實際互動範圍不一致。
         </p>
       </div>
     </div>
@@ -701,9 +727,9 @@
     <h2>Synthesizing Research into Prioritized UX Recommendations</h2>
 
     <p>
-      專案完成使用者決策、平台功能差異、
-      介面易用性與實際操作問題的整合分析，
-      並將研究結果整理為具優先順序的改善方向。
+      團隊整合使用者決策、平台功能差異、
+      介面易用性與實際操作問題，
+      並將跨階段研究結果整理為具優先順序的介面問題與改善方向。
     </p>
 
     <div class="outcome-grid">
@@ -789,20 +815,23 @@
     <h2>Feature Completeness Does Not Guarantee Decision Clarity</h2>
 
     <p>
-      這是我第一次完整參與涵蓋多種研究方法的 UX Research 專案。
-      最大的挑戰不只是找出問題，而是判斷不同研究方法所發現的問題，
+      這是我第一次在團隊專案中完整參與涵蓋多種研究方法的
+      UX Research 流程。最大的挑戰不只是找出問題，
+      而是與團隊共同判斷不同研究方法所發現的問題，
       是否指向相同的使用者需求與介面阻力。
     </p>
 
     <p class="paragraph-spaced">
-      Heuristic Evaluation 協助團隊快速辨識可能違反的介面原則，
-      實際操作觀察則讓我們確認使用者是否真的在這些位置受阻。
-      兩者結合後，才能進一步區分問題的嚴重程度與改善優先順序。
+      團隊透過 Heuristic Evaluation 快速辨識可能違反的介面原則，
+      再以實際操作觀察確認使用者是否真的在這些位置受阻。
+      這個過程讓我學習如何整合不同成員的觀察，
+      並共同討論問題的嚴重程度與改善優先順序。
     </p>
 
     <p class="paragraph-spaced">
-      若專案持續發展，我會將主要改善方向製作成可操作 Prototype，
-      針對篩選、購物車修改、商品資訊層級與付款確認進行下一輪測試。
+      若專案持續發展，我會建議團隊將主要改善方向製作成
+      可操作 Prototype，針對篩選、購物車修改、
+      商品資訊層級與付款確認進行下一輪測試。
     </p>
   </div>
 </section>
