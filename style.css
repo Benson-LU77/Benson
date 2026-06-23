@@ -464,6 +464,15 @@ body {
   margin-bottom: 0;
 }
 
+.resume-entry + .resume-entry {
+  margin-top: 44px;
+}
+
+.resume-entry > p:last-child {
+  max-width: 880px;
+  line-height: 1.75;
+}
+
 .resume-entry-head {
   display: flex;
   justify-content: space-between;
@@ -497,10 +506,35 @@ body {
   max-width: 620px;
 }
 
+/* ── Resume intro (positioning + summary) ── */
+.resume-intro {
+  max-width: 760px;
+  margin-top: 28px;
+}
+
+.resume-positioning {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.resume-summary {
+  margin: 14px 0 0;
+  font-family: "Newsreader", serif;
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--text);
+}
+
 .resume-buttons {
   display: flex;
   gap: 16px;
-  margin-top: 28px;
+  margin-top: 30px;
   flex-wrap: wrap;
 }
 
@@ -557,6 +591,17 @@ body {
   .resume-entry-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 700px) {
+  .resume-entry-head {
+    display: grid;
+    gap: 6px;
+  }
+
+  .resume-entry-date {
+    justify-self: start;
   }
 }
 
