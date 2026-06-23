@@ -547,27 +547,35 @@ body { overflow-x: hidden; }
 /* ── Paragraph spacing utility ── */
 .paragraph-spaced { margin-top: 14px; }
 
-/* ── Hero image (full-width, no .wrap) ── */
-.project-hero-image {
-  width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  line-height: 0;
+/* ── Hero image (contained, centred) ── */
+.project-hero {
+  padding: 32px 0 72px;
 }
-.project-hero-image img {
+
+.project-hero__inner {
+  max-width: 1180px;
+}
+
+.project-hero__inner img {
   display: block;
   width: 100%;
-  max-width: none;
   height: auto;
-  margin: 0;
-  padding: 0;
+  margin: 0 auto;
   border: 0;
   border-radius: 0;
+}
+
+/* ── Persona grid: two personas side by side ── */
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.customer-journey-figure {
+  margin-top: 64px;
 }
 
 /* ── Case grid (two-column) ── */
@@ -997,6 +1005,16 @@ body { overflow-x: hidden; }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  .persona-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .customer-journey-figure {
+    margin-top: 48px;
+  }
+  .project-hero {
+    padding: 20px 0 48px;
   }
 }
 

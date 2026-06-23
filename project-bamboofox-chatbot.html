@@ -44,14 +44,16 @@
   </div>
 </header>
 
-<!-- Full-width Hero -->
-<section class="project-hero-image">
-  <img
-    src="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png"
-    alt="梅竹賽 Bamboo Fox AI Chatbot 首頁，以竹狐角色與 START 按鈕引導使用者進入對話"
-    width="1562"
-    height="862"
-  >
+<!-- Hero -->
+<section class="project-hero">
+  <div class="wrap project-hero__inner">
+    <img
+      src="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png"
+      alt="梅竹賽 Bamboo Fox AI Chatbot 首頁，以竹狐角色與 START 按鈕引導使用者進入對話"
+      width="1562"
+      height="862"
+    >
+  </div>
 </section>
 
 <!-- 1. Project Overview -->
@@ -152,32 +154,43 @@
 <section class="case-section">
   <div class="wrap">
     <p class="case-label">Persona &amp; Customer Journey</p>
-    <h2>從使用者輪廓到參與歷程</h2>
-    <p>透過訪談與操作觀察，整理主動型球迷的參與動機、各階段行為與資訊需求，作為 Chatbot 知識架構與對話設計的依據。</p>
-    <div class="analysis-image-list">
+    <h2>從主動型與被動型球迷理解不同參與需求</h2>
+    <p>透過訪談與操作觀察，整理主動型與被動型球迷在參與動機、資訊搜尋、賽事關注與行動意願上的差異，作為後續體驗策略與對話設計的依據。</p>
+    <div class="persona-grid">
       <figure class="analysis-figure">
         <img
-          src="assets/bamboofox-chatbot/bamboofox-persona.png"
-          alt="Composite Persona — 主動型球迷，整理參與動機、賽前至賽後行為、感受與資訊痛點（圖為示意人物，非真實受訪者）"
+          src="assets/bamboofox-chatbot/bamboofox-active-persona.svg"
+          alt="主動型球迷 Persona，整理其參與動機、賽前至賽後行為、感受與資訊痛點"
           loading="lazy"
         >
         <figcaption>
-          <strong>Composite Persona</strong>
-          <span>主動型球迷的參與動機、賽前至賽後行為，以及資訊分散與即時內容不足等主要痛點。圖中人物為示意，非真實受訪者。</span>
+          <strong>Active Fan</strong>
+          <span>主動搜尋賽事資訊、關注球員與賽程，並具有較高的現場參與與分享意願。</span>
         </figcaption>
       </figure>
       <figure class="analysis-figure">
         <img
-          src="assets/bamboofox-chatbot/bamboofox-customer-journey-map.png"
-          alt="主動型球迷從 Awareness、Interest、Consideration、Action 到 Referral 的顧客旅程，包含使用者行為、目標、情緒、痛點及 Chatbot 支援"
+          src="assets/bamboofox-chatbot/bamboofox-passive-persona.svg"
+          alt="被動型球迷 Persona，整理其低涉入參與行為、資訊需求與互動障礙"
           loading="lazy"
         >
         <figcaption>
-          <strong>Customer Journey Map</strong>
-          <span>依認知、興趣、考慮、行動與分享五個階段，整理使用者行為、目標、情緒、痛點及 Chatbot 在各階段可提供的支援。</span>
+          <strong>Passive Fan</strong>
+          <span>對賽事具基本認知，但較少主動搜尋資訊，需要更清楚的背景說明與參與引導。</span>
         </figcaption>
       </figure>
     </div>
+    <figure class="analysis-figure customer-journey-figure">
+      <img
+        src="assets/bamboofox-chatbot/bamboofox-customer-journey-map.png"
+        alt="主動型球迷從 Awareness、Interest、Consideration、Action 到 Referral 的顧客旅程"
+        loading="lazy"
+      >
+      <figcaption>
+        <strong>Customer Journey Map</strong>
+        <span>依認知、興趣、考慮、行動與分享五個階段，整理使用者行為、目標、情緒、痛點與 Chatbot 可提供的支援。</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -278,6 +291,19 @@
   <div class="wrap">
     <p class="case-label">Representative Iterations</p>
     <h2>從測試問題到 Prompt 規則</h2>
+    <p>Heuristic Evaluation 顯示，不同 Prompt 版本在角色一致性、開場引導、理解能力、回答品質、對話導航、錯誤管理與上下文處理上呈現不同程度的改善與限制。</p>
+    <figure class="case-image case-image--spaced iteration-overview">
+      <img
+        src="assets/bamboofox-chatbot/bamboofox-conversation-progression.svg"
+        alt="Bamboo Fox AI Chatbot 在 Prompt 1 至 Prompt 5 中的 Heuristic Evaluation 整體結果，涵蓋 Personality、Onboarding、Understanding、Answering、Navigation、Error Management 與 Intelligence"
+        width="1440"
+        height="810"
+        loading="lazy"
+      >
+      <figcaption>
+        五輪 Prompt 迭代的整體評估結果，呈現各項對話品質指標在不同版本中的變化。
+      </figcaption>
+    </figure>
     <div class="iteration-list">
 
       <article class="iteration-item">
@@ -302,17 +328,8 @@
           <p class="iteration-label">Prompt Response</p>
           <p>加入階段鎖定規則，每個階段只能引導至下一階段。</p>
           <p class="iteration-label">Result</p>
-          <p>對話流程在後期測試中更穩定地依序推進。</p>
+          <p>對話流程在後期版本中能更穩定地依序推進。</p>
         </div>
-        <figure class="case-image case-image--spaced">
-          <img
-            src="assets/bamboofox-chatbot/bamboofox-conversation-progression.svg"
-            alt="Bamboo Fox AI Chatbot 對話階段推進規則與修正前後比較"
-            width="1440"
-            height="810"
-            loading="lazy"
-          >
-        </figure>
       </article>
 
       <article class="iteration-item">
@@ -324,17 +341,8 @@
           <p class="iteration-label">Prompt Response</p>
           <p>限制回覆來源，查無資料時需明確拒答，不得自行推測。</p>
           <p class="iteration-label">Result</p>
-          <p>知識庫外問題的處理方式更一致，虛構內容明顯減少。</p>
+          <p>知識庫外問題的處理方式更一致，錯誤生成受到限制。</p>
         </div>
-        <figure class="case-image case-image--spaced">
-          <img
-            src="assets/bamboofox-chatbot/bamboofox-error-management.svg"
-            alt="Bamboo Fox AI Chatbot 錯誤生成與輸出格式修正規則"
-            width="1440"
-            height="810"
-            loading="lazy"
-          >
-        </figure>
       </article>
 
     </div>
