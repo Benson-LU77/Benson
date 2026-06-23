@@ -549,33 +549,83 @@ body { overflow-x: hidden; }
 
 /* ── Hero image (contained, centred) ── */
 .project-hero {
-  padding: 32px 0 72px;
+  padding: 32px 0 64px;
 }
 
 .project-hero__inner {
-  max-width: 1180px;
+  width: min(90vw, 1280px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .project-hero__inner img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   margin: 0 auto;
+  padding: 0;
   border: 0;
   border-radius: 0;
+  object-fit: contain;
 }
 
-/* ── Persona grid: two personas side by side ── */
+/* ── Persona grid: two personas side by side (breakout) ── */
 .persona-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+  gap: 28px;
+  width: min(94vw, 1440px);
+  margin: 48px 50% 0;
+  transform: translateX(-50%);
   align-items: start;
 }
 
+.persona-grid .analysis-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.persona-grid .analysis-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.persona-grid figcaption {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  margin-top: 14px;
+  align-items: start;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.persona-grid figcaption strong {
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.persona-grid figcaption span {
+  color: var(--text-muted);
+}
+
+/* ── Customer Journey: full-width below personas ── */
 .customer-journey-figure {
-  margin-top: 64px;
+  width: 100%;
+  margin: 64px 0 0;
+}
+
+.customer-journey-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* ── Case grid (two-column) ── */
@@ -984,6 +1034,16 @@ body { overflow-x: hidden; }
     grid-template-columns: 1fr;
     gap: 48px;
   }
+  .persona-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 48px 0 0;
+    transform: none;
+    gap: 48px;
+  }
+  .customer-journey-figure {
+    margin-top: 48px;
+  }
 }
 
 /* ── Responsive: 768px ── */
@@ -1005,13 +1065,6 @@ body { overflow-x: hidden; }
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 24px;
-  }
-  .persona-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .customer-journey-figure {
-    margin-top: 48px;
   }
   .project-hero {
     padding: 20px 0 48px;
@@ -1192,6 +1245,11 @@ body { overflow-x: hidden; }
 @media (max-width: 600px) {
   .meta-grid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .persona-grid figcaption {
+    grid-template-columns: 1fr;
+    gap: 6px;
   }
 
   .interaction-figure figcaption {
