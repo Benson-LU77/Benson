@@ -374,6 +374,31 @@ body {
   font-size: 22px;
 }
 
+/* ── Projects page grid ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px;
+  padding: 16px 0 96px;
+}
+
+.project-card:hover .project-thumbnail img {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.project-thumbnail img {
+  transition: transform 0.3s ease;
+}
+
+.project-title {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--charcoal);
+  margin: 0;
+}
+
 /* Case study sections */
 .case-section {
   padding: 64px 0;
@@ -522,6 +547,10 @@ body {
 /* Responsive additions */
 @media (max-width: 720px) {
   .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
     grid-template-columns: 1fr;
   }
 
