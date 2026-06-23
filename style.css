@@ -1400,3 +1400,151 @@ body { overflow-x: hidden; }
     gap: 6px;
   }
 }
+
+/* =====================================================
+   CAMPAIGN — Bamboo Fox × MeiChu Games
+===================================================== */
+
+:root {
+  --border: var(--line);
+  --accent: var(--clay);
+}
+
+.campaign-framework img,
+.event-concept img,
+.activity-details img,
+.project-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.campaign-framework .case-image,
+.activity-details .case-image {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.event-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 36px;
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.experience-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.experience-steps article {
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.experience-steps span,
+.phase-number {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.experience-steps h3,
+.phase-card h3 {
+  margin: 0 0 14px;
+}
+
+.experience-steps p,
+.phase-card p {
+  line-height: 1.75;
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.phase-card {
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.phase-card ul {
+  margin-top: 24px;
+}
+
+.integrated-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.integrated-flow span {
+  padding: 24px 18px;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.integrated-flow span + span {
+  border-left: 1px solid var(--border);
+}
+
+.case-image figcaption {
+  margin-top: 16px;
+  max-width: 820px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+@media (max-width: 1000px) {
+  .event-meta-grid,
+  .experience-steps,
+  .integrated-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .integrated-flow span:nth-child(3) {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .integrated-flow span:nth-child(4) {
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 900px) {
+  .phase-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .event-meta-grid,
+  .experience-steps,
+  .integrated-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .integrated-flow span + span {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}
