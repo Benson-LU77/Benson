@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760">
+  <rect width="1400" height="760" fill="#F6F2EA"/>
+  <text x="70" y="80" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#252525">KKday UXE Project Timeline</text>
+  <text x="70" y="116" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#6E6A64">Milestones 1–6 · 2026</text>
+
+  <!-- timeline grid -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6E6A64">
+    <text x="420" y="165">Mar</text>
+    <text x="690" y="165">Apr</text>
+    <text x="960" y="165">May</text>
+    <text x="1230" y="165">Jun</text>
+  </g>
+  <g stroke="#D8D2C8" stroke-width="1">
+    <line x1="400" y1="185" x2="400" y2="680"/>
+    <line x1="670" y1="185" x2="670" y2="680"/>
+    <line x1="940" y1="185" x2="940" y2="680"/>
+    <line x1="1210" y1="185" x2="1210" y2="680"/>
+    <line x1="1330" y1="185" x2="1330" y2="680"/>
+  </g>
+
+  <!-- labels -->
+  <g font-family="Arial, Helvetica, sans-serif" fill="#252525">
+    <text x="70" y="235" font-size="20" font-weight="700">Milestone 1</text>
+    <text x="70" y="260" font-size="17" fill="#6E6A64">Interaction Map</text>
+
+    <text x="70" y="315" font-size="20" font-weight="700">Milestone 2</text>
+    <text x="70" y="340" font-size="17" fill="#6E6A64">User Research</text>
+
+    <text x="70" y="395" font-size="20" font-weight="700">Milestone 3</text>
+    <text x="70" y="420" font-size="17" fill="#6E6A64">Comparative Analysis</text>
+
+    <text x="70" y="475" font-size="20" font-weight="700">Milestone 4</text>
+    <text x="70" y="500" font-size="17" fill="#6E6A64">Survey</text>
+
+    <text x="70" y="555" font-size="20" font-weight="700">Milestone 5</text>
+    <text x="70" y="580" font-size="17" fill="#6E6A64">Heuristic Evaluation</text>
+
+    <text x="70" y="635" font-size="20" font-weight="700">Milestone 6</text>
+    <text x="70" y="660" font-size="17" fill="#6E6A64">Usability Testing</text>
+  </g>
+
+  <!-- bars; scale approx Mar 5-Jun 10 = 925 px over 97 days -->
+  <g>
+    <rect x="458" y="216" width="143" height="42" rx="21" fill="#B98C72"/>
+    <text x="529.5" y="243" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">Mar 11–25</text>
+
+    <rect x="677" y="296" width="258" height="42" rx="21" fill="#9C8E7B"/>
+    <text x="806" y="323" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">Apr 3–29</text>
+
+    <rect x="858" y="376" width="143" height="42" rx="21" fill="#7F8D84"/>
+    <text x="929.5" y="403" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">Apr 22–May 6</text>
+
+    <rect x="858" y="456" width="210" height="42" rx="21" fill="#A5957E"/>
+    <text x="963" y="483" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">Apr 22–May 13</text>
+
+    <rect x="1001" y="536" width="134" height="42" rx="21" fill="#8C8176"/>
+    <text x="1068" y="563" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">May 7–20</text>
+
+    <rect x="1001" y="616" width="267" height="42" rx="21" fill="#6F7E78"/>
+    <text x="1134.5" y="643" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#FFFFFF">May 7–Jun 3</text>
+  </g>
+</svg>

@@ -1821,3 +1821,375 @@ body { overflow-x: hidden; }
     gap: 64px;
   }
 }
+
+/* =====================================================
+   KKday Interface UX — Case Study Styles
+===================================================== */
+
+/* ── External resource link ── */
+.case-resource-link {
+  margin-top: 32px;
+}
+
+.case-resource-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 7px;
+  border-bottom: 1px solid currentColor;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 180ms ease, gap 180ms ease, border-color 180ms ease;
+}
+
+.case-resource-link a:hover,
+.case-resource-link a:focus-visible {
+  gap: 14px;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── Wide image variant (full wrap width, no max-width constraint) ── */
+.case-image--wide {
+  display: block;
+}
+
+.case-image--wide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ── Research question grid (2 col) ── */
+.research-question-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.research-question-grid article {
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.research-question-grid span {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.research-question-grid h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.research-question-grid p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── Method tag row ── */
+.role-state-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.role-state-grid span {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+/* ── Evaluation paths (2 col) & Test process (3 col) ── */
+.evaluation-paths,
+.test-process {
+  display: grid;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.evaluation-paths {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.test-process {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.evaluation-paths article,
+.test-process article {
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.evaluation-paths span,
+.test-process span {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.evaluation-paths h3,
+.test-process h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.evaluation-paths p,
+.test-process p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── Finding rows (alternating image-left / image-right) ── */
+.finding-list {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.finding-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+}
+
+.finding-row--reverse .finding-image {
+  order: 2;
+}
+
+.finding-row--reverse .finding-body {
+  order: 1;
+}
+
+.finding-image {
+  margin: 0;
+}
+
+.finding-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.finding-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.finding-body > span {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.finding-body h3 {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.finding-body p {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── Solution grid (3 col) ── */
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 56px;
+}
+
+.solution-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.solution-card figure {
+  margin: 0;
+}
+
+.solution-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.solution-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.solution-body > span {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.solution-body h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.solution-body p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── Outcome grid: number + description ── */
+.outcome-grid > div > strong {
+  display: block;
+  font-family: 'Newsreader', serif;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+
+.outcome-grid > div > p {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── Limitation list: article children ── */
+.limitation-list span {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 0.78rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.limitation-list h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.limitation-list p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: none;
+}
+
+/* ── KKday responsive ── */
+@media (max-width: 900px) {
+  .test-process {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .solution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .research-question-grid,
+  .evaluation-paths,
+  .test-process,
+  .solution-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .finding-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 0;
+  }
+
+  .finding-row--reverse .finding-image,
+  .finding-row--reverse .finding-body {
+    order: unset;
+  }
+}
+
+/* =====================================================
+   KKday 繁體中文版追加樣式
+===================================================== */
+
+/* ── Affinity Mapping 圖片縮小（桌機最大 760px，手機全寬） ── */
+.affinity-mapping-figure {
+  width: min(100%, 760px);
+  margin: 48px auto 0;
+}
+
+.affinity-mapping-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.affinity-mapping-figure figcaption {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ── 研究方法標籤列標題 ── */
+.research-methods-label {
+  max-width: none;
+  margin: 48px 0 16px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+/* ── 研究統計欄位：純文字型數字（覆蓋大字體） ── */
+.research-stat-text {
+  font-size: clamp(1.2rem, 2vw, 1.65rem) !important;
+  line-height: 1.25;
+}
