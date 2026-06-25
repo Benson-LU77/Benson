@@ -2327,3 +2327,45 @@ body { overflow-x: hidden; }
     inset: 0;
   }
 }
+
+/* ── Header image logo ── */
+.site-logo--image {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  flex: 0 0 auto;
+  line-height: 0;
+  text-decoration: none;
+  background: transparent;
+}
+
+.site-logo-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: transparent;
+}
+
+.site-logo--image:hover,
+.site-logo--image:focus-visible {
+  text-decoration: none;
+}
+
+.site-logo--image:hover .site-logo-image {
+  opacity: 0.72;
+}
+
+.site-logo--image:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 6px;
+}
+
+@media (max-width: 760px) {
+  .site-logo--image {
+    width: 44px;
+    height: 44px;
+  }
+}
