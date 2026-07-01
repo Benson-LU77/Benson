@@ -93,9 +93,9 @@
       <div class="meta-item">
         <p class="meta-label">Methods</p>
         <p>
-          User Interviews · Contextual Observation ·
+          User Interviews · Behavioral Observation ·
           Comparative Analysis · Survey ·
-          Heuristic Evaluation · Usability Testing
+          Heuristic Evaluation · Moderated Usability Testing
         </p>
       </div>
 
@@ -480,58 +480,174 @@
   <div class="wrap">
     <p class="case-label">Usability Testing</p>
 
-    <h2>透過任務觀察驗證使用者是否在介面中受阻</h2>
+    <h2>透過真實任務驗證搜尋與預訂流程中的介面阻力</h2>
 
     <p>
-      易用性測試聚焦於搜尋、篩選、商品比較與預訂流程，
-      觀察使用者是否能找到符合條件的商品、
-      理解方案差異並完成後續決策。
+      團隊以主持式易用性測試搭配 Think-Aloud Protocol，
+      觀察初次使用 KKday 的參與者如何完成旅遊商品搜尋、
+      收藏、預訂、取消與機場接送選擇。
     </p>
+
+    <p class="paragraph-spaced">
+      測試過程透過 OBS 螢幕錄影、行為觀察、
+      任務紀錄與測試後訪談蒐集質化資料，
+      並使用 System Usability Scale（SUS）
+      評估參與者對整體平台易用性的主觀感受。
+    </p>
+
+    <div class="research-stats">
+      <div>
+        <span>Formal Participants</span>
+        <strong>5</strong>
+      </div>
+      <div>
+        <span>Pilot Participant</span>
+        <strong>1</strong>
+      </div>
+      <div>
+        <span>Test Tasks</span>
+        <strong>5</strong>
+      </div>
+      <div>
+        <span>Average Session</span>
+        <strong class="research-stat-text">50 Min</strong>
+        <small>Including Interview</small>
+      </div>
+    </div>
+
+    <p class="research-methods-label">Task Scenarios</p>
 
     <div class="test-process">
 
       <article>
         <span>Task 01</span>
-        <h3>搜尋與篩選</h3>
-        <p>依照指定條件搜尋旅遊商品並使用篩選工具縮小範圍。</p>
+        <h3>搜尋並收藏日本 eSIM</h3>
+        <p>
+          找到符合流量需求與優惠條件的日本 eSIM，
+          並收藏至少一項候選商品。
+        </p>
       </article>
 
       <article>
         <span>Task 02</span>
-        <h3>商品比較</h3>
-        <p>比較相似商品，說明方案差異與選擇依據。</p>
+        <h3>挑選符合預算的大阪活動</h3>
+        <p>
+          搜尋適合暑假安排的大阪活動，
+          並依預算與活動內容完成選擇。
+        </p>
       </article>
 
       <article>
         <span>Task 03</span>
-        <h3>評論判讀</h3>
-        <p>尋找評論內容，判斷商品與平台是否值得信任。</p>
+        <h3>完成一日遊付款前流程</h3>
+        <p>
+          選擇符合信賴商家與免費取消條件的一日遊，
+          填寫旅客資料並操作至付款頁。
+        </p>
       </article>
 
       <article>
         <span>Task 04</span>
-        <h3>方案選擇</h3>
-        <p>選擇日期、人數與方案後，將商品加入購物車。</p>
+        <h3>尋找取消訂單入口</h3>
+        <p>
+          從會員中心找到訂單，
+          查看取消政策與退款資訊，
+          並操作至取消申請的最終確認畫面。
+        </p>
       </article>
 
       <article>
         <span>Task 05</span>
-        <h3>結帳流程</h3>
-        <p>完成付款前流程，觀察資料填寫與流程控制問題。</p>
+        <h3>選擇符合需求的機場接送</h3>
+        <p>
+          依接送地點、評分與行李需求，
+          選擇關西機場往返大阪市區的接送服務。
+        </p>
       </article>
 
     </div>
+
+    <div class="contribution-note">
+      <p class="meta-label">Pilot Test</p>
+      <p>
+        正式測試前，團隊先進行一輪 Pilot Test，
+        並依結果調整活動預算、取消訂單提示、
+        機場接送條件與放聲思考說明，
+        避免任務設定本身影響正式測試結果。
+      </p>
+    </div>
+
+    <div class="contribution-note">
+      <p class="meta-label">Average SUS Score</p>
+      <p>
+        五位正式參與者的平均 SUS 分數為 65.5，
+        略低於常用參考基準 68。
+        結果顯示 KKday 具備基本任務操作能力，
+        但功能可見性、篩選控制、搜尋一致性與旅客資料處理，
+        仍會降低初次使用者的整體易用性感受。
+        Pilot 參與者的資料未納入正式平均。
+      </p>
+    </div>
+
+    <p class="research-methods-label">Usability Test Findings</p>
+
+    <div class="limitation-list">
+
+      <article>
+        <span>Finding 01 · High Priority</span>
+        <h3>收藏功能缺乏明確提示</h3>
+        <p>
+          3／5 位正式參與者無法立即辨識愛心圖示代表收藏，
+          顯示功能可見性與語意提示不足。
+        </p>
+      </article>
+
+      <article>
+        <span>Finding 02 · High Priority</span>
+        <h3>金額篩選缺乏精確控制</h3>
+        <p>
+          4／5 位正式參與者遇到預算難以設定、
+          返回後條件消失，
+          或不同頁面的篩選方式不一致等問題。
+        </p>
+      </article>
+
+      <article>
+        <span>Finding 03 · High Priority</span>
+        <h3>「同訂購人」未即時帶入旅客資料</h3>
+        <p>
+          參與者點擊「同訂購人」後，
+          資料未依預期自動更新，
+          必須重複輸入旅客資訊，增加結帳流程成本。
+        </p>
+      </article>
+
+      <article>
+        <span>Finding 04 · Medium Priority</span>
+        <h3>搜尋容錯與結果一致性不足</h3>
+        <p>
+          關鍵字搜尋無法穩定縮小範圍，
+          且從首頁搜尋與分類入口進入時，
+          結果數量、排序與篩選器可能不同。
+        </p>
+      </article>
+
+    </div>
+
   </div>
 </section>
 
 <!-- ── 10 Key Findings ── -->
 <section class="case-section">
   <div class="wrap">
-    <p class="case-label">Key Findings</p>
-    <h2>影響操作控制、資訊理解與決策信心的介面問題</h2>
+    <p class="case-label">Integrated Findings</p>
+    <h2>整合不同研究方法後的關鍵介面問題</h2>
     <p>
-      團隊將 Heuristic Evaluation 與實際操作觀察的結果進行統整，
-      收斂出七項需要優先處理的介面問題。
+      團隊交叉比較 Heuristic Evaluation、
+      Usability Testing 與前期使用者研究結果，
+      整理出影響操作控制、資訊理解與決策信心的七項介面問題。
+      收藏辨識與「同訂購人」資料帶入等測試發現，
+      則已於前方 Usability Testing 區塊中另外呈現。
     </p>
   </div>
 
@@ -839,8 +955,10 @@
         <span>Sample Representation</span>
         <h3>參與者代表性有限</h3>
         <p>
-          訪談、問卷與測試主要採便利抽樣，
-          無法完整代表所有年齡與使用背景的 KKday 使用者。
+          正式易用性測試僅納入 5 位參與者，
+          且多數為年輕使用者與學生族群。
+          研究結果適合用於辨識主要介面問題，
+          但不宜直接外推至所有 KKday 使用者。
         </p>
       </article>
 
@@ -890,10 +1008,13 @@
     </p>
 
     <p class="paragraph-spaced">
-      團隊透過 Heuristic Evaluation 快速辨識可能違反的介面原則，
-      再以實際操作觀察確認使用者是否真的在這些位置受阻。
-      這個過程讓我學習如何整合不同成員的觀察，
-      並共同討論問題的嚴重程度與改善優先順序。
+      團隊先透過 Heuristic Evaluation
+      快速辨識可能違反的介面原則，
+      再以主持式 Usability Testing 與 Think-Aloud Protocol，
+      確認使用者是否真的在這些位置受阻。
+      Pilot Test 也讓我理解，
+      測試任務若不夠清楚或不可執行，
+      同樣會影響研究結果的有效性。
     </p>
 
     <p class="paragraph-spaced">
