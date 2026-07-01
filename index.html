@@ -7,9 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260625-global-logo">
+<link rel="stylesheet" href="style.css?v=20260701-redesign">
 </head>
-<body>
+<body class="page-home">
+
+<div class="site-water-layer" aria-hidden="true">
+  <canvas id="siteWaterCanvas"></canvas>
+</div>
 
 <nav class="site-nav">
   <div class="wrap">
@@ -33,101 +37,172 @@
   </div>
 </nav>
 
-<header class="site-header">
-  <div class="wrap">
-    <p class="eyebrow">Hong-Qi Lu</p>
-    <h1>Research, Content &amp; Experience</h1>
-  </div>
-</header>
-
-<section class="intro">
-  <div class="wrap">
-    <p class="intro-en">My experience across user research, content, and experience design, with a focus on understanding how people navigate information and make decisions.</p>
-    <p class="intro-zh">我的經驗橫跨使用者研究、內容與體驗設計，關注人們如何理解資訊、完成選擇，並與產品及服務互動。</p>
-  </div>
-</section>
-
-<section class="capabilities">
-  <div class="wrap">
-    <div class="cap-grid">
-      <div class="cap-item">
-        <p class="cap-label">Research</p>
-        <p class="cap-detail">User Interviews, Usability Testing, Competitive Research, Insight Synthesis</p>
+<section class="water-hero" aria-labelledby="water-hero-title">
+  <div class="water-hero__frame wrap">
+    <div class="water-hero__identity">
+      <div class="water-hero__title water-reveal">
+        <p class="water-hero__kicker">
+          USER RESEARCH · CONTENT · EXPERIENCE
+        </p>
+        <h1 id="water-hero-title">
+          Hong-Qi Lu
+        </h1>
       </div>
-      <div class="cap-item">
-        <p class="cap-label">Experience</p>
-        <p class="cap-detail">Information Architecture, User Flows, Prototyping, Interaction Design</p>
+      <div class="water-hero__intro water-reveal">
+        <p>
+          I work across user research, content strategy,
+          and experience design.
+        </p>
+        <p>
+          透過研究、資訊整理與互動設計，
+          將複雜問題轉化為清楚且可執行的體驗方向。
+        </p>
       </div>
-      <div class="cap-item">
-        <p class="cap-label">Content</p>
-        <p class="cap-detail">Content Strategy, Storytelling, Campaign Planning, Scriptwriting</p>
-      </div>
-      <div class="cap-item">
-        <p class="cap-label">Coordination</p>
-        <p class="cap-detail">Project Documentation, Timeline Management, Cross-team Communication</p>
-      </div>
+    </div>
+    <div class="water-hero__bottom water-reveal">
+      <a href="#selected-work" class="water-hero__scroll">
+        <span>SCROLL</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+      <p>
+        BASED IN TAIWAN
+      </p>
     </div>
   </div>
 </section>
 
-<section class="work">
-  <div class="wrap">
-    <p class="case-label" style="margin-bottom:32px;">Selected Work</p>
 
-    <div class="project-grid">
+<section class="work-intro water-section" id="selected-work">
+  <div class="wrap work-intro__inner">
+    <p class="case-label water-reveal">
+      Selected Work
+    </p>
+    <div class="work-intro__copy water-reveal">
+      <h2>
+        Research-led projects across
+        products, interaction, and culture.
+      </h2>
+      <p>
+        精選專案涵蓋使用者研究、產品評估、
+        Conversational AI 與互動敘事。
+      </p>
+    </div>
+  </div>
+</section>
 
-      <!-- KKday -->
-      <a href="project-kkday.html" class="project-card">
-        <div class="project-thumbnail">
+<section class="project-showcase">
+
+  <article class="project-feature water-section water-reveal">
+    <a href="project-kkday.html" class="project-feature__link">
+      <div class="project-feature__meta">
+        <span>01</span>
+        <span>User Research &amp; Product Evaluation</span>
+      </div>
+      <div class="project-feature__layout">
+        <div class="project-feature__copy">
+          <h3>KKday Interface UX Case Study</h3>
+          <span class="project-feature__view">
+            View Project ↗
+          </span>
+        </div>
+        <figure class="project-feature__media water-media">
           <img
             src="assets/kkday/kkday-project-cover.svg"
             alt="KKday Interface UX Case Study project cover"
             loading="lazy"
           >
-        </div>
-        <p class="project-category">USER RESEARCH &amp; PRODUCT EVALUATION</p>
-        <h3>KKday Interface UX Case Study</h3>
-      </a>
+        </figure>
+      </div>
+    </a>
+  </article>
 
-      <!-- Bamboo Fox AI Chatbot -->
-      <a href="project-bamboofox-chatbot.html" class="project-card project-card--chatbot">
-        <div class="project-thumbnail">
+  <article class="project-feature project-feature--reverse water-section water-reveal">
+    <a href="project-bamboofox-chatbot.html" class="project-feature__link">
+      <div class="project-feature__meta">
+        <span>02</span>
+        <span>Research &amp; Conversational Experience</span>
+      </div>
+      <div class="project-feature__layout">
+        <div class="project-feature__copy">
+          <h3>Bamboo Fox AI Chatbot</h3>
+          <span class="project-feature__view">
+            View Project ↗
+          </span>
+        </div>
+        <figure class="project-feature__media water-media">
           <img
             src="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png"
             alt="Bamboo Fox AI Chatbot project cover"
             loading="lazy"
           >
-        </div>
-        <p class="project-category">RESEARCH &amp; CONVERSATIONAL EXPERIENCE</p>
-        <h3>Bamboo Fox AI Chatbot</h3>
-      </a>
+        </figure>
+      </div>
+    </a>
+  </article>
 
-      <!-- The Enigma of Bamboo Fox -->
-      <a href="project-enigma.html" class="project-card">
-        <div class="project-thumbnail">
+  <article class="project-feature water-section water-reveal">
+    <a href="project-enigma.html" class="project-feature__link">
+      <div class="project-feature__meta">
+        <span>03</span>
+        <span>Interactive Storytelling</span>
+      </div>
+      <div class="project-feature__layout">
+        <div class="project-feature__copy">
+          <h3>The Enigma of Bamboo Fox</h3>
+          <span class="project-feature__view">
+            View Project ↗
+          </span>
+        </div>
+        <figure class="project-feature__media water-media">
           <img
             src="assets/enigma/cover-fox-forest.jpg"
             alt="The Enigma of Bamboo Fox project cover"
             loading="lazy"
           >
-        </div>
-        <p class="project-category">INTERACTIVE STORYTELLING</p>
-        <h3>The Enigma of Bamboo Fox</h3>
-      </a>
+        </figure>
+      </div>
+    </a>
+  </article>
 
-      <!-- Bamboo Fox × MeiChu Games -->
-      <a href="project-meichu.html" class="project-card">
-        <div class="project-thumbnail">
+  <article class="project-feature project-feature--reverse water-section water-reveal">
+    <a href="project-meichu.html" class="project-feature__link">
+      <div class="project-feature__meta">
+        <span>04</span>
+        <span>Campus Cultural Marketing Project</span>
+      </div>
+      <div class="project-feature__layout">
+        <div class="project-feature__copy">
+          <h3>Bamboo Fox × MeiChu Games</h3>
+          <span class="project-feature__view">
+            View Project ↗
+          </span>
+        </div>
+        <figure class="project-feature__media water-media">
           <img
             src="assets/meichu-games/bamboofox-meichugames.svg"
             alt="Bamboo Fox × MeiChu Games project cover"
             loading="lazy"
           >
-        </div>
-        <p class="project-category">CAMPUS CULTURAL MARKETING PROJECT</p>
-        <h3>Bamboo Fox × MeiChu Games</h3>
-      </a>
+        </figure>
+      </div>
+    </a>
+  </article>
 
+</section>
+
+<section class="home-profile water-section">
+  <div class="wrap home-profile__inner">
+    <p class="case-label water-reveal">
+      Profile
+    </p>
+    <div class="home-profile__copy water-reveal">
+      <p>
+        I translate observations into structure,
+        and structure into experiences people can understand.
+      </p>
+      <a href="resume.html">
+        View Resume ↗
+      </a>
     </div>
   </div>
 </section>
@@ -152,5 +227,6 @@
   </div>
 </footer>
 
+<script src="water-hero.js?v=20260701-redesign"></script>
 </body>
 </html>
