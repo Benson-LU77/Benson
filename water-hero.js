@@ -116,6 +116,15 @@
     if (frameId) { cancelAnimationFrame(frameId); frameId = null; }
   });
 
+  // ── Back to top ───────────────────────────────────
+  const backToTop = document.querySelector(".back-to-top");
+  function handleScroll() {
+    if (backToTop) {
+      backToTop.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.5);
+    }
+  }
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
   // ── Init ──────────────────────────────────────────
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas, { passive: true });

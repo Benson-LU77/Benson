@@ -2933,3 +2933,36 @@ body { overflow-x: hidden; }
   background: transparent;
   border-top: none;
 }
+
+/* ── Back to top ── */
+.back-to-top {
+  position: fixed;
+  bottom: clamp(24px, 4vh, 48px);
+  right: clamp(24px, 4vw, 48px);
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 37, 37, 0.18);
+  background: rgba(243, 242, 238, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--charcoal);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: rgba(37, 37, 37, 0.08);
+  transform: translateY(-2px);
+}
