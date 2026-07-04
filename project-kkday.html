@@ -7,9 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260625-global-logo">
+<meta name="description" content="UX case study of KKday's web booking experience — user interviews, competitive analysis, heuristic evaluation, and usability testing.">
+<link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
+<link rel="stylesheet" href="style.css?v=20260705-polish">
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navigation -->
 <nav class="site-nav">
@@ -35,7 +39,7 @@
 </nav>
 
 <!-- Project Header -->
-<header class="site-header compact">
+<header class="site-header compact" id="main-content">
   <div class="wrap">
     <a href="projects.html" class="back-link">← Back to Projects</a>
     <p class="eyebrow">INTERFACE UX CASE STUDY</p>
@@ -138,7 +142,7 @@
       每一階段的結果都作為下一階段研究範圍與任務設計的依據。
     </p>
 
-    <figure class="case-image" style="margin-top:48px;">
+    <figure class="case-image case-image--push">
       <img
         src="assets/kkday/kkday-project-timeline.svg"
         alt="KKday 使用者經驗研究專案時程"
@@ -209,7 +213,7 @@
       辨識重要接觸點、決策節點與可能中斷的位置。
     </p>
 
-    <figure class="case-image case-image--wide" style="margin-top:48px;">
+    <figure class="case-image case-image--wide case-image--push">
       <img
         src="assets/kkday/kkday-interaction-map.png"
         alt="KKday 從首頁探索到預訂流程的 Interaction Map"
@@ -345,7 +349,7 @@
       預訂付款與客服支援等功能。
     </p>
 
-    <figure class="case-image" style="margin-top:48px;">
+    <figure class="case-image case-image--push">
       <img
         src="assets/kkday/kkday-comparative-analysis-table.png"
         alt="KKday 與旅遊電商及類競品的功能比較表"
@@ -372,7 +376,7 @@
       並透過 Pearson 相關分析檢視不同構念之間的關係。
     </p>
 
-    <div class="research-stats" style="margin-top:48px;">
+    <div class="research-stats research-stats--push">
 
       <div>
         <span>Valid Responses</span>
@@ -451,7 +455,7 @@
 
     </div>
 
-    <figure class="case-image" style="margin-top:48px;">
+    <figure class="case-image case-image--push">
       <img
         src="assets/kkday/kkday-heuristic-evaluation-records.png"
         alt="KKday 準則性評估問題與嚴重度紀錄"
@@ -1070,5 +1074,8 @@
   </div>
 </footer>
 
+<button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="back-to-top.js?v=20260705-polish"></script>
 </body>
 </html>
