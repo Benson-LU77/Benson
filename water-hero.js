@@ -116,6 +116,69 @@
     if (frameId) { cancelAnimationFrame(frameId); frameId = null; }
   });
 
+  // ── Project panel: tracking media + accordion ────
+  function initProjectPanel() {
+    const media = document.querySelector(".project-panel__frame img");
+    const mediaBox = document.querySelector(".project-panel__media");
+    const list = document.querySelector(".project-panel__list");
+    const rows = document.querySelectorAll(".project-panel__row");
+    if (!media || !mediaBox || !list || !rows.length) return;
+
+    let pendingSwap = null;
+    let targetRow = document.querySelector(".project-panel__row.is-active") || rows[0];
+    let curY = 0, trackId = null, settleAt = 0;
+
+    function track() {
+      const listRect = list.getBoundingClientRect();
+      const rowRect = targetRow.getBoundingClientRect();
+      let y = rowRect.top - listRect.top;
+      const maxY = Math.max(0, list.offsetHeight - mediaBox.offsetHeight);
+      y = Math.max(0, Math.min(y, maxY));
+      if (reduceMotion) curY = y;
+      else curY += (y - curY) * 0.14;
+      mediaBox.style.transform = "translate3d(0," + curY.toFixed(1) + "px,0)";
+      if (Math.abs(y - curY) > 0.5 || performance.now() < settleAt) {
+        trackId = requestAnimationFrame(track);
+      } else {
+        trackId = null;
+      }
+    }
+
+    function startTrack() {
+      settleAt = performance.now() + 750;
+      if (!trackId) trackId = requestAnimationFrame(track);
+    }
+
+    function activate(row) {
+      targetRow = row;
+      rows.forEach(function (r) {
+        r.classList.toggle("is-active", r === row);
+      });
+      startTrack();
+      const src = row.getAttribute("data-cover");
+      if (media.getAttribute("src") === src) return;
+      if (pendingSwap) clearTimeout(pendingSwap);
+      if (reduceMotion) {
+        media.src = src;
+        return;
+      }
+      media.style.opacity = "0";
+      pendingSwap = setTimeout(function () {
+        media.onload = function () { media.style.opacity = "1"; };
+        media.src = src;
+        pendingSwap = null;
+      }, 180);
+    }
+
+    rows.forEach(function (row) {
+      row.addEventListener("pointerenter", function () { activate(row); });
+      row.addEventListener("focus", function () { activate(row); });
+    });
+
+    window.addEventListener("resize", startTrack, { passive: true });
+    startTrack();
+  }
+
   // ── Back to top ───────────────────────────────────
   const backToTop = document.querySelector(".back-to-top");
   function handleScroll() {
@@ -137,4 +200,5 @@
   }
 
   initReveal();
+  initProjectPanel();
 })();
