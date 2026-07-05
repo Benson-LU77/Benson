@@ -24,6 +24,7 @@ body {
   font-weight: 300;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 
 .wrap {
@@ -128,7 +129,7 @@ body {
   font-weight: 400;
   font-size: clamp(32px, 5vw, 52px);
   line-height: 1.25;
-  max-width: 640px;
+  max-width: none;
   color: var(--charcoal);
 }
 
@@ -495,7 +496,7 @@ body {
 
 .case-section p {
   font-size: 15.5px;
-  max-width: 640px;
+  max-width: none;
   opacity: 0.85;
 }
 
@@ -621,12 +622,12 @@ body {
 .resume-entry p {
   font-size: 15px;
   opacity: 0.85;
-  max-width: 620px;
+  max-width: none;
 }
 
 /* ── Resume intro (positioning + summary) ── */
 .resume-intro {
-  max-width: 760px;
+  max-width: none;
   margin-top: 24px;
 }
 
@@ -644,7 +645,7 @@ body {
 
 .resume-summary {
   margin: 14px 0 0;
-  max-width: 720px;
+  max-width: none;
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 300;
@@ -982,7 +983,7 @@ body { overflow-x: hidden; }
 }
 
 .customer-journey-figure figcaption span {
-  max-width: 760px;
+  max-width: none;
   font-size: 0.95rem;
   line-height: 1.75;
   color: var(--text-muted);
@@ -1539,7 +1540,7 @@ body { overflow-x: hidden; }
   color: var(--text-muted);
   margin-top: 8px;
   opacity: 0.85;
-  max-width: 640px;
+  max-width: none;
 }
 
 /* ── Interaction sequence ── */
@@ -1631,7 +1632,7 @@ body { overflow-x: hidden; }
 
 /* ── Bamboo Fox Chatbot: Mobile App Prototype ── */
 .mobile-app-prototype .wrap > p:not(.case-label) {
-  max-width: 780px;
+  max-width: none;
 }
 
 .mobile-screen-showcase {
@@ -1816,7 +1817,7 @@ body { overflow-x: hidden; }
 
 .case-image figcaption {
   margin-top: 16px;
-  max-width: 820px;
+  max-width: none;
   font-size: 0.92rem;
   line-height: 1.7;
   color: var(--text-muted);
@@ -3378,7 +3379,7 @@ body { overflow-x: hidden; }
   font-size: 0.92rem;
   line-height: 1.85;
   color: rgba(37, 37, 37, 0.78);
-  max-width: 480px;
+  max-width: none;
 }
 
 .project-panel__thumb {

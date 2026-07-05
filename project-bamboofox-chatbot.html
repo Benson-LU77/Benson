@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260705-contactfix">
+<link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
 </head>
 <body>
 
@@ -169,10 +169,7 @@
     <p class="case-label">Persona &amp; Customer Journey</p>
     <h2>從主動型與被動型球迷理解不同參與需求</h2>
     <p>
-      透過訪談與操作觀察，整理主動型與被動型球迷在參與動機、
-      資訊搜尋、賽事關注與行動意願上的差異，作為後續體驗策略
-      與對話設計的依據。
-    </p>
+      透過訪談與操作觀察，整理主動型與被動型球迷在參與動機、資訊搜尋、賽事關注與行動意願上的差異，作為後續體驗策略與對話設計的依據。</p>
 
     <div class="persona-grid">
 
@@ -185,9 +182,7 @@
         <figcaption class="persona-caption">
           <strong>Active Fan</strong>
           <span>
-            主動搜尋賽事資訊、關注球員與賽程，
-            並具有較高的現場參與與分享意願。
-          </span>
+            主動搜尋賽事資訊、關注球員與賽程，並具有較高的現場參與與分享意願。</span>
         </figcaption>
       </figure>
 
@@ -200,9 +195,7 @@
         <figcaption class="persona-caption">
           <strong>Passive Fan</strong>
           <span>
-            對賽事具基本認知，但較少主動搜尋資訊，
-            需要更清楚的背景說明與參與引導。
-          </span>
+            對賽事具基本認知，但較少主動搜尋資訊，需要更清楚的背景說明與參與引導。</span>
         </figcaption>
       </figure>
 
@@ -217,9 +210,7 @@
       <figcaption>
         <strong>Customer Journey Map</strong>
         <span>
-          依認知、興趣、考慮、行動與分享五個階段，
-          整理使用者行為、目標、情緒、痛點與 Chatbot 可提供的支援。
-        </span>
+          依認知、興趣、考慮、行動與分享五個階段，整理使用者行為、目標、情緒、痛點與 Chatbot 可提供的支援。</span>
       </figcaption>
     </figure>
 
@@ -333,8 +324,7 @@
         loading="lazy"
       >
       <figcaption>
-        五輪 Prompt 迭代的整體評估結果，呈現各項對話品質指標在不同版本中的變化。
-      </figcaption>
+        五輪 Prompt 迭代的整體評估結果，呈現各項對話品質指標在不同版本中的變化。</figcaption>
     </figure>
     <div class="iteration-list">
 
@@ -399,7 +389,60 @@
   </div>
 </section>
 
-<!-- 9. Refined Interaction -->
+<!-- 9. Results -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Results</p>
+    <h2>測試結果與尚待改善的問題</h2>
+    <div class="result-stats">
+      <div>
+        <strong>80.6</strong>
+        <span>CUQ Mean</span>
+      </div>
+      <div>
+        <strong>64</strong>
+        <span>Minimum</span>
+      </div>
+      <div>
+        <strong>90.6</strong>
+        <span>Maximum</span>
+      </div>
+    </div>
+    <p class="cuq-context">五個測試版本的 CUQ 平均分數為 80.6，最低 64，最高 90.6。</p>
+    <figure class="case-image case-image--spaced">
+      <img
+        src="assets/bamboofox-chatbot/bamboofox-usability-results.svg"
+        alt="Bamboo Fox AI Chatbot 在四個體驗階段中的 Effectiveness、Efficiency、Learnability 與 Error Tolerance 評估結果"
+        width="1440"
+        height="810"
+        loading="lazy"
+      >
+    </figure>
+    <div class="case-grid case-grid--equal results-grid">
+      <div>
+        <h3>What Improved</h3>
+        <ul>
+          <li>角色語氣與立場更一致</li>
+          <li>回答內容與知識庫來源更穩定</li>
+          <li>對話階段與引導順序更清楚</li>
+          <li>錯字辨識與基本任務完成表現良好</li>
+        </ul>
+      </div>
+      <div>
+        <h3>What Remained Limited</h3>
+        <ul>
+          <li>使用者仍不容易立即理解 Chatbot 用途</li>
+          <li>回答長度與精簡度仍需調整</li>
+          <li>系統缺乏對話記憶</li>
+          <li>部分介面問題無法透過 Prompt 解決</li>
+        </ul>
+      </div>
+    </div>
+    <p class="paragraph-spaced result-note">在本次小樣本測試中，部分受試者於體驗後表達更高的賽事參與意願；此結果僅作為探索性觀察。</p>
+  </div>
+</section>
+
+<!-- 10. Refined Interaction -->
 <section class="case-section refined-interaction">
   <div class="wrap">
     <p class="case-label">Refined Interaction</p>
@@ -455,22 +498,16 @@
   </div>
 </section>
 
-<!-- 9-1. Mobile App Prototype -->
+<!-- 11. Mobile App Prototype -->
 <section class="case-section mobile-app-prototype">
   <div class="wrap">
     <p class="case-label">Mobile App</p>
     <h2>將 Chatbot 體驗延伸為手機 App 介面</h2>
     <p>
       除了對話邏輯與 Prompt 規則調整，團隊也將 Bamboo Fox AI Chatbot
-      設計為手機 App 形式，並以小工具形式整合於 NYCU AR Map 中上線，
-      讓使用者能從明確入口進入對話、查詢梅竹賽資訊，
-      並透過按鈕式選項降低不知道如何開始互動的問題。
-    </p>
+      設計為手機 App 形式，並以小工具形式整合於 NYCU AR Map 中上線，讓使用者能從明確入口進入對話、查詢梅竹賽資訊，並透過按鈕式選項降低不知道如何開始互動的問題。</p>
     <p class="paragraph-spaced">
-      這組介面呈現了從開始對話、進入資訊專區，
-      到實際提問的完整行動路徑，讓 Chatbot 不只是回覆工具，
-      而是具備角色引導與功能入口的校園賽事互動介面。
-    </p>
+      這組介面呈現了從開始對話、進入資訊專區，到實際提問的完整行動路徑，讓 Chatbot 不只是回覆工具，而是具備角色引導與功能入口的校園賽事互動介面。</p>
     <div class="mobile-screen-showcase">
       <figure class="mobile-screen mobile-screen--primary">
         <img
@@ -481,8 +518,7 @@
         <figcaption>
           <strong>Entry Screen</strong>
           <span>
-            以竹狐角色、賽事識別與開始對話按鈕建立明確入口。
-          </span>
+            以竹狐角色、賽事識別與開始對話按鈕建立明確入口。</span>
         </figcaption>
       </figure>
       <figure class="mobile-screen">
@@ -494,8 +530,7 @@
         <figcaption>
           <strong>Chat Interface</strong>
           <span>
-            透過預設問題、輸入欄與賽程資訊，降低首次提問的不確定感。
-          </span>
+            透過預設問題、輸入欄與賽程資訊，降低首次提問的不確定感。</span>
         </figcaption>
       </figure>
       <figure class="mobile-screen">
@@ -507,78 +542,24 @@
         <figcaption>
           <strong>Information Hub</strong>
           <span>
-            將賽事資訊、官方連結與問題回報整合為可快速選取的功能入口。
-          </span>
+            將賽事資訊、官方連結與問題回報整合為可快速選取的功能入口。</span>
         </figcaption>
       </figure>
     </div>
   </div>
 </section>
 
-<!-- 10. Results -->
+<!-- 12. Prototype Limitations -->
 <section class="case-section">
   <div class="wrap">
-    <p class="case-label">Results</p>
-    <h2>測試結果與尚待改善的問題</h2>
-    <div class="result-stats">
-      <div>
-        <strong>80.6</strong>
-        <span>CUQ Mean</span>
-      </div>
-      <div>
-        <strong>64</strong>
-        <span>Minimum</span>
-      </div>
-      <div>
-        <strong>90.6</strong>
-        <span>Maximum</span>
-      </div>
-    </div>
-    <p class="cuq-context">五個測試版本的 CUQ 平均分數為 80.6，最低 64，最高 90.6。</p>
-    <figure class="case-image case-image--spaced">
-      <img
-        src="assets/bamboofox-chatbot/bamboofox-usability-results.svg"
-        alt="Bamboo Fox AI Chatbot 在四個體驗階段中的 Effectiveness、Efficiency、Learnability 與 Error Tolerance 評估結果"
-        width="1440"
-        height="810"
-        loading="lazy"
-      >
-    </figure>
-    <div class="case-grid case-grid--equal results-grid">
-      <div>
-        <h3>What Improved</h3>
-        <ul>
-          <li>角色語氣與立場更一致</li>
-          <li>回答內容與知識庫來源更穩定</li>
-          <li>對話階段與引導順序更清楚</li>
-          <li>錯字辨識與基本任務完成表現良好</li>
-        </ul>
-      </div>
-      <div>
-        <h3>What Remained Limited</h3>
-        <ul>
-          <li>使用者仍不容易立即理解 Chatbot 用途</li>
-          <li>回答長度與精簡度仍需調整</li>
-          <li>系統缺乏對話記憶</li>
-          <li>部分介面問題無法透過 Prompt 解決</li>
-        </ul>
-      </div>
-    </div>
-    <p class="paragraph-spaced result-note">在本次小樣本測試中，部分受試者於體驗後表達更高的賽事參與意願；此結果僅作為探索性觀察。</p>
-  </div>
-</section>
-
-<!-- 11. Prototype Limitations -->
-<section class="case-section">
-  <div class="wrap">
-    <p class="case-label">Prototype Limitations</p>
+    <p class="case-label">Limitations</p>
     <h2>不是所有問題都能透過 Prompt 解決</h2>
-    <p>部分問題屬於前端與系統層限制，包括 Loading feedback、Enter 送出、對話記憶、訊息滑動、文字框自動調整，以及圖片與表格支援。</p>
-    <p class="paragraph-spaced">後續優化需要同時處理 AI 回覆邏輯與介面互動，而不是只調整 Prompt。</p>
+    <p>測試階段發現，部分問題屬於前端與系統層限制，無法單靠 Prompt 改善，包括 Loading feedback、Enter 送出、對話記憶、訊息滑動、文字框自動調整，以及圖片與表格支援。</p>
+    <p class="paragraph-spaced">這些問題最終在 NYCU AR Map 的 App 版本中，透過介面與系統層的開發一併處理；這也驗證了團隊的判斷——Chatbot 的優化必須同時涵蓋 AI 回覆邏輯與介面互動，而不是只調整 Prompt。</p>
   </div>
 </section>
 
-<!-- 12. Reflection -->
+<!-- 13. Reflection -->
 <section class="case-section">
   <div class="wrap">
     <p class="case-label">Reflection</p>
@@ -635,6 +616,6 @@
 
 <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script src="back-to-top.js?v=20260705-contactfix"></script>
+<script src="back-to-top.js?v=20260705-fullwidth2"></script>
 </body>
 </html>
