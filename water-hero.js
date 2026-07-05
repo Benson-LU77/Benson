@@ -18,10 +18,26 @@
   // Dark blobs well below background, light blobs above — but same warm tone.
   // Background is ~rgb(242,241,237); darks go to ~100, lights to ~255.
   const blobs = [
-    { fx: 0.12, fy: 0.22, r: 0.72, c: [100,  98,  93], sx: 0.32, sy: 0.24, px: 0.00, py: 0.80 },
-    { fx: 0.80, fy: 0.20, r: 0.68, c: [255, 255, 253], sx: 0.20, sy: 0.36, px: 2.10, py: 0.30 },
-    { fx: 0.50, fy: 0.82, r: 0.76, c: [108, 106, 101], sx: 0.28, sy: 0.18, px: 1.20, py: 4.50 },
+    { fx: 0.12, fy: 0.22, r: 0.72, c: [100,  98,  93], sx: 0.16, sy: 0.12, px: 0.00, py: 0.80, bp: 0.0 },
+    { fx: 0.80, fy: 0.20, r: 0.68, c: [255, 255, 253], sx: 0.10, sy: 0.18, px: 2.10, py: 0.30, bp: 2.1 },
+    { fx: 0.50, fy: 0.82, r: 0.76, c: [108, 106, 101], sx: 0.14, sy: 0.09, px: 1.20, py: 4.50, bp: 4.2 },
   ];
+
+  // ── Grain tile (breaks gradient banding) ──────────
+  const grainTile = (() => {
+    const t = document.createElement("canvas");
+    t.width = 128; t.height = 128;
+    const tctx = t.getContext("2d");
+    const d = tctx.createImageData(128, 128);
+    for (let i = 0; i < d.data.length; i += 4) {
+      const v = Math.floor(Math.random() * 255);
+      d.data[i] = v; d.data[i + 1] = v; d.data[i + 2] = v;
+      d.data[i + 3] = 255;
+    }
+    tctx.putImageData(d, 0, 0);
+    return t;
+  })();
+  let grainPattern = null;
 
   // ── Canvas resize ─────────────────────────────────
   function resizeCanvas() {
@@ -42,19 +58,27 @@
     blobs.forEach(function (b) {
       const x   = b.fx * W + Math.sin(time * b.sx + b.px) * W * 0.13;
       const y   = b.fy * H + Math.cos(time * b.sy + b.py) * H * 0.11;
-      const rad = b.r * base;
+      const breathe = 1 + 0.05 * Math.sin(time * 0.09 + b.bp);
+      const rad = b.r * base * breathe;
 
       const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
       const rgb = b.c[0] + "," + b.c[1] + "," + b.c[2];
-      g.addColorStop(0,    "rgba(" + rgb + ",0.62)");
-      g.addColorStop(0.30, "rgba(" + rgb + ",0.38)");
-      g.addColorStop(0.60, "rgba(" + rgb + ",0.14)");
-      g.addColorStop(0.85, "rgba(" + rgb + ",0.03)");
+      g.addColorStop(0,    "rgba(" + rgb + ",0.40)");
+      g.addColorStop(0.35, "rgba(" + rgb + ",0.26)");
+      g.addColorStop(0.65, "rgba(" + rgb + ",0.10)");
+      g.addColorStop(0.88, "rgba(" + rgb + ",0.025)");
       g.addColorStop(1,    "rgba(" + rgb + ",0)");
 
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, W, H);
     });
+
+    // Grain overlay
+    if (!grainPattern) grainPattern = ctx.createPattern(grainTile, "repeat");
+    ctx.globalAlpha = 0.028;
+    ctx.fillStyle = grainPattern;
+    ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = 1;
   }
 
   // ── Render loop ───────────────────────────────────
