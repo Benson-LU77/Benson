@@ -18,9 +18,9 @@
   // Dark blobs well below background, light blobs above — but same warm tone.
   // Background is ~rgb(242,241,237); darks go to ~100, lights to ~255.
   const blobs = [
-    { fx: 0.12, fy: 0.22, r: 0.72, c: [100,  98,  93], sx: 0.16, sy: 0.12, px: 0.00, py: 0.80, bp: 0.0 },
-    { fx: 0.80, fy: 0.20, r: 0.68, c: [255, 255, 253], sx: 0.10, sy: 0.18, px: 2.10, py: 0.30, bp: 2.1 },
-    { fx: 0.50, fy: 0.82, r: 0.76, c: [108, 106, 101], sx: 0.14, sy: 0.09, px: 1.20, py: 4.50, bp: 4.2 },
+    { fx: 0.12, fy: 0.22, r: 0.72, c: [100,  98,  93], sx: 0.24, sy: 0.18, px: 0.00, py: 0.80, bp: 0.0 },
+    { fx: 0.80, fy: 0.20, r: 0.68, c: [255, 255, 253], sx: 0.15, sy: 0.27, px: 2.10, py: 0.30, bp: 2.1 },
+    { fx: 0.50, fy: 0.82, r: 0.76, c: [108, 106, 101], sx: 0.21, sy: 0.14, px: 1.20, py: 4.50, bp: 4.2 },
   ];
 
   // ── Grain tile (breaks gradient banding) ──────────
@@ -187,8 +187,12 @@
         return;
       }
       media.style.opacity = "0";
+      media.style.filter = "blur(16px)";
       pendingSwap = setTimeout(function () {
-        media.onload = function () { media.style.opacity = "1"; };
+        media.onload = function () {
+          media.style.opacity = "1";
+          media.style.filter = "blur(0)";
+        };
         media.src = src;
         pendingSwap = null;
       }, 180);
