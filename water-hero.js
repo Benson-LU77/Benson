@@ -63,10 +63,10 @@
 
       const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
       const rgb = b.c[0] + "," + b.c[1] + "," + b.c[2];
-      g.addColorStop(0,    "rgba(" + rgb + ",0.40)");
-      g.addColorStop(0.35, "rgba(" + rgb + ",0.26)");
-      g.addColorStop(0.65, "rgba(" + rgb + ",0.10)");
-      g.addColorStop(0.88, "rgba(" + rgb + ",0.025)");
+      g.addColorStop(0,    "rgba(" + rgb + ",0.50)");
+      g.addColorStop(0.35, "rgba(" + rgb + ",0.32)");
+      g.addColorStop(0.65, "rgba(" + rgb + ",0.12)");
+      g.addColorStop(0.88, "rgba(" + rgb + ",0.03)");
       g.addColorStop(1,    "rgba(" + rgb + ",0)");
 
       ctx.fillStyle = g;
