@@ -475,7 +475,7 @@
     <h2>兩個核心意象：一片安靜的森林，與一段外星訊號</h2>
 
     <p>
-      夜間模式以分層的深色森林、月光冷調高光為底，主要點綴色是薄荷般的「訊號綠」；日間模式則轉為暖奶油色的清晨森林——被設計成「另一個時刻」，而不是把夜晚調亮的版本。所有顏色都跑在一套用 <code>data-theme</code> 切換的 design token 系統上，兩種模式都對齊 WCAG AA 對比。</p>
+      夜間模式以分層的深色森林、月光冷調高光為底，主要點綴色是薄荷般的「訊號綠」；日間模式則轉為暖奶油色的清晨森林——被設計成「另一個時刻」，而不是把夜晚調亮的版本。所有顏色都收在一套統一的色彩系統裡，一鍵切換日／夜；兩種模式的文字對比都通過無障礙標準（WCAG AA）。</p>
 
     <div class="melu-shots">
 
@@ -556,14 +556,14 @@
 
     <figure class="case-image case-image--wide case-image--push">
       <img src="assets/melu/melu-music-pipeline.svg"
-           alt="MELU 兩段式選歌流程圖：使用者訊息 → 模型提出搜尋語 → 伺服器查 Apple Music 目錄 → 模型從候選挑（enum 鎖死＋歌手守衛）→ 二次驗證後交給播放器"
+           alt="MELU 兩段式選歌流程圖：使用者訊息 → 模型提出搜尋語 → 伺服器查 Apple Music 目錄 → 模型只能從真實候選裡挑（選項鎖住＋歌手守衛）→ 二次驗證後交給播放器"
            loading="lazy" style="border-radius:16px;">
     </figure>
 
     <div class="limitation-list melu-grid-2">
       <article>
         <h3>單曲</h3>
-        <p>模型提搜尋語 → 伺服器查目錄 → 模型只能從候選 id 挑（enum 鎖死）→ verifySelection 二次驗證取權威曲目。</p>
+        <p>模型提搜尋語 → 伺服器查目錄 → 模型只能從查回來的真實候選裡挑（選項被鎖住、不能自由發揮）→ 再做一次驗證，取回權威的曲目資料。</p>
       </article>
       <article>
         <h3>整份歌單</h3>
@@ -580,7 +580,7 @@
     </div>
 
     <div class="melu-techstack">
-      <p><strong>技術堆疊</strong>　Next.js（App Router）＋ React、Anthropic API（structured outputs 讓輸出鎖進固定格式）、Apple MusicKit（伺服器以 JWT 簽發開發者權杖）。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
+      <p><strong>技術堆疊</strong>　Next.js ＋ React、Anthropic API（讓 AI 的輸出鎖進固定格式）、Apple MusicKit（安全地存取正版曲庫）。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
     </div>
   </div>
 </section>
@@ -591,7 +591,7 @@
     <p class="case-label">Testing &amp; Iteration</p>
     <h2>把它當成真的產品用，然後修</h2>
     <p>
-      這個原型不是「做完就結束」——我持續把它當真的產品在用（dogfooding），
+      這個原型不是「做完就結束」——我持續把它當真的產品在用，
       而真正冒出來的問題，往往比想像的更基本。以下是幾個「用著用著發現 → 找到根因 → 修好」的例子。</p>
 
     <figure class="case-image case-image--wide case-image--push">
@@ -624,7 +624,7 @@
           <p>
             <strong class="melu-lbl melu-lbl--q">問題：</strong>在佇列點「立即播放」，歌換了卻不出聲，得再手動放一次唱針。<br>
             <strong class="melu-lbl melu-lbl--c">根因：</strong>換歌只移動了「目前播放」指標，沒有觸發「自動落針」。<br>
-            <strong class="melu-lbl melu-lbl--f">修正：</strong>點下時遞增一個訊號，讓播放器在換歌前先設好自動落針——現在一點就播，儀式感留給首播的歌。</p>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>點下時多送一個提示，讓播放器在換歌前先設好自動落針——現在一點就播，儀式感留給首播的歌。</p>
         </div>
       </article>
 
@@ -662,7 +662,7 @@
         <div class="melu-iter__body">
           <p>
             <strong class="melu-lbl melu-lbl--q">問題：</strong>中文回覆裡混進「这／说／里」等簡體字。<br>
-            <strong class="melu-lbl melu-lbl--c">根因：</strong>LLM 產生繁中時偶有滲漏，光靠提示詞壓不到 100%。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>AI 生成繁中時偶有滲漏，光靠提示詞壓不到 100%。<br>
             <strong class="melu-lbl melu-lbl--f">修正：</strong>在伺服器端做確定性的簡→繁轉換，前端顯示層再兜一層——連舊訊息在畫面上都保證是繁體。</p>
         </div>
       </article>
