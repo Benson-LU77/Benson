@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MELU — Hong-Qi Lu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="MELU — 一座藏在森林裡的 AI 音樂陪伴電台原型，結合 AI 對話、音樂推薦與情緒紀錄。">
+<link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
+<link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
+<style>
+  /* MELU case study — uniform image sizing (scoped to this page) */
+  .melu-shots{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+    margin-top:40px;
+  }
+  .melu-shots figure{ margin:0; }
+  .melu-shots img{
+    width:100%;
+    aspect-ratio:16 / 10;
+    object-fit:cover;
+    display:block;
+    border-radius:12px;
+    background:#0b1712;
+  }
+  .melu-shots figcaption{ margin-top:14px; }
+  .melu-shots figcaption strong{
+    display:block;
+    font-weight:500;
+    color:var(--charcoal);
+  }
+  .melu-shots figcaption span{
+    display:block;
+    margin-top:6px;
+    color:var(--text-muted);
+    line-height:1.7;
+    font-size:0.95rem;
+  }
+  /* Full-width banner images (hero sheet, diagram) share one radius */
+  .melu-wide img{ border-radius:12px; }
+  /* Even 3-column grids (for 3- or 6-item rows, so nothing sits alone) */
+  .melu-grid-3{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  @media (max-width:1000px){ .melu-grid-3{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+  @media (max-width:700px){ .melu-grid-3{ grid-template-columns:1fr !important; } }
+  /* Even 2×2 grid (roomier for dense text cards) */
+  .melu-grid-2{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  @media (max-width:700px){ .melu-grid-2{ grid-template-columns:1fr !important; } }
+  /* Lead line before the six steps — lower & larger */
+  .melu-steps-lead{
+    margin-top:56px;
+    font-size:19px;
+    font-weight:500;
+    color:var(--charcoal);
+    opacity:1;
+  }
+  /* Tech-stack callout — pushed down, subtle tinted background */
+  .melu-techstack{
+    margin-top:48px;
+    padding:22px 26px;
+    background:rgba(37,37,34,0.045);
+    border-radius:12px;
+  }
+  .melu-techstack p{ margin:0; font-size:15px; line-height:1.85; opacity:.9; }
+  .melu-techstack strong{ color:var(--charcoal); font-weight:600; }
+  /* CTA */
+  .melu-cta{ text-align:center; }
+  .melu-cta .wrap > p{ margin-left:auto; margin-right:auto; }
+  .melu-cta__btn{
+    display:inline-block;
+    margin-top:8px;
+    padding:15px 30px;
+    border-radius:999px;
+    background:var(--charcoal,#252525);
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:.02em;
+    transition:transform .18s ease, opacity .18s ease;
+  }
+  .melu-cta__btn:hover{ transform:translateY(-2px); opacity:.92; }
+  @media (max-width:640px){
+    .melu-shots{ grid-template-columns:1fr; gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a
+      href="index.html"
+      class="nav-name site-logo--image"
+      aria-label="Hong-Qi Lu — Home"
+    >
+      <img
+        src="assets/logo/hongqi-h-logo.png?v=20260625-transparent"
+        alt=""
+        class="site-logo-image"
+      >
+    </a>
+    <ul>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="projects.html" class="nav-link active">Projects</a></li>
+      <li><a href="resume.html" class="nav-link">Resume</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="site-header compact" id="main-content">
+  <div class="wrap">
+    <a href="projects.html" class="back-link">← Back to Projects</a>
+
+    <p class="eyebrow">AI INTERACTION PROTOTYPE</p>
+
+    <h1>MELU</h1>
+
+    <div class="project-meta">
+      <span>AI Companion × Music × Emotional Journaling</span>
+
+      <span>
+        Product Concept · Interaction Design · UX Writing · AI Conversation Design
+      </span>
+
+      <span>Jun 2026 – Jul 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="project-hero">
+  <div class="project-hero__inner">
+    <img
+      src="assets/melu/melu-hero-night.png"
+      alt="MELU 首頁夜間森林場景，畫面中有角色梅露與「接收訊號」按鈕"
+    >
+  </div>
+</section>
+
+<!-- Project Overview -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Project Overview</p>
+
+    <h2>一座藏在森林裡的 AI 音樂陪伴電台</h2>
+
+    <p>
+      MELU 是一個森林電台風格的 AI 音樂陪伴原型。使用者透過與外星播音員「梅露」對話，把當下的心情換成一段貼近此刻狀態的音樂訊號——不是單純從播放清單挑一首歌，而是先被聽見、被理解之後，再收到那段剛好適合此刻的旋律。</p>
+
+    <p class="paragraph-spaced">
+      這是我個人獨立開發的專案——從一個對「音樂與情緒」的好奇出發，一手把概念、角色、對話與介面兜成一個能實際運作的原型。它不是團隊產品，而是我用來把想法做出來、並持續打磨的個人作品。</p>
+
+    <div class="meta-grid">
+
+      <div class="meta-item">
+        <p class="meta-label">Role</p>
+        <p>
+          Product Concept · Interaction Design ·
+          UX Writing · AI Conversation Design ·
+          Visual Direction
+        </p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Duration</p>
+        <p>Jun 2026 – Jul 2026</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Type</p>
+        <p>Self-initiated Prototype</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Tools</p>
+        <p>
+          Next.js · React · Anthropic API · Apple MusicKit
+        </p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Status</p>
+        <p>Working prototype · public demo</p>
+      </div>
+
+    </div>
+
+    <div class="contribution-note">
+      <p class="meta-label">My Contribution</p>
+
+      <p>
+        這是一個個人規模、仍持續演進中的原型專案。我獨立完成產品概念、互動設計、UX 文案、AI 對話設計與視覺方向——從角色設計、美術方向，到對話腳本與技術整合皆一手包辦。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why I Built This -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Why MELU</p>
+
+    <h2>在按下播放之前，先有一個被理解的片刻</h2>
+
+    <p>
+      音樂與情緒的關係一直讓我著迷：同一首歌，在不同心情下聽起來可以完全不同；然而多數音樂 App 只依聆聽紀錄做最佳化，很少真的問你「現在感覺如何」。</p>
+
+    <p class="paragraph-spaced">
+      我想做的，是在按下播放之前，先有一個被理解、被陪伴的片刻，而不只是一則演算法推薦。這個好奇最後推著我，把它做成一個能實際運作、可以自己一直玩下去的個人專案。</p>
+  </div>
+</section>
+
+<!-- Design Challenge -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Design Challenge</p>
+
+    <h2>如何讓 AI 產品有陪伴感，卻不誇大它真正是什麼？</h2>
+
+    <p>
+      MELU 不是醫療產品，也刻意避免把自己定位為「音樂治療」——它提供的是陪伴與一個整理心情的空間，而不是治療或診斷。這條界線既是倫理考量，也是設計挑戰：如何讓對話保持溫暖同理，同時不做出承諾、也不誘導使用者的情緒回答。</p>
+
+    <div class="challenge-grid">
+
+      <article>
+        <span>01</span>
+        <h3>Warm, Not Overpromising</h3>
+        <p>讓對話溫柔有同理，卻不越界成為治療或診斷角色。</p>
+      </article>
+
+      <article>
+        <span>02</span>
+        <h3>Character with Restraint</h3>
+        <p>給 AI 一個具體、可記憶的角色，又不讓角色蓋過體驗本身。</p>
+      </article>
+
+      <article>
+        <span>03</span>
+        <h3>Trustworthy Output</h3>
+        <p>讓 AI 生成內容維持在可控、可信的範圍。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Concept -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Concept</p>
+
+    <figure style="margin:0 0 24px;display:flex;align-items:center;gap:16px;">
+      <img
+        src="assets/melu/melu-icon.svg"
+        alt="MELU 品牌識別圖示，深森林底色與天線訊號燈"
+        width="64" height="64"
+        style="width:64px;height:64px;border-radius:14px;flex:none;"
+      >
+      <figcaption style="font-family:'Press Start 2P',monospace,'Inter';letter-spacing:.08em;font-size:13px;color:var(--olive);">
+        MELU FM 77.7 · CODE 22
+      </figcaption>
+    </figure>
+
+    <h2>把整個體驗，包裝成一座森林電台</h2>
+
+    <p>
+      使用者收到的不是「AI 回覆」，而是「訊號」——由梅露發送。牠是一名意外墜落地球的外星人，用飛船零件在森林裡修建了一座小電台，以身份代號 <strong>CODE 22</strong>、在 <strong>MELU FM 77.7</strong> 上向外廣播。</p>
+
+    <p class="paragraph-spaced">
+      這個框架把「被 AI 回應」轉化為「接收到一段為你調頻的訊號」，多了一層溫柔的距離感與儀式感。名字本身也是概念的一部分：<strong>MELU = Melo（旋律）+ Lux（光）</strong>——音樂與光的結合。</p>
+
+    <div class="narrative-themes">
+      <span>MELU FM 77.7</span>
+      <span>CODE 22</span>
+      <span>Forest Signal</span>
+      <span>MELU ON AIR</span>
+      <span>Signal Found</span>
+    </div>
+  </div>
+</section>
+
+<!-- Character & Worldbuilding -->
+<section class="case-section character-system">
+  <div class="wrap">
+    <p class="case-label">Character &amp; Worldbuilding</p>
+
+    <h2>梅露是一名外星播音員，不是服務型機器人</h2>
+
+    <p>
+      這個區別很重要：牠會觀察、會安靜、有自己的節奏，而不是隨時待命、過度殷勤的助理。牠的外殼保留了自己動手修補的痕跡，胸口那顆會發光的「訊號核心」就是名字裡的 Lux，也是牠對外發送與接收訊號的部位。</p>
+
+    <figure class="case-image case-image--wide case-image--push">
+      <img
+        src="assets/melu/melu-turnaround.png"
+        alt="梅露角色三視圖，展示正面、側面與背面，含天線感應環、胸口訊號核心與修補痕跡"
+        loading="lazy"
+      >
+      <figcaption>
+        Melu — Character Turnaround｜天線頂端的感應環是真正的「接收器官」，側邊的「22」銘牌對應身份代號 CODE 22。</figcaption>
+    </figure>
+
+    <div class="meta-grid melu-grid-3">
+
+      <div class="meta-item">
+        <p class="meta-label">Signal Core</p>
+        <p>
+          胸口的發光核心維持低頻率的呼吸感，只在接收、修理或廣播時亮起。</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Salvaged Body</p>
+        <p>
+          輕微不對稱的機身與外殼接縫，暗示牠是東拼西湊修好的，而非工廠量產。</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Low-frequency Motion</p>
+        <p>
+          移動安靜、帶有停頓與「正在觀察」的感覺，大多數時候維持靜止。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Experience -->
+<section class="case-section prototype-experience">
+  <div class="wrap">
+    <p class="case-label">Experience</p>
+
+    <h2>像調頻一段電台，而不只是切換頁面</h2>
+
+    <p>
+      首頁是一個沉浸式的森林電台場景：分層的森林背景、角色梅露，與一個「接收訊號」的行動呼籲。點擊後會觸發一段連接儀式（CONNECTING TO MELU FM 77.7 → SIGNAL STABLE → MELU ON AIR），像在調頻電台，而不是單純導覽網頁。</p>
+
+    <div class="melu-shots">
+
+      <figure>
+        <img
+          src="assets/melu/melu-companion-page.png"
+          alt="MELU 陪伴模式頁面，包含對話介面與音樂播放器"
+          loading="lazy"
+        >
+        <figcaption>
+          <strong>Companion Mode</strong>
+          <span>與梅露聊聊當下狀態，先收到情緒回應，再自然地承接一段音樂推薦，並透過黑膠風格播放器繼續聽下去。</span>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="assets/melu/melu-about-panel.png"
+          alt="「關於梅露」故事面板，介紹梅露的身世與 MELU 名稱由來"
+          loading="lazy"
+        >
+        <figcaption>
+          <strong>About Melu</strong>
+          <span>品牌故事面板，說明梅露的身世與 MELU 這個名字的由來。</span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <p class="melu-steps-lead">實際操作，是這樣六步：</p>
+
+    <div class="interaction-loop melu-grid-3">
+      <article>
+        <span>01</span>
+        <h3>調頻進站</h3>
+        <p>首頁點「接收訊號」，一段連接儀式（CONNECTING → SIGNAL STABLE → ON AIR）把你帶進電台。</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h3>說說今天</h3>
+        <p>在陪伴頁跟梅露聊當下的狀態，想到什麼說什麼，不必先整理好。</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h3>先被接住</h3>
+        <p>梅露先回應情緒、不急著推歌，也不用暗示性問題誘導你的答案。</p>
+      </article>
+      <article>
+        <span>04</span>
+        <h3>收到訊號</h3>
+        <p>情緒被接住後，梅露挑一首「剛好在說你心事」的歌，並說明它為什麼適合此刻。</p>
+      </article>
+      <article>
+        <span>05</span>
+        <h3>放下唱針</h3>
+        <p>親手把黑膠唱針放下，音樂才響起——把聆聽變成一個有儀式感的動作。</p>
+      </article>
+      <article>
+        <span>06</span>
+        <h3>一路聽下去</h3>
+        <p>用播放佇列連著聽、可隨機或循環；隨時用 Signal Log 記下當下的心情。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Feature Walkthrough -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Features</p>
+    <h2>四個把「電台」變成產品的功能</h2>
+    <div class="melu-shots">
+      <figure>
+        <img src="assets/melu/melu-player.png" alt="MELU 黑膠風格播放器特寫，含唱片、唱臂與播放控制" loading="lazy">
+        <figcaption><strong>Vinyl Player</strong><span>黑膠與唱臂放針儀式；播放控制列含隨機、循環與進度拖曳。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/melu/melu-queue.png" alt="MELU 播放佇列面板，含現在播放、接下來與播放過三段" loading="lazy">
+        <figcaption><strong>Play Queue</strong><span>現在播放／接下來／播放過三段；可拖曳排序、隨機、立即播放或排到下一首。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/melu/melu-chat-tile.png" alt="MELU 陪伴模式聊天面板特寫" loading="lazy">
+        <figcaption><strong>Companion Chat</strong><span>先接住情緒、再自然承接一段音樂推薦的陪伴式對話。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/melu/melu-signal-log.png" alt="MELU Signal Log 情緒紀錄時間軸" loading="lazy">
+        <figcaption><strong>Signal Log</strong><span>輕量的心情簽到時間軸，讓情緒可以被隨手留下、只存在本機。</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Visual & Interaction Design -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Visual System</p>
+
+    <h2>兩個核心意象：一片安靜的森林，與一段外星訊號</h2>
+
+    <p>
+      夜間模式以分層的深色森林、月光冷調高光為底，主要點綴色是薄荷般的「訊號綠」；日間模式則轉為暖奶油色的清晨森林——被設計成「另一個時刻」，而不是把夜晚調亮的版本。所有顏色都跑在一套用 <code>data-theme</code> 切換的 design token 系統上，兩種模式都對齊 WCAG AA 對比。</p>
+
+    <div class="melu-shots">
+
+      <figure>
+        <img
+          src="assets/melu/melu-hero-night.png"
+          alt="MELU 首頁夜間森林場景，冷色調月光與訊號綠點綴"
+          loading="lazy"
+        >
+        <figcaption>
+          <strong>Night Mode</strong>
+          <span>深色分層森林、月光冷調高光，以訊號綠為主要點綴色。</span>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="assets/melu/melu-hero-day.png"
+          alt="MELU 首頁清晨森林場景，暖色調晨光"
+          loading="lazy"
+        >
+        <figcaption>
+          <strong>Day Mode</strong>
+          <span>暖奶油色的清晨森林，作為「另一個時刻」，而非夜晚的加亮版。</span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <p class="paragraph-spaced">
+      像素字體（Press Start 2P）只保留給 logo、狀態文字與英文標籤；中文一律使用系統字型。角色與場景的動態維持低頻、不急促，光效只在需要時出現，避免過量的粒子效果。</p>
+  </div>
+</section>
+
+<!-- AI Conversation Design -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Conversational Design</p>
+
+    <h2>先接住感受，再推薦音樂</h2>
+
+    <p>
+      MELU 的對話設計遵循幾個核心原則：先接住感受，再推薦音樂；不用暗示性的問題誘導使用者的情緒回答；不越界成為治療或診斷角色。</p>
+
+    <p class="paragraph-spaced">
+      同時內建一道安全網——一旦偵測到危機語言，立即停止推薦並浮現求助資源，把使用者的安全放在對話流暢度之前。</p>
+
+    <div class="limitation-list melu-grid-3">
+
+      <article>
+        <h3>Hold the Feeling First</h3>
+        <p>先讓情緒被聽見，音樂推薦自然承接在後。</p>
+      </article>
+
+      <article>
+        <h3>No Leading Questions</h3>
+        <p>不以暗示性問題引導使用者的情緒答案。</p>
+      </article>
+
+      <article>
+        <h3>Safety Net</h3>
+        <p>偵測到危機語言即停止推薦，改為浮現求助資源。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Under the Hood -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Under the Hood</p>
+    <h2>讓 AI 永遠不會憑空捏造一首歌</h2>
+    <p>
+      這類產品最怕 AI「報一首其實不存在的歌」。MELU 用<strong>兩段式選歌</strong>把這件事從架構上擋掉：
+      模型永遠不直接輸出歌曲，它只能提出搜尋語，再從伺服器向 Apple Music 目錄查回的<strong>真實候選</strong>裡挑。</p>
+
+    <figure class="case-image case-image--wide case-image--push">
+      <img src="assets/melu/melu-music-pipeline.svg"
+           alt="MELU 兩段式選歌流程圖：使用者訊息 → 模型提出搜尋語 → 伺服器查 Apple Music 目錄 → 模型從候選挑（enum 鎖死＋歌手守衛）→ 二次驗證後交給播放器"
+           loading="lazy" style="border-radius:16px;">
+    </figure>
+
+    <div class="limitation-list melu-grid-2">
+      <article>
+        <h3>單曲</h3>
+        <p>模型提搜尋語 → 伺服器查目錄 → 模型只能從候選 id 挑（enum 鎖死）→ verifySelection 二次驗證取權威曲目。</p>
+      </article>
+      <article>
+        <h3>整份歌單</h3>
+        <p>每首查詢帶「應該是誰唱的」，伺服器逐首比對歌手，對不上就跳過——不會在某歌手的歌單裡混進別人的歌。</p>
+      </article>
+      <article>
+        <h3>某張專輯</h3>
+        <p>直接向 Apple Music 取那張專輯的正版曲目清單（含「最新專輯」自動判定），曲目與歌手都由 Apple 保證。</p>
+      </article>
+      <article>
+        <h3>沒接音樂服務時</h3>
+        <p>退為純聊天：誠實說明現在放不了歌，絕不憑空報一個曲名。</p>
+      </article>
+    </div>
+
+    <div class="melu-techstack">
+      <p><strong>技術堆疊</strong>　Next.js（App Router）＋ React、Anthropic API（structured outputs 讓輸出鎖進固定格式）、Apple MusicKit（伺服器以 JWT 簽發開發者權杖）。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Design Process -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Design Process</p>
+    <h2>先定世界觀，再一層層往內收</h2>
+    <div class="development-stages">
+      <article>
+        <p class="meta-label">01 · Curiosity</p>
+        <h3>從一個對「音樂 × 情緒」的好奇開始</h3>
+        <p>同一首歌在不同心情下完全不同——我想在「按下播放之前」多做一件事：先被理解。</p>
+      </article>
+      <article>
+        <p class="meta-label">02 · World before features</p>
+        <h3>先定世界觀，功能才有容器</h3>
+        <p>把體驗包成一座森林電台，讓「被 AI 回應」變成「接收一段為你調頻的訊號」，功能都收進這個框架。</p>
+      </article>
+      <article>
+        <p class="meta-label">03 · Character rules</p>
+        <h3>角色定成外星播音員，不是客服</h3>
+        <p>先立下「會觀察、會安靜、有自己節奏」的行為規則，再據此設計動作與對話語氣。</p>
+      </article>
+      <article>
+        <p class="meta-label">04 · Guardrails</p>
+        <h3>把 AI 關進可控範圍</h3>
+        <p>對話上：先接情緒、不誘導、危機停手；選歌上：把可信度交給架構（見 Under the Hood）。安全與可信先於「聰明」。</p>
+      </article>
+      <article>
+        <p class="meta-label">05 · Converge &amp; polish</p>
+        <h3>收斂與打磨</h3>
+        <p>日夜場景、低頻動態、播放佇列互動、簡→繁防漏——最後階段都在做「更少但更對」。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Design Decisions -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Design Decisions</p>
+
+    <h2>幾個決定產品氣質的取捨</h2>
+
+    <div class="development-stages">
+
+      <article>
+        <p class="meta-label">01 · An Alien, Not a Bot</p>
+        <h3>梅露被設計成外星播音員</h3>
+        <p>
+          而非服務型機器人——這讓角色有空間去觀察、安靜、依自己的節奏行動，而不是像隨時待命的客服。「音樂治療」也刻意不作為對外定位，MELU 提供的是陪伴，而非治療或診斷。</p>
+      </article>
+
+      <article>
+        <p class="meta-label">02 · Trust by Architecture</p>
+        <h3>可信度靠架構，不靠模型自律</h3>
+        <p>
+          歌曲一律來自真實目錄、由架構保證不可捏造（詳見 Under the Hood）——把「能不能被信任」做進系統，而不是寄望模型不出錯。</p>
+      </article>
+
+      <article>
+        <p class="meta-label">03 · Restraint by Default</p>
+        <h3>用克制換取陪伴感</h3>
+        <p>
+          安靜的場景、低頻的動態、一個不急著填滿沉默的角色——陪伴感來自留白，而不是更多動畫或更熱情的文案。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Reflection -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Reflection</p>
+
+    <h2>陪伴感不是靠更多動畫，而是靠克制</h2>
+
+    <p>
+      這個專案讓我清楚看見：陪伴感往往來自克制——安靜的場景、低頻的動態、一個不急著填滿沉默的角色，而不是更多動畫或更熱情的文案。</p>
+
+    <p class="paragraph-spaced">
+      它也讓我學會在「角色魅力」與「不越界、不誇大」之間拿捏分寸——把可信度做進架構、而不是寄望模型不出錯，是我在這個專案學到最實際的一課。</p>
+  </div>
+</section>
+
+<!-- Next Steps -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Next Steps</p>
+
+    <h2>持續把這個原型養大</h2>
+
+    <div class="outcome-grid">
+
+      <div>
+        <p class="meta-label">Conversation</p>
+        <p>依真實使用回饋，持續打磨陪伴模式的對話設計。</p>
+      </div>
+
+      <div>
+        <p class="meta-label">Music Matching</p>
+        <p>優化從心情到歌曲的媒合邏輯，讓推薦更貼近當下狀態。</p>
+      </div>
+
+      <div>
+        <p class="meta-label">Player &amp; Queue</p>
+        <p>擴充黑膠播放器與播放佇列的互動細節。</p>
+      </div>
+
+      <div>
+        <p class="meta-label">Polish</p>
+        <p>補齊介面截圖、打磨日／夜場景與角色動態的細節。</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-section melu-cta">
+  <div class="wrap">
+    <h2>想親自調頻看看？</h2>
+    <p class="paragraph-spaced">MELU 有一個可以實際玩的公開原型。</p>
+    <p>
+      <a class="melu-cta__btn" href="https://melu-beta.vercel.app" target="_blank" rel="noopener">
+        View the prototype →
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- Previous / Next Project -->
+<nav class="project-nav-footer" aria-label="Project navigation">
+  <div class="wrap project-nav-footer__inner">
+    <a
+      href="project-meichu.html"
+      class="project-nav-link project-nav-link--previous"
+    >
+      <span class="project-nav-direction">Previous Project</span>
+      <span class="project-nav-title">
+        ← Bamboo Fox × MeiChu Games
+      </span>
+    </a>
+    <a
+      href="project-kkday.html"
+      class="project-nav-link project-nav-link--next"
+    >
+      <span class="project-nav-direction">Next Project</span>
+      <span class="project-nav-title">
+        KKday Interface UX Case Study →
+      </span>
+    </a>
+  </div>
+</nav>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-label">Email</p>
+        <a href="mailto:keepitupluhongqi@gmail.com">keepitupluhongqi@gmail.com</a>
+      </div>
+      <div>
+        <p class="footer-label">Portfolio</p>
+        <a href="https://www.behance.net/gallery/245533951/BENSON_PORTFOLIO" target="_blank" rel="noopener">Behance</a>
+      </div>
+      <div>
+        <p class="footer-label">Location</p>
+        <p>Based in Taiwan</p>
+      </div>
+    </div>
+    <p class="footer-note">© 2026 Hong-Qi Lu</p>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="back-to-top.js?v=20260705-fullwidth2"></script>
+</body>
+</html>

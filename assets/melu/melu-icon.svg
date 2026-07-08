@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- MELU favicon：深森林底＋天線訊號燈 -->
+  <rect width="64" height="64" rx="14" fill="#0b1712"/>
+  <line x1="32" y1="34" x2="32" y2="18" stroke="#22352a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="14" r="6" fill="#7fe0b0"/>
+  <circle cx="32" cy="14" r="11" fill="none" stroke="#7fe0b0" stroke-width="1.6" opacity="0.4"/>
+  <rect x="18" y="34" width="28" height="18" rx="8" fill="#22352a"/>
+  <rect x="24" y="39" width="5" height="8" rx="2.5" fill="#e9edc9"/>
+  <rect x="35" y="39" width="5" height="8" rx="2.5" fill="#e9edc9"/>
+</svg>
