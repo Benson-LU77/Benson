@@ -10,10 +10,82 @@
 <meta name="description" content="Selected projects in user research, product evaluation, conversational AI, and interactive storytelling.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
+<style>
+  /* ── Projects index (hover reveals a full-bleed cover) ── */
+  .proj-bg{
+    position:fixed; inset:0; z-index:0;
+    background-size:cover; background-position:center;
+    opacity:0; transition:opacity .45s ease;
+    pointer-events:none;
+  }
+  .proj-bg::after{ content:""; position:absolute; inset:0; background:rgba(18,20,18,0.46); }
+  body.proj-active .proj-bg{ opacity:1; }
+
+  /* keep page content above the background layer */
+  .site-nav, .site-header, .work, .site-footer{ position:relative; z-index:1; }
+  /* nav is always transparent here (like the homepage) — no cream bar, no divider,
+     and nothing at the top that animates on its own beat */
+  .site-nav{ border-bottom:0; background:transparent; }
+
+  .proj-index{ list-style:none; margin:0; padding:0; }
+  .proj-index li{ margin:0; }
+  .proj-row{
+    display:grid;
+    grid-template-columns:64px minmax(0,1fr) 210px 128px;
+    align-items:center;
+    gap:24px;
+    padding:30px 6px;
+    border-bottom:1px solid rgba(37,37,34,0.16);
+    text-decoration:none;
+    color:var(--charcoal);
+    transition:color .35s ease, opacity .35s ease, padding-left .35s ease;
+  }
+  .proj-num{ font-size:13px; letter-spacing:.08em; color:var(--olive); }
+  .proj-title{
+    font-family:'Newsreader',serif; font-weight:500;
+    font-size:clamp(20px,2.1vw,27px); line-height:1.2;
+  }
+  .proj-cat{
+    font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--olive);
+  }
+  .proj-date{ font-size:14px; color:var(--text-muted); text-align:right; }
+
+  /* when a cover is showing: whole list goes light, hovered row stays bright */
+  body.proj-active .proj-row{ color:#fff; }
+  body.proj-active .proj-num,
+  body.proj-active .proj-cat,
+  body.proj-active .proj-date{ color:rgba(255,255,255,0.72); }
+  body.proj-active .proj-index{ border-color:rgba(255,255,255,0.28); }
+  body.proj-active .proj-row{ border-color:rgba(255,255,255,0.28); }
+  body.proj-active .proj-row:not(:hover){ opacity:.5; }
+  .proj-row:hover{ padding-left:14px; }
+
+  /* lift nav + header text over the image */
+  /* transitions live on the base elements so reveal AND hide animate in sync */
+  .site-nav .nav-link,
+  .site-nav .nav-name,
+  .site-header .eyebrow{ transition:color .45s ease; }
+  .site-logo-image{ transition:filter .45s ease; }
+  body.proj-active .site-nav .nav-link,
+  body.proj-active .site-nav .nav-name,
+  body.proj-active .site-header .eyebrow{ color:#fff; }
+  body.proj-active .site-logo-image{ filter:brightness(0) invert(1); }
+
+  @media (max-width:720px){
+    .proj-row{ grid-template-columns:38px 1fr; row-gap:6px; column-gap:16px; padding:22px 2px; }
+    .proj-title{ grid-column:2; }
+    .proj-cat{ grid-column:2; }
+    .proj-date{ display:none; }
+    /* on touch, don't rely on hover reveal */
+    .proj-bg::after{ background:rgba(18,20,18,0.4); }
+  }
+</style>
 </head>
 <body>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="proj-bg" aria-hidden="true"></div>
 
 <nav class="site-nav">
   <div class="wrap">
@@ -46,69 +118,54 @@
 <section class="work">
   <div class="wrap">
 
-    <div class="projects-grid">
+    <ul class="proj-index">
 
-      <a href="project-melu.html" class="project-card">
-        <div class="project-thumbnail">
-          <img
-            src="assets/melu/melu-cover-icon.svg"
-            alt="MELU AI forest radio companion project cover"
-            loading="lazy"
-          >
-        </div>
-        <p class="project-category">AI INTERACTION PROTOTYPE</p>
-        <h2 class="project-title">MELU — AI Forest Radio Companion</h2>
-      </a>
+      <li>
+        <a href="project-melu.html" class="proj-row" data-cover="assets/melu/melu-cover-icon.svg">
+          <span class="proj-num">001</span>
+          <span class="proj-title">MELU — AI Forest Radio Companion</span>
+          <span class="proj-cat">AI Interaction</span>
+          <span class="proj-date">Jun–Jul 2026</span>
+        </a>
+      </li>
 
-      <a href="project-kkday.html" class="project-card">
-        <div class="project-thumbnail">
-          <img
-            src="assets/kkday/kkday-project-cover.svg"
-            alt="KKday Interface UX Case Study project cover"
-            loading="lazy"
-          >
-        </div>
-        <p class="project-category">USER RESEARCH &amp; PRODUCT EVALUATION</p>
-        <h2 class="project-title">KKday Interface UX Case Study</h2>
-      </a>
+      <li>
+        <a href="project-kkday.html" class="proj-row" data-cover="assets/kkday/kkday-project-cover.svg">
+          <span class="proj-num">002</span>
+          <span class="proj-title">KKday Interface UX Case Study</span>
+          <span class="proj-cat">UX Research</span>
+          <span class="proj-date">Jan–Jun 2026</span>
+        </a>
+      </li>
 
-      <a href="project-bamboofox-chatbot.html" class="project-card project-card--chatbot">
-        <div class="project-thumbnail">
-          <img
-            src="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png"
-            alt="Bamboo Fox AI Chatbot project cover"
-            loading="lazy"
-          >
-        </div>
-        <p class="project-category">RESEARCH &amp; CONVERSATIONAL EXPERIENCE</p>
-        <h2 class="project-title">Bamboo Fox AI Chatbot</h2>
-      </a>
+      <li>
+        <a href="project-bamboofox-chatbot.html" class="proj-row" data-cover="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png">
+          <span class="proj-num">003</span>
+          <span class="proj-title">Bamboo Fox AI Chatbot</span>
+          <span class="proj-cat">Conversational AI</span>
+          <span class="proj-date">Aug–Dec 2025</span>
+        </a>
+      </li>
 
-      <a href="project-enigma.html" class="project-card">
-        <div class="project-thumbnail">
-          <img
-            src="assets/enigma/cover-fox-forest.jpg"
-            alt="The Enigma of Bamboo Fox project cover"
-            loading="lazy"
-          >
-        </div>
-        <p class="project-category">INTERACTIVE STORYTELLING</p>
-        <h2 class="project-title">The Enigma of Bamboo Fox</h2>
-      </a>
+      <li>
+        <a href="project-enigma.html" class="proj-row" data-cover="assets/enigma/cover-fox-forest.jpg">
+          <span class="proj-num">004</span>
+          <span class="proj-title">The Enigma of Bamboo Fox</span>
+          <span class="proj-cat">Interactive Narrative</span>
+          <span class="proj-date">Feb–Jul 2025</span>
+        </a>
+      </li>
 
-      <a href="project-meichu.html" class="project-card">
-        <div class="project-thumbnail">
-          <img
-            src="assets/meichu-games/bamboofox-meichugames.svg"
-            alt="Bamboo Fox × MeiChu Games project cover"
-            loading="lazy"
-          >
-        </div>
-        <p class="project-category">CAMPUS CULTURAL MARKETING PROJECT</p>
-        <h2 class="project-title">Bamboo Fox × MeiChu Games</h2>
-      </a>
+      <li>
+        <a href="project-meichu.html" class="proj-row" data-cover="assets/meichu-games/bamboofox-meichugames.svg">
+          <span class="proj-num">005</span>
+          <span class="proj-title">Bamboo Fox × MeiChu Games</span>
+          <span class="proj-cat">Campaign &amp; Experience</span>
+          <span class="proj-date">Aug–Dec 2025</span>
+        </a>
+      </li>
 
-    </div>
+    </ul>
   </div>
 </section>
 
@@ -131,6 +188,28 @@
     <p class="footer-note">© 2026 Hong-Qi Lu</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var body = document.body;
+    var bg = document.querySelector('.proj-bg');
+    var index = document.querySelector('.proj-index');
+    var rows = document.querySelectorAll('.proj-row');
+    if(!bg || !index) return;
+    rows.forEach(function(row){
+      row.addEventListener('mouseenter', function(){
+        var cover = row.getAttribute('data-cover');
+        if(cover){
+          bg.style.backgroundImage = 'url("' + cover + '")';
+          body.classList.add('proj-active');
+        }
+      });
+    });
+    index.addEventListener('mouseleave', function(){
+      body.classList.remove('proj-active');
+    });
+  })();
+</script>
 
 </body>
 </html>
