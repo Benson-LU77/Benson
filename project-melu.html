@@ -66,6 +66,36 @@
   }
   .melu-techstack p{ margin:0; font-size:15px; line-height:1.85; opacity:.9; }
   .melu-techstack strong{ color:var(--charcoal); font-weight:600; }
+  /* Takeaway note — subtle tinted box, pushed down */
+  .melu-note{
+    margin-top:48px;
+    padding:22px 26px;
+    background:rgba(37,37,34,0.045);
+    border-radius:12px;
+  }
+  .melu-note p{ margin:0; font-size:15px; line-height:1.9; opacity:.9; }
+  .melu-note strong{ color:var(--charcoal); }
+  /* Iteration list — horizontal rows (head left, detail right) */
+  .melu-iter{ margin-top:48px; }
+  .melu-iter__row{
+    display:grid;
+    grid-template-columns:minmax(190px,0.85fr) minmax(0,1.6fr);
+    gap:20px 44px;
+    padding:26px 0;
+    border-top:1px solid var(--border);
+  }
+  .melu-iter__row:last-of-type{ border-bottom:1px solid var(--border); }
+  .melu-iter__head .meta-label{ margin-bottom:8px; }
+  .melu-iter__head h3{ margin:0; }
+  .melu-iter__body p{ margin:0; line-height:1.9; }
+  /* Problem / Root cause / Fix labels — colour-coded */
+  .melu-lbl{ font-weight:600; }
+  .melu-lbl--q{ color:#b0553f; } /* 問題 */
+  .melu-lbl--c{ color:#8c7a4b; } /* 根因 */
+  .melu-lbl--f{ color:#5e8368; } /* 修正 */
+  @media (max-width:700px){
+    .melu-iter__row{ grid-template-columns:1fr; gap:10px; padding:22px 0; }
+  }
   /* CTA */
   .melu-cta{ text-align:center; }
   .melu-cta .wrap > p{ margin-left:auto; margin-right:auto; }
@@ -366,6 +396,14 @@
 
     </div>
 
+    <figure class="case-image case-image--wide case-image--push">
+      <img src="assets/melu/melu-user-flow.svg"
+           alt="MELU 使用者流程圖：首頁 → 接收訊號（連接儀式）→ 陪伴對話（先接住情緒）→ 收到訊號（推薦歌曲/歌單）→ 聆聽（放下唱針、播放器＋佇列）；About 與 Signal Log 隨時可開啟；偵測到危機語句時進入最高優先的安全網支線"
+           loading="lazy" style="border-radius:16px;">
+      <figcaption>
+        User Flow｜主流程五步，加上「隨時可開啟」的 About / Signal Log，以及凌駕一切的安全網支線。</figcaption>
+    </figure>
+
     <p class="melu-steps-lead">實際操作，是這樣六步：</p>
 
     <div class="interaction-loop melu-grid-3">
@@ -467,8 +505,9 @@
 
     </div>
 
-    <p class="paragraph-spaced">
-      像素字體（Press Start 2P）只保留給 logo、狀態文字與英文標籤；中文一律使用系統字型。角色與場景的動態維持低頻、不急促，光效只在需要時出現，避免過量的粒子效果。</p>
+    <div class="melu-note">
+      <p>像素字體（Press Start 2P）只保留給 logo、狀態文字與英文標籤；中文一律使用系統字型。角色與場景的動態維持低頻、不急促，光效只在需要時出現，避免過量的粒子效果。</p>
+    </div>
   </div>
 </section>
 
@@ -542,6 +581,95 @@
 
     <div class="melu-techstack">
       <p><strong>技術堆疊</strong>　Next.js（App Router）＋ React、Anthropic API（structured outputs 讓輸出鎖進固定格式）、Apple MusicKit（伺服器以 JWT 簽發開發者權杖）。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Testing & Iteration -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Testing &amp; Iteration</p>
+    <h2>把它當成真的產品用，然後修</h2>
+    <p>
+      這個原型不是「做完就結束」——我持續把它當真的產品在用（dogfooding），
+      而真正冒出來的問題，往往比想像的更基本。以下是幾個「用著用著發現 → 找到根因 → 修好」的例子。</p>
+
+    <figure class="case-image case-image--wide case-image--push">
+      <img src="assets/melu/melu-artist-guard-beforeafter.png"
+           alt="播放佇列 before / after 對照：修正前，指名 Slayyyter 的歌單混進 Mariah Carey 的歌；加上歌手守衛後，整份歌單都是 Slayyyter"
+           loading="lazy" style="border-radius:16px;">
+      <figcaption>歌手守衛 before / after：指名 Slayyyter 的歌單，從「混進別的歌手」到「整份都對」。</figcaption>
+    </figure>
+
+    <div class="melu-iter">
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Iteration · Playlist</p>
+          <h3>指名歌手的歌單，混進了別人的歌</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>要 Slayyyter 專輯的歌，佇列卻冒出 Mariah Carey 的聖誕歌（見上圖）。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>「整份歌單」是唯一沒做歌手驗證的路徑——直接取了 Apple 搜尋的第一名。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>每首查詢帶「應該是誰唱的」，伺服器逐首比對歌手、對不上就跳過；「某張專輯」則直接向 Apple 取正版曲目清單。</p>
+        </div>
+      </article>
+
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Iteration · Player</p>
+          <h3>「立即播放」要按兩下才會動</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>在佇列點「立即播放」，歌換了卻不出聲，得再手動放一次唱針。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>換歌只移動了「目前播放」指標，沒有觸發「自動落針」。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>點下時遞增一個訊號，讓播放器在換歌前先設好自動落針——現在一點就播，儀式感留給首播的歌。</p>
+        </div>
+      </article>
+
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Iteration · Player</p>
+          <h3>按了隨機，畫面看起來沒反應</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>隨機鈕會變色，但歌單看起來完全沒變，像壞了。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>原本設計成「等這首播完才隨機抽下一首」，按下的當下沒有任何可見變化。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>改成按下就<strong>立刻打散「接下來」的順序</strong>，並照打散後的順序播——所見即所播。</p>
+        </div>
+      </article>
+
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Iteration · Conversation</p>
+          <h3>梅露會「用猜的」、附和沒把握的事</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>使用者說某藝人做過某事，梅露沒查證就順著附和，甚至腦補細節。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>模型純靠記憶回答，且天生傾向迎合使用者的前提。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>接上「只查音樂」的事實查證、persona 改成「不確定先查、查不到就誠實說」，並要求遇到不認得的藝名（如中文譯名）先查再回。</p>
+        </div>
+      </article>
+
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Iteration · Localization</p>
+          <h3>繁體回覆偶爾漏出簡體字</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>中文回覆裡混進「这／说／里」等簡體字。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>LLM 產生繁中時偶有滲漏，光靠提示詞壓不到 100%。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>在伺服器端做確定性的簡→繁轉換，前端顯示層再兜一層——連舊訊息在畫面上都保證是繁體。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="melu-note">
+      <p>這些迭代有個共同點：問題常常不在「AI 夠不夠聰明」，而在<strong>互動的可預期性</strong>與<strong>輸出的可信度</strong>——按下去有沒有如預期反應、拿到的東西是不是真的。把這兩件事做對，產品才站得住。</p>
     </div>
   </div>
 </section>

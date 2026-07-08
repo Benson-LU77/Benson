@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 570" width="1240" height="570" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7fe0b0"/>
+    </marker>
+    <marker id="aw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#dda07a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1240" height="570" rx="20" fill="#0e1a14"/>
+  <rect x="0.5" y="0.5" width="1239" height="569" rx="20" fill="none" stroke="#25402f"/>
+  <text x="32" y="44" fill="#e8f0ea" font-size="21" font-weight="600">User Flow — 一段訊號的旅程</text>
+  <text x="32" y="70" fill="#8fa697" font-size="14">從調頻進站，到親手放下唱針。The path of one signal — tuning in to dropping the needle.</text>
+
+  <!-- 分支入口：About 只在首頁；Signal Log 在陪伴對話中 -->
+  <text x="146" y="98" text-anchor="middle" fill="#8fa697" font-size="11">從首頁開啟</text>
+  <rect x="40" y="106" width="212" height="30" rx="15" fill="#16261d" stroke="#2e5e46"/>
+  <text x="146" y="125" text-anchor="middle" fill="#cfe8db" font-size="12.5">About · 關於梅露</text>
+  <text x="650" y="98" text-anchor="middle" fill="#8fa697" font-size="11">陪伴對話中隨時開啟</text>
+  <rect x="500" y="106" width="300" height="30" rx="15" fill="#16261d" stroke="#2e5e46"/>
+  <text x="650" y="125" text-anchor="middle" fill="#cfe8db" font-size="12.5">Signal Log · 情緒紀錄（存本機）</text>
+
+  <!-- 主流程 5 步 -->
+  <g font-size="13">
+    <!-- 1 -->
+    <rect x="32" y="186" width="206" height="120" rx="14" fill="#16261d" stroke="#2e5e46" stroke-width="1.3"/>
+    <circle cx="60" cy="214" r="13" fill="#173a2a"/><text x="60" y="219" text-anchor="middle" fill="#7fe0b0" font-size="14" font-weight="700">1</text>
+    <text x="50" y="252" fill="#e8f0ea" font-size="16" font-weight="600">首頁 Landing</text>
+    <text x="50" y="274" fill="#8fa697">沉浸式森林電台，</text>
+    <text x="50" y="292" fill="#8fa697">角色梅露在場</text>
+    <!-- 2 -->
+    <rect x="270" y="186" width="206" height="120" rx="14" fill="#16261d" stroke="#2e5e46" stroke-width="1.3"/>
+    <circle cx="298" cy="214" r="13" fill="#173a2a"/><text x="298" y="219" text-anchor="middle" fill="#7fe0b0" font-size="14" font-weight="700">2</text>
+    <text x="288" y="252" fill="#e8f0ea" font-size="16" font-weight="600">接收訊號</text>
+    <text x="288" y="274" fill="#8fa697">連接儀式：CONNECTING</text>
+    <text x="288" y="292" fill="#8fa697">→ SIGNAL STABLE → ON AIR</text>
+    <!-- 3 -->
+    <rect x="508" y="186" width="206" height="120" rx="14" fill="#16261d" stroke="#2e5e46" stroke-width="1.3"/>
+    <circle cx="536" cy="214" r="13" fill="#173a2a"/><text x="536" y="219" text-anchor="middle" fill="#7fe0b0" font-size="14" font-weight="700">3</text>
+    <text x="526" y="252" fill="#e8f0ea" font-size="16" font-weight="600">陪伴對話</text>
+    <text x="526" y="274" fill="#8fa697">說當下 → 梅露<tspan fill="#cfe8db">先接住</tspan></text>
+    <text x="526" y="292" fill="#8fa697"><tspan fill="#cfe8db">情緒</tspan>，不急著推歌</text>
+    <!-- 4 -->
+    <rect x="746" y="186" width="206" height="120" rx="14" fill="#16261d" stroke="#2e5e46" stroke-width="1.3"/>
+    <circle cx="774" cy="214" r="13" fill="#173a2a"/><text x="774" y="219" text-anchor="middle" fill="#7fe0b0" font-size="14" font-weight="700">4</text>
+    <text x="764" y="252" fill="#e8f0ea" font-size="16" font-weight="600">收到訊號</text>
+    <text x="764" y="274" fill="#8fa697">情緒被接住後，推薦</text>
+    <text x="764" y="292" fill="#8fa697">一首歌 / 一份歌單</text>
+    <!-- 5 -->
+    <rect x="984" y="186" width="206" height="120" rx="14" fill="#16261d" stroke="#2e5e46" stroke-width="1.3"/>
+    <circle cx="1012" cy="214" r="13" fill="#173a2a"/><text x="1012" y="219" text-anchor="middle" fill="#7fe0b0" font-size="14" font-weight="700">5</text>
+    <text x="1002" y="252" fill="#e8f0ea" font-size="16" font-weight="600">聆聽</text>
+    <text x="1002" y="274" fill="#8fa697">放下唱針 → 播放器</text>
+    <text x="1002" y="292" fill="#8fa697">＋佇列，連著聽</text>
+  </g>
+  <!-- 主流程箭頭 -->
+  <line x1="238" y1="246" x2="270" y2="246" stroke="#7fe0b0" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="476" y1="246" x2="508" y2="246" stroke="#7fe0b0" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="714" y1="246" x2="746" y2="246" stroke="#7fe0b0" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="952" y1="246" x2="984" y2="246" stroke="#7fe0b0" stroke-width="2" marker-end="url(#a)"/>
+  <!-- About 連到步驟 1（首頁）；Signal Log 連到步驟 3（陪伴對話） -->
+  <path d="M146 136 C 146 162, 135 162, 135 186" fill="none" stroke="#3f9c6e" stroke-width="1.3" stroke-dasharray="4 4"/>
+  <path d="M650 136 C 650 162, 611 162, 611 186" fill="none" stroke="#3f9c6e" stroke-width="1.3" stroke-dasharray="4 4"/>
+
+  <!-- 危機支線箭頭：從陪伴對話往下 -->
+  <line x1="611" y1="306" x2="611" y2="392" stroke="#dda07a" stroke-width="2" marker-end="url(#aw)"/>
+  <text x="622" y="352" fill="#dda07a" font-size="12">偵測到危機語句</text>
+
+  <!-- 安全網支線 -->
+  <rect x="32" y="392" width="1158" height="146" rx="14" fill="#241a17" stroke="#7a4f45" stroke-width="1.2"/>
+  <text x="56" y="422" fill="#dda07a" font-size="15" font-weight="600">🛡 安全網 · 最高優先（凌駕一切規則與流程）</text>
+  <rect x="56" y="440" width="300" height="72" rx="10" fill="#2a1e1a" stroke="#7a4f45"/>
+  <text x="76" y="472" fill="#e6cbb9" font-size="14.5" font-weight="600">偵測危機語句</text>
+  <text x="76" y="494" fill="#c9a996" font-size="12.5">直白或隱喻皆算</text>
+  <rect x="392" y="440" width="300" height="72" rx="10" fill="#2a1e1a" stroke="#7a4f45"/>
+  <text x="412" y="472" fill="#e6cbb9" font-size="14.5" font-weight="600">立即停止推薦</text>
+  <text x="412" y="494" fill="#c9a996" font-size="12.5">全神接住這個人</text>
+  <rect x="728" y="440" width="438" height="72" rx="10" fill="#2a1e1a" stroke="#7a4f45"/>
+  <text x="748" y="472" fill="#e6cbb9" font-size="14.5" font-weight="600">浮現台灣求助資源</text>
+  <text x="748" y="494" fill="#c9a996" font-size="12.5">安心專線 1925 · 生命線 1995 · 保護專線 113</text>
+  <line x1="356" y1="476" x2="392" y2="476" stroke="#dda07a" stroke-width="2" marker-end="url(#aw)"/>
+  <line x1="692" y1="476" x2="728" y2="476" stroke="#dda07a" stroke-width="2" marker-end="url(#aw)"/>
+</svg>
