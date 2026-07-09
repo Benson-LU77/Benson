@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Hong-Qi Lu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="About Hong-Qi Lu — a researcher and designer working across user research, content strategy, and experience design. Education, experience, selected projects, and skills.">
+<link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
+<link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
+<style>
+  .site-nav{ border-bottom:0; }
+  .site-footer{ border-top:0; margin-top:clamp(72px,9vw,140px); }
+  /* remove section divider lines, tighten spacing */
+  .resume-section{ border-top:0; padding:26px 0; }
+  /* section titles as small letter-spaced uppercase labels (clay) */
+  .resume-section h2{
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--clay);
+    margin-bottom:22px;
+  }
+
+  /* editorial two-column: sticky label left, content right (desktop) */
+  @media (min-width:861px){
+    .resume-section .wrap{
+      display:grid;
+      grid-template-columns:minmax(140px,190px) minmax(0,1fr);
+      column-gap:clamp(40px,6vw,90px);
+      align-items:start;
+    }
+    .resume-section .wrap > h2{
+      grid-column:1;
+      grid-row:1 / -1;
+      position:sticky;
+      top:56px;
+      margin-bottom:0;
+    }
+    .resume-section .wrap > *:not(h2){ grid-column:2; }
+
+    /* header shares the same two-column rhythm: RESUME label left, name + intro + downloads right */
+    .site-header.compact .wrap{
+      display:grid;
+      grid-template-columns:minmax(140px,190px) minmax(0,1fr);
+      column-gap:clamp(40px,6vw,90px);
+      align-items:start;
+    }
+    .site-header.compact .wrap > .eyebrow{ grid-column:1; grid-row:1; margin:0; }
+    .site-header.compact .wrap > h1,
+    .site-header.compact .wrap > .resume-intro,
+    .site-header.compact .wrap > .resume-buttons{ grid-column:2; }
+    .site-header.compact .wrap > h1{ margin:0; }
+    .site-header.compact .resume-intro{ margin-top:18px; }
+  }
+
+  /* scroll reveal: entries fade + rise as they enter view */
+  .reveal-on .resume-entry,
+  .reveal-on .cap-item{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s ease, transform .6s ease;
+  }
+  .reveal-on .resume-entry.is-visible,
+  .reveal-on .cap-item.is-visible{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion:reduce){
+    .reveal-on .resume-entry,
+    .reveal-on .cap-item{ opacity:1 !important; transform:none !important; transition:none; }
+  }
+
+  /* hover: a short clay bar highlights the entry on the left (reads as "marked", not a link) */
+  .resume-entry{ position:relative; }
+  .resume-entry::before{
+    content:"";
+    position:absolute;
+    left:-16px;
+    top:4px;
+    width:2px;
+    height:22px;
+    background:var(--clay);
+    opacity:0;
+    transform:translateX(-4px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .resume-entry:hover::before{ opacity:1; transform:translateX(0); }
+</style>
+<script>document.documentElement.className += ' reveal-on';</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a
+      href="index.html"
+      class="nav-name site-logo--image"
+      aria-label="Hong-Qi Lu — Home"
+    >
+      <img
+        src="assets/logo/hongqi-h-logo.png?v=20260625-transparent"
+        alt=""
+        class="site-logo-image"
+      >
+    </a>
+    <ul>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="projects.html" class="nav-link">Projects</a></li>
+      <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="site-header compact" id="main-content">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h1>Hong-Qi Lu</h1>
+    <div class="resume-intro">
+      <p class="resume-positioning">Research, Content &amp; Experience</p>
+      <p class="resume-summary">
+        I work across user research, content strategy, and experience design. I'm
+        curious about how people navigate information, make decisions, and engage
+        with products, services, and cultural experiences — and I like turning that
+        understanding into clear, usable directions.
+      </p>
+    </div>
+    <div class="resume-buttons">
+      <a class="btn-outline" href="assets/resume-en.pdf" target="_blank" rel="noopener">Download English Resume</a>
+      <a class="btn-outline" href="assets/resume-zh.pdf" target="_blank" rel="noopener">Download Chinese Resume</a>
+    </div>
+  </div>
+</header>
+
+<section class="resume-section">
+  <div class="wrap">
+    <h2>Education</h2>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>National Yang Ming Chiao Tung University</h3>
+        <span class="resume-entry-date">Sep 2024 – Expected Jun 2027</span>
+      </div>
+      <p class="resume-entry-org">M.A. in Communication Studies · GPA: 4.13 / 4.3</p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Providence University</h3>
+        <span class="resume-entry-date">Sep 2019 – Jan 2024</span>
+      </div>
+      <p class="resume-entry-org">B.A. in English Language, Literature and Linguistics · B.B.A. in International Business · GPA: 3.7 / 4.3</p>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section">
+  <div class="wrap">
+    <h2>Experience</h2>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Financial / Administrative Secretary</h3>
+        <span class="resume-entry-date">Jan 2026 – Present</span>
+      </div>
+      <p class="resume-entry-org">Taiwan Psychological Association</p>
+      <p>
+        Organized receipts, accounting records, and membership data to support
+        administrative workflows.
+      </p>
+      <p class="paragraph-spaced">
+        Managed document tracking and cross-unit communication to ensure smooth operations.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Vice President</h3>
+        <span class="resume-entry-date">Feb 2025 – Dec 2025</span>
+      </div>
+      <p class="resume-entry-org">Graduate Student Association</p>
+      <p>
+        Developed the "Xiao Jing" IP to address low engagement and content
+        differentiation issues.
+      </p>
+      <p class="paragraph-spaced">
+        Extended the IP into a podcast series, reaching ~1,000 views and a
+        40% engagement rate.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Vice President</h3>
+        <span class="resume-entry-date">Apr 2021 – Apr 2022</span>
+      </div>
+      <p class="resume-entry-org">Campus Cultural Service Club</p>
+      <p>
+        Led a team of 40+ members to execute “Service Night” (100+ attendees).
+      </p>
+      <p class="paragraph-spaced">
+        Managed timeline and cross-team coordination for smooth event delivery.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section">
+  <div class="wrap">
+    <h2>Selected Projects</h2>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>MELU — AI Forest Radio Companion</h3>
+        <span class="resume-entry-date">Jun 2026 – Jul 2026</span>
+      </div>
+      <p class="resume-entry-org">Product Concept &amp; AI Interaction Design</p>
+      <p>
+        Designed an AI "forest radio" prototype that translates a listener's mood
+        into music recommendations.
+      </p>
+      <p class="paragraph-spaced">
+        Structured emotional check-ins, music recommendation, and Apple MusicKit
+        song selection into a guided flow to keep AI recommendations grounded in
+        real catalog results.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>KKday Interface UX Case Study</h3>
+        <span class="resume-entry-date">Jan 2026 – Jun 2026</span>
+      </div>
+      <p class="resume-entry-org">User Research &amp; Competitive Analysis</p>
+      <p>
+        Conducted interviews, usability testing, and competitive analysis to
+        examine travel booking behaviors.
+      </p>
+      <p class="paragraph-spaced">
+        Identified how travel companions, filtering, pricing, reviews, and trust
+        shape booking decisions, then translated findings into scenario-based
+        recommendations and product presentation improvements.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Bamboo Fox AI Chatbot</h3>
+        <span class="resume-entry-date">Aug 2025 – Dec 2025</span>
+      </div>
+      <p class="resume-entry-org">AI Interaction Design</p>
+      <p>
+        Planned the interaction context, content direction, and knowledge structure
+        for an AI chatbot centered on the MeiChu Games mascot IP.
+      </p>
+      <p class="paragraph-spaced">
+        Used Contextual Inquiry interviews and prompt design to translate user needs
+        across participation stages into conversation flows and response rules.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>Bamboo Fox × MeiChu Games</h3>
+        <span class="resume-entry-date">Aug 2025 – Dec 2025</span>
+      </div>
+      <p class="resume-entry-org">Campus Cultural Marketing</p>
+      <p>
+        Proposed a campus campaign combining a campus run, exhibition concept,
+        AR interaction, and social content.
+      </p>
+    </div>
+
+    <div class="resume-entry">
+      <div class="resume-entry-head">
+        <h3>The Enigma of Bamboo Fox</h3>
+        <span class="resume-entry-date">Feb 2025 – Jul 2025</span>
+      </div>
+      <p class="resume-entry-org">Interactive Narrative Design</p>
+      <p>
+        Broke down the campus IP story into mission nodes, branching logic, and user flows.
+      </p>
+      <p class="paragraph-spaced">
+        Built an interactive Figma prototype to test gamified exploration, branching
+        tasks, and narrative content presentation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section">
+  <div class="wrap">
+    <h2>Skills</h2>
+
+    <div class="cap-grid">
+      <div class="cap-item">
+        <p class="cap-label">Research</p>
+        <p class="cap-detail">
+          User Interviews, Contextual Inquiry, Heuristic Evaluation,
+          Usability Testing, Competitive Analysis, Customer Journey Mapping,
+          Insight Synthesis
+        </p>
+      </div>
+
+      <div class="cap-item">
+        <p class="cap-label">Content &amp; Experience</p>
+        <p class="cap-detail">
+          Information Architecture, AI Conversation Design, UX Writing,
+          Content Strategy, Interactive Storytelling, Prototyping
+        </p>
+      </div>
+
+      <div class="cap-item">
+        <p class="cap-label">Project Coordination</p>
+        <p class="cap-detail">
+          Stakeholder Communication, Timeline Tracking, Documentation
+        </p>
+      </div>
+
+      <div class="cap-item">
+        <p class="cap-label">Tools</p>
+        <p class="cap-detail">
+          Figma, SPSS, Canva, CapCut, Anthropic API, Next.js / React
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="contact.html" class="footer-getintouch">
+      <span class="footer-getintouch__eyebrow">Get in Touch</span>
+      <span class="footer-getintouch__email">keepitupluhongqi@gmail.com</span>
+    </a>
+    <p class="footer-note">© 2026 Hong-Qi Lu</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var items = document.querySelectorAll('.resume-entry, .cap-item');
+    if(!('IntersectionObserver' in window)){
+      items.forEach(function(el){ el.classList.add('is-visible'); });
+      return;
+    }
+    // subtle stagger within each section
+    document.querySelectorAll('.resume-section').forEach(function(sec){
+      sec.querySelectorAll('.resume-entry, .cap-item').forEach(function(el, i){
+        el.style.transitionDelay = (i * 70) + 'ms';
+      });
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  })();
+</script>
+
+</body>
+</html>
