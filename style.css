@@ -299,6 +299,7 @@ body {
 .site-footer {
   padding: 80px 0 64px;
   border-top: 1px solid rgba(37,37,37,0.1);
+  background: rgba(37, 37, 34, 0.04);
 }
 
 .site-footer .wrap {
@@ -350,6 +351,49 @@ body {
   color: var(--olive);
   text-align: right;
 }
+
+/* Footer "Get in Touch" CTA (index / projects / resume) */
+.site-footer a.footer-getintouch {
+  display: block;
+  text-align: center;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-bottom: 0;
+  margin-bottom: 40px;
+}
+.site-footer a.footer-getintouch:hover { border-color: transparent; }
+.footer-getintouch__eyebrow {
+  display: block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--olive);
+  margin-bottom: 14px;
+}
+.footer-getintouch__email {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 4vw, 42px);
+  line-height: 1.1;
+  color: var(--charcoal);
+}
+.footer-getintouch__email::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--charcoal);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s ease;
+}
+.footer-getintouch:hover .footer-getintouch__email::after { transform: scaleX(1); }
 
 /* Responsive */
 @media (max-width: 720px) {

@@ -15,6 +15,43 @@
 <meta property="og:image" content="https://benson-lu77.github.io/Benson/assets/logo/hongqi-h-logo.png">
 <meta property="og:url" content="https://benson-lu77.github.io/Benson/">
 <link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
+<style>
+  /* Full-page scroll-snap: 4 content screens + Get in Touch (desktop only) */
+  @media (min-width: 761px){
+    html{ scroll-snap-type: y mandatory; }
+    /* nav overlays so every screen snaps cleanly to the top */
+    .page-home .site-nav{
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+    }
+    .water-hero{ min-height: 100svh; }
+    .water-hero,
+    .work-intro,
+    .project-showcase,
+    .home-profile,
+    .site-footer{
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    .project-showcase,
+    .home-profile,
+    .site-footer{
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .home-profile{ padding-top: 0; padding-bottom: 0; }
+    /* clear the fixed nav + breathing room so the project list isn't jammed to the top */
+    .project-showcase{ padding-top: clamp(96px, 12vh, 140px); }
+    .site-footer{
+      margin-top: 0;
+      border-top: 0;
+      background: transparent;
+    }
+  }
+</style>
 </head>
 <body class="page-home">
 
@@ -217,20 +254,10 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <p class="footer-label">Email</p>
-        <a href="mailto:keepitupluhongqi@gmail.com">keepitupluhongqi@gmail.com</a>
-      </div>
-      <div>
-        <p class="footer-label">Portfolio</p>
-        <a href="https://www.behance.net/gallery/245533951/BENSON_PORTFOLIO" target="_blank" rel="noopener">Behance</a>
-      </div>
-      <div>
-        <p class="footer-label">Location</p>
-        <p>Based in Taiwan</p>
-      </div>
-    </div>
+    <a href="contact.html" class="footer-getintouch">
+      <span class="footer-getintouch__eyebrow">Get in Touch</span>
+      <span class="footer-getintouch__email">keepitupluhongqi@gmail.com</span>
+    </a>
     <p class="footer-note">© 2026 Hong-Qi Lu</p>
   </div>
 </footer>
