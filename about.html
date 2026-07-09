@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="About Hong-Qi Lu — a researcher and designer working across user research, content strategy, and experience design. Education, experience, selected projects, and skills.">
+<meta name="description" content="About Hong-Qi Lu — a researcher and designer who turns messy information into clear structures, stories, and usable experiences across user research, content strategy, and experience design.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
 <style>
@@ -30,7 +30,7 @@
   @media (min-width:861px){
     .resume-section .wrap{
       display:grid;
-      grid-template-columns:minmax(140px,190px) minmax(0,1fr);
+      grid-template-columns:minmax(160px,210px) minmax(0,1fr);
       column-gap:clamp(40px,6vw,90px);
       align-items:start;
     }
@@ -46,16 +46,55 @@
     /* header shares the same two-column rhythm: RESUME label left, name + intro + downloads right */
     .site-header.compact .wrap{
       display:grid;
-      grid-template-columns:minmax(140px,190px) minmax(0,1fr);
-      column-gap:clamp(40px,6vw,90px);
+      grid-template-columns:minmax(280px,340px) minmax(0,1fr);
+      column-gap:clamp(40px,5vw,72px);
+      row-gap:20px;
       align-items:start;
     }
+    /* name aligns with the top of the portrait; ABOUT label sits above */
     .site-header.compact .wrap > .eyebrow{ grid-column:1; grid-row:1; margin:0; }
-    .site-header.compact .wrap > h1,
-    .site-header.compact .wrap > .resume-intro,
-    .site-header.compact .wrap > .resume-buttons{ grid-column:2; }
-    .site-header.compact .wrap > h1{ margin:0; }
-    .site-header.compact .resume-intro{ margin-top:18px; }
+    .site-header.compact .wrap > .about-portrait{ grid-column:1; grid-row:2; margin:0; }
+    .site-header.compact .wrap > .about-hero-text{ grid-column:2; grid-row:2; align-self:center; }
+    .site-header.compact .wrap > .about-hero-text h1{ margin:0; }
+    .site-header.compact .wrap > .about-hero-text .resume-intro{ margin-top:18px; }
+  }
+
+  /* portrait with an offset backing panel */
+  .about-portrait{ margin:20px 0 0; position:relative; width:fit-content; }
+  .about-portrait::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; right:0; bottom:0;
+    transform:translate(12px, 12px);
+    background:#e7e2d5;
+    border-radius:4px;
+    z-index:0;
+    opacity:0;
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .about-portrait:hover::before{ opacity:1; }
+  .about-portrait img{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:300px;
+    aspect-ratio:4 / 5;
+    object-fit:cover;
+    border-radius:4px;
+    display:block;
+  }
+  @media (max-width:860px){
+    .about-portrait img{ max-width:230px; }
+    .about-portrait::before{ transform:translate(9px, 9px); }
+  }
+  .about-narrative{
+    margin-top:16px;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:1rem;
+    font-weight:300;
+    line-height:1.8;
+    color:var(--text-muted);
+    max-width:56ch;
   }
 
   /* scroll reveal: entries fade + rise as they enter view */
@@ -87,6 +126,44 @@
     transition:opacity .3s ease, transform .3s ease;
   }
   .resume-entry:hover::before{ opacity:1; transform:translateX(0); }
+
+  /* How I Work — numbered method grid */
+  .about-method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    align-items: start;
+  }
+  /* keep the 3 method items top-aligned (cancel the stacked-entry margin) */
+  .about-method-grid .resume-entry{ margin-top: 0; }
+  .about-method-number {
+    display: block;
+    margin-bottom: 16px;
+    font-family: "Newsreader", serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--clay);
+    opacity: 0.28;
+  }
+  .about-method-grid h3 {
+    margin-bottom: 8px;
+  }
+  /* Resume CTA */
+  .about-resume-text {
+    max-width: 560px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .about-resume-buttons {
+    margin-top: 28px;
+  }
+  @media (max-width: 860px) {
+    .about-method-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
 </style>
 <script>document.documentElement.className += ' reveal-on';</script>
 </head>
@@ -119,213 +196,101 @@
 <header class="site-header compact" id="main-content">
   <div class="wrap">
     <p class="eyebrow">About</p>
-    <h1>Hong-Qi Lu</h1>
-    <div class="resume-intro">
-      <p class="resume-positioning">Research, Content &amp; Experience</p>
-      <p class="resume-summary">
-        I work across user research, content strategy, and experience design. I'm
-        curious about how people navigate information, make decisions, and engage
-        with products, services, and cultural experiences — and I like turning that
-        understanding into clear, usable directions.
-      </p>
-    </div>
-    <div class="resume-buttons">
-      <a class="btn-outline" href="assets/resume-en.pdf" target="_blank" rel="noopener">Download English Resume</a>
-      <a class="btn-outline" href="assets/resume-zh.pdf" target="_blank" rel="noopener">Download Chinese Resume</a>
+    <figure class="about-portrait">
+      <img src="assets/profile-portrait-web.jpg" alt="Hong-Qi Lu (Benson) portrait" loading="lazy">
+    </figure>
+    <div class="about-hero-text">
+      <h1>Hong-Qi Lu</h1>
+      <div class="resume-intro">
+        <p class="resume-positioning">Research, Content &amp; Experience</p>
+        <p class="resume-summary">
+          I turn messy information into clear structures, stories,
+          and usable experiences.
+        </p>
+      </div>
     </div>
   </div>
 </header>
 
-<section class="resume-section">
+<section class="resume-section about-thinking">
   <div class="wrap">
-    <h2>Education</h2>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>National Yang Ming Chiao Tung University</h3>
-        <span class="resume-entry-date">Sep 2024 – Expected Jun 2027</span>
-      </div>
-      <p class="resume-entry-org">M.A. in Communication Studies · GPA: 4.13 / 4.3</p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Providence University</h3>
-        <span class="resume-entry-date">Sep 2019 – Jan 2024</span>
-      </div>
-      <p class="resume-entry-org">B.A. in English Language, Literature and Linguistics · B.B.A. in International Business · GPA: 3.7 / 4.3</p>
+    <h2>How I Work</h2>
+    <div class="about-method-grid">
+      <article class="resume-entry">
+        <span class="about-method-number">01</span>
+        <h3>Observe</h3>
+        <p>Find where people hesitate, compare, or get lost.</p>
+      </article>
+      <article class="resume-entry">
+        <span class="about-method-number">02</span>
+        <h3>Structure</h3>
+        <p>Turn scattered inputs into flows, frameworks, and priorities.</p>
+      </article>
+      <article class="resume-entry">
+        <span class="about-method-number">03</span>
+        <h3>Translate</h3>
+        <p>Make insights usable through content, interfaces, and experience directions.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="resume-section">
+<section class="resume-section about-practice">
   <div class="wrap">
-    <h2>Experience</h2>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Financial / Administrative Secretary</h3>
-        <span class="resume-entry-date">Jan 2026 – Present</span>
-      </div>
-      <p class="resume-entry-org">Taiwan Psychological Association</p>
-      <p>
-        Organized receipts, accounting records, and membership data to support
-        administrative workflows.
-      </p>
-      <p class="paragraph-spaced">
-        Managed document tracking and cross-unit communication to ensure smooth operations.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Vice President</h3>
-        <span class="resume-entry-date">Feb 2025 – Dec 2025</span>
-      </div>
-      <p class="resume-entry-org">Graduate Student Association</p>
-      <p>
-        Developed the "Xiao Jing" IP to address low engagement and content
-        differentiation issues.
-      </p>
-      <p class="paragraph-spaced">
-        Extended the IP into a podcast series, reaching ~1,000 views and a
-        40% engagement rate.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Vice President</h3>
-        <span class="resume-entry-date">Apr 2021 – Apr 2022</span>
-      </div>
-      <p class="resume-entry-org">Campus Cultural Service Club</p>
-      <p>
-        Led a team of 40+ members to execute “Service Night” (100+ attendees).
-      </p>
-      <p class="paragraph-spaced">
-        Managed timeline and cross-team coordination for smooth event delivery.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="resume-section">
-  <div class="wrap">
-    <h2>Selected Projects</h2>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>MELU — AI Forest Radio Companion</h3>
-        <span class="resume-entry-date">Jun 2026 – Jul 2026</span>
-      </div>
-      <p class="resume-entry-org">Product Concept &amp; AI Interaction Design</p>
-      <p>
-        Designed an AI "forest radio" prototype that translates a listener's mood
-        into music recommendations.
-      </p>
-      <p class="paragraph-spaced">
-        Structured emotional check-ins, music recommendation, and Apple MusicKit
-        song selection into a guided flow to keep AI recommendations grounded in
-        real catalog results.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>KKday Interface UX Case Study</h3>
-        <span class="resume-entry-date">Jan 2026 – Jun 2026</span>
-      </div>
-      <p class="resume-entry-org">User Research &amp; Competitive Analysis</p>
-      <p>
-        Conducted interviews, usability testing, and competitive analysis to
-        examine travel booking behaviors.
-      </p>
-      <p class="paragraph-spaced">
-        Identified how travel companions, filtering, pricing, reviews, and trust
-        shape booking decisions, then translated findings into scenario-based
-        recommendations and product presentation improvements.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Bamboo Fox AI Chatbot</h3>
-        <span class="resume-entry-date">Aug 2025 – Dec 2025</span>
-      </div>
-      <p class="resume-entry-org">AI Interaction Design</p>
-      <p>
-        Planned the interaction context, content direction, and knowledge structure
-        for an AI chatbot centered on the MeiChu Games mascot IP.
-      </p>
-      <p class="paragraph-spaced">
-        Used Contextual Inquiry interviews and prompt design to translate user needs
-        across participation stages into conversation flows and response rules.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>Bamboo Fox × MeiChu Games</h3>
-        <span class="resume-entry-date">Aug 2025 – Dec 2025</span>
-      </div>
-      <p class="resume-entry-org">Campus Cultural Marketing</p>
-      <p>
-        Proposed a campus campaign combining a campus run, exhibition concept,
-        AR interaction, and social content.
-      </p>
-    </div>
-
-    <div class="resume-entry">
-      <div class="resume-entry-head">
-        <h3>The Enigma of Bamboo Fox</h3>
-        <span class="resume-entry-date">Feb 2025 – Jul 2025</span>
-      </div>
-      <p class="resume-entry-org">Interactive Narrative Design</p>
-      <p>
-        Broke down the campus IP story into mission nodes, branching logic, and user flows.
-      </p>
-      <p class="paragraph-spaced">
-        Built an interactive Figma prototype to test gamified exploration, branching
-        tasks, and narrative content presentation.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="resume-section">
-  <div class="wrap">
-    <h2>Skills</h2>
-
+    <h2>Practice Areas</h2>
     <div class="cap-grid">
       <div class="cap-item">
-        <p class="cap-label">Research</p>
-        <p class="cap-detail">
-          User Interviews, Contextual Inquiry, Heuristic Evaluation,
-          Usability Testing, Competitive Analysis, Customer Journey Mapping,
-          Insight Synthesis
-        </p>
+        <p class="cap-label">User Research</p>
+        <p class="cap-detail">Interviews, usability testing, behavioral observation, and insight synthesis.</p>
       </div>
-
       <div class="cap-item">
-        <p class="cap-label">Content &amp; Experience</p>
-        <p class="cap-detail">
-          Information Architecture, AI Conversation Design, UX Writing,
-          Content Strategy, Interactive Storytelling, Prototyping
-        </p>
+        <p class="cap-label">Experience Design</p>
+        <p class="cap-detail">User flows, information architecture, prototypes, and interaction structure.</p>
       </div>
-
       <div class="cap-item">
-        <p class="cap-label">Project Coordination</p>
-        <p class="cap-detail">
-          Stakeholder Communication, Timeline Tracking, Documentation
-        </p>
+        <p class="cap-label">Content Strategy</p>
+        <p class="cap-detail">Interface language, storytelling, content structure, and narrative framing.</p>
       </div>
-
       <div class="cap-item">
-        <p class="cap-label">Tools</p>
-        <p class="cap-detail">
-          Figma, SPSS, Canva, CapCut, Anthropic API, Next.js / React
-        </p>
+        <p class="cap-label">AI Interaction</p>
+        <p class="cap-detail">Conversation flows, knowledge structure, prompt rules, and response logic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section about-background">
+  <div class="wrap">
+    <h2>Background</h2>
+    <div class="resume-entry">
+      <p>
+        I am currently pursuing an M.A. in Communication Studies at
+        National Yang Ming Chiao Tung University, with previous training
+        in English Language and Literature and International Business.
+      </p>
+      <p class="paragraph-spaced">
+        This background shapes how I approach design problems:
+        through people, context, information, and systems.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="resume-section about-resume-cta">
+  <div class="wrap">
+    <h2>Resume</h2>
+    <div class="resume-entry">
+      <p class="about-resume-text">
+        For a concise overview of my education, project experience,
+        and skills, download my resume below.
+      </p>
+      <div class="resume-buttons about-resume-buttons">
+        <a class="btn-outline" href="assets/resume-en.pdf" target="_blank" rel="noopener">
+          Download English Resume
+        </a>
+        <a class="btn-outline" href="assets/resume-zh.pdf" target="_blank" rel="noopener">
+          Download Chinese Resume
+        </a>
       </div>
     </div>
   </div>
@@ -343,14 +308,14 @@
 
 <script>
   (function(){
-    var items = document.querySelectorAll('.resume-entry, .cap-item');
+    var items = document.querySelectorAll('.resume-entry, .cap-item, .about-method-grid article');
     if(!('IntersectionObserver' in window)){
       items.forEach(function(el){ el.classList.add('is-visible'); });
       return;
     }
     // subtle stagger within each section
     document.querySelectorAll('.resume-section').forEach(function(sec){
-      sec.querySelectorAll('.resume-entry, .cap-item').forEach(function(el, i){
+      sec.querySelectorAll('.resume-entry, .cap-item, .about-method-grid article').forEach(function(el, i){
         el.style.transitionDelay = (i * 70) + 'ms';
       });
     });
