@@ -43,20 +43,35 @@
     }
     .resume-section .wrap > *:not(h2){ grid-column:2; }
 
-    /* header shares the same two-column rhythm: RESUME label left, name + intro + downloads right */
+    /* hero fills the first screen: ABOUT pinned top, image + intro centred */
+    .site-header.compact{
+      min-height:calc(100svh - 84px);
+      display:flex;
+      flex-direction:column;
+      padding-top:44px;
+      padding-bottom:44px;
+    }
+    /* only the hero → How I Work move snaps; everything below scrolls freely */
+    html{ scroll-snap-type:y proximity; }
+    .site-nav{ scroll-snap-align:start; }
+    .about-thinking{ scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-top:32px; }
     .site-header.compact .wrap{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+    }
+    .site-header.compact .eyebrow{ margin:0; }
+    .about-hero-inner{
+      margin:auto 0;
       display:grid;
       grid-template-columns:minmax(280px,340px) minmax(0,1fr);
       column-gap:clamp(40px,5vw,72px);
-      row-gap:20px;
-      align-items:start;
+      align-items:center;
+      width:100%;
     }
-    /* name aligns with the top of the portrait; ABOUT label sits above */
-    .site-header.compact .wrap > .eyebrow{ grid-column:1; grid-row:1; margin:0; }
-    .site-header.compact .wrap > .about-portrait{ grid-column:1; grid-row:2; margin:0; }
-    .site-header.compact .wrap > .about-hero-text{ grid-column:2; grid-row:2; align-self:center; }
-    .site-header.compact .wrap > .about-hero-text h1{ margin:0; }
-    .site-header.compact .wrap > .about-hero-text .resume-intro{ margin-top:18px; }
+    .about-hero-inner .about-portrait{ margin:0; }
+    .about-hero-inner .about-hero-text h1{ margin:0; }
+    .about-hero-inner .about-hero-text .resume-intro{ margin-top:18px; }
   }
 
   /* portrait with an offset backing panel */
@@ -196,17 +211,19 @@
 <header class="site-header compact" id="main-content">
   <div class="wrap">
     <p class="eyebrow">About</p>
-    <figure class="about-portrait">
-      <img src="assets/profile-portrait-web.jpg" alt="Hong-Qi Lu (Benson) portrait" loading="lazy">
-    </figure>
-    <div class="about-hero-text">
-      <h1>Hong-Qi Lu</h1>
-      <div class="resume-intro">
-        <p class="resume-positioning">Research, Content &amp; Experience</p>
-        <p class="resume-summary">
-          I turn messy information into clear structures, stories,
-          and usable experiences.
-        </p>
+    <div class="about-hero-inner">
+      <figure class="about-portrait">
+        <img src="assets/profile-portrait-web.jpg" alt="Hong-Qi Lu (Benson) portrait" loading="lazy">
+      </figure>
+      <div class="about-hero-text">
+        <h1>Hong-Qi Lu</h1>
+        <div class="resume-intro">
+          <p class="resume-positioning">Research, Content &amp; Experience</p>
+          <p class="resume-summary">
+            I turn messy information into clear structures, stories,
+            and usable experiences.
+          </p>
+        </div>
       </div>
     </div>
   </div>
