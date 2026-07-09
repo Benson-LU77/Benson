@@ -28,6 +28,9 @@
   .site-nav{ border-bottom:0; background:transparent; }
 
   .proj-index{ list-style:none; margin:0; padding:0; }
+  /* no closing line under the last project, and no line above the footer */
+  .proj-index li:last-child .proj-row{ border-bottom:0; }
+  .site-footer{ border-top:0; }
   .proj-index li{ margin:0; }
   .proj-row{
     display:grid;
