@@ -11,7 +11,38 @@
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
 <style>
+  html{ scroll-behavior:smooth; }
   .site-nav{ border-bottom:0; }
+  /* hero scroll cue */
+  .site-header.compact{ position:relative; }
+  .about-scroll{
+    position:absolute;
+    left:50%;
+    bottom:30px;
+    transform:translateX(-50%);
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+    text-decoration:none;
+    color:var(--olive);
+    font-size:12px;
+    letter-spacing:0.14em;
+  }
+  .about-scroll__arrow{
+    font-size:16px;
+    animation:about-scroll-bounce 1.8s ease-in-out infinite;
+  }
+  @keyframes about-scroll-bounce{
+    0%,100%{ transform:translateY(0); opacity:.5; }
+    50%{ transform:translateY(6px); opacity:1; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .about-scroll__arrow{ animation:none; }
+  }
+  @media (max-width:860px){
+    .about-scroll{ display:none; }
+  }
   .site-footer{ border-top:0; margin-top:clamp(72px,9vw,140px); }
   /* remove section divider lines, tighten spacing */
   .resume-section{ border-top:0; padding:26px 0; }
@@ -51,10 +82,8 @@
       padding-top:44px;
       padding-bottom:44px;
     }
-    /* only the hero → How I Work move snaps; everything below scrolls freely */
-    html{ scroll-snap-type:y proximity; }
-    .site-nav{ scroll-snap-align:start; }
-    .about-thinking{ scroll-snap-align:start; scroll-snap-stop:always; scroll-margin-top:32px; }
+    /* smooth glide when the SCROLL cue is clicked */
+    .about-thinking{ scroll-margin-top:24px; }
     .site-header.compact .wrap{
       flex:1;
       display:flex;
@@ -227,9 +256,13 @@
       </div>
     </div>
   </div>
+  <a class="about-scroll" href="#how-i-work" aria-label="Scroll to How I Work">
+    <span>SCROLL</span>
+    <span class="about-scroll__arrow" aria-hidden="true">↓</span>
+  </a>
 </header>
 
-<section class="resume-section about-thinking">
+<section class="resume-section about-thinking" id="how-i-work">
   <div class="wrap">
     <h2>How I Work</h2>
     <div class="about-method-grid">
