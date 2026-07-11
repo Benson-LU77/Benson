@@ -10,7 +10,24 @@
 <meta name="description" content="Get in touch with Hong-Qi Lu — email and Behance portfolio. Based in Taiwan.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
-<style>.site-nav{ border-bottom:0; }</style>
+<style>
+  .site-nav{ border-bottom:0; }
+  @media (min-width:761px){
+    .contact-list{
+      min-height:calc(100svh - 150px);
+      display:flex;
+      align-items:center;
+      padding-bottom:0;
+    }
+    .contact-list .contact-layout{
+      width:100%;
+      grid-template-columns:clamp(180px,20vw,240px) auto;
+      justify-content:center;
+      gap:clamp(64px,8vw,120px);
+      transform:translateY(5vh);
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -38,7 +55,7 @@
   </div>
 </nav>
 
-<header class="site-header compact" id="main-content">
+<header class="site-header slim" id="main-content">
   <div class="wrap">
     <h1 class="eyebrow">Contact</h1>
   </div>
