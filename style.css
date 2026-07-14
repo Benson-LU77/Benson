@@ -696,8 +696,10 @@ html { scroll-behavior: smooth; }
 /* Previous / Next Project Navigation */
 .project-nav-footer {
   border-top: 1px solid rgba(37, 37, 34, 0.12);
-  border-bottom: 1px solid rgba(37, 37, 34, 0.12);
+  border-bottom: 0;
 }
+
+.project-nav-footer + .site-footer { border-top: 0; }
 
 .project-nav-footer__inner {
   display: grid;
@@ -3537,6 +3539,14 @@ body { overflow-x: hidden; }
 .back-to-top.is-visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+html.footer-in-view .back-to-top.is-visible,
+html.footer-in-view .case-toc-widget.is-ready {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
 }
 
 .back-to-top:hover {

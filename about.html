@@ -7,9 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="About Hong-Qi Lu — a researcher and designer who turns messy information into clear structures, stories, and usable experiences across user research, content strategy, and experience design.">
+<meta name="description" content="About Hong-Qi Lu — working across UX research, research synthesis, experience strategy, and AI interaction.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260714b">
+<link rel="stylesheet" href="style.css?v=20260714-about-refresh1">
 <style>
   html{ scroll-behavior:smooth; }
   .site-nav{ border-bottom:0; }
@@ -95,11 +95,13 @@
       margin-bottom:auto;
       display:grid;
       grid-template-columns:minmax(280px,340px) minmax(0,1fr);
+      grid-template-areas:"portrait hero-text";
       column-gap:clamp(40px,5vw,72px);
       align-items:center;
       width:100%;
     }
-    .about-hero-inner .about-portrait{ margin:0; }
+    .about-hero-inner .about-portrait{ grid-area:portrait; margin:0; }
+    .about-hero-inner .about-hero-text{ grid-area:hero-text; }
     .about-hero-inner .about-hero-text h1{ margin:0; }
     .about-hero-inner .about-hero-text .resume-intro{ margin-top:18px; }
   }
@@ -129,6 +131,8 @@
     display:block;
   }
   @media (max-width:860px){
+    .about-hero-text{ margin-top:28px; }
+    .about-hero-text + .about-portrait{ margin-top:36px; }
     .about-portrait img{ max-width:230px; }
     .about-portrait::before{ transform:translate(9px, 9px); }
   }
@@ -140,6 +144,15 @@
     line-height:1.8;
     color:var(--text-muted);
     max-width:56ch;
+  }
+  .about-hero-meta{
+    margin:22px 0 0;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:.72rem;
+    font-weight:400;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--clay);
   }
 
   /* scroll reveal: entries fade + rise as they enter view */
@@ -194,6 +207,116 @@
   .about-method-grid h3 {
     margin-bottom: 8px;
   }
+  /* Practice areas: make the research core explicit */
+  .about-practice-groups{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(32px,5vw,72px);
+    max-width:900px;
+  }
+  .about-practice-heading{
+    margin:0 0 14px;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:.68rem;
+    font-weight:500;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(162,93,69,.78);
+  }
+  .about-practice .cap-grid{
+    grid-template-columns:1fr;
+    gap:0;
+  }
+  .about-practice .cap-item{
+    padding:12px 0;
+    border-top:1px solid rgba(37,37,37,.1);
+  }
+  .about-practice .cap-item:last-child{
+    border-bottom:1px solid rgba(37,37,37,.1);
+  }
+  .about-practice .cap-label{
+    margin:0;
+    font-size:clamp(1rem,1.25vw,1.12rem);
+    color:var(--charcoal);
+  }
+  /* Selected work: compact, image-only carousel */
+  .about-next{
+    margin-top:clamp(40px,4.5vw,64px);
+    padding-bottom:clamp(64px,7vw,96px);
+    background:transparent;
+  }
+  .about-next__heading{
+    margin:0 0 clamp(22px,3vw,32px);
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size:.72rem;
+    font-weight:400;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--clay);
+  }
+  .about-work-carousel{
+    display:grid;
+    grid-template-columns:36px minmax(0,1fr) 36px;
+    gap:14px;
+    align-items:center;
+    max-width:1040px;
+    margin:0 auto;
+  }
+  .about-work-track{
+    display:flex;
+    gap:14px;
+    overflow-x:auto;
+    padding:4px 2px;
+    scroll-behavior:smooth;
+    scroll-snap-type:x mandatory;
+    overscroll-behavior-inline:contain;
+    scrollbar-width:none;
+  }
+  .about-work-track::-webkit-scrollbar{ display:none; }
+  .about-work-card{
+    flex:0 0 clamp(170px,22vw,245px);
+    aspect-ratio:4/3;
+    overflow:hidden;
+    scroll-snap-align:start;
+    border:1px solid rgba(37,37,37,.1);
+    border-radius:4px;
+    background:var(--paper-white);
+  }
+  .about-work-card img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    transition:transform .45s ease, opacity .45s ease;
+  }
+  .about-work-card:hover img{ transform:scale(1.025); opacity:.94; }
+  .about-work-card:focus-visible{
+    outline:2px solid var(--clay);
+    outline-offset:3px;
+  }
+  .about-work-control{
+    display:grid;
+    place-items:center;
+    width:36px;
+    height:36px;
+    padding:0;
+    border:1px solid rgba(37,37,37,.18);
+    border-radius:50%;
+    background:transparent;
+    color:var(--charcoal);
+    font:400 1rem/1 'Inter',sans-serif;
+    cursor:pointer;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .about-work-control:hover{
+    border-color:rgba(162,93,69,.6);
+    color:var(--clay);
+  }
+  .about-work-control:focus-visible{
+    outline:2px solid var(--clay);
+    outline-offset:3px;
+  }
+  .about-next + .site-footer{ margin-top:0; }
   /* Resume CTA */
   .about-resume-text {
     max-width: 560px;
@@ -207,6 +330,20 @@
     .about-method-grid {
       grid-template-columns: 1fr;
       gap: 28px;
+    }
+    .about-practice-groups{
+      grid-template-columns:1fr;
+      gap:30px;
+    }
+    .about-work-carousel{
+      display:block;
+    }
+    .about-work-control{ display:none; }
+    .about-work-track{ padding-bottom:4px; }
+    .about-work-card{ flex-basis:min(72vw,250px); }
+    .about-next{
+      margin-top:40px;
+      padding-bottom:64px;
     }
   }
 </style>
@@ -242,19 +379,19 @@
   <div class="wrap">
     <p class="eyebrow">About</p>
     <div class="about-hero-inner">
-      <figure class="about-portrait">
-        <img src="assets/profile-portrait-web.jpg" alt="Hong-Qi Lu (Benson) portrait" loading="lazy">
-      </figure>
       <div class="about-hero-text">
         <h1>Hong-Qi Lu</h1>
         <div class="resume-intro">
-          <p class="resume-positioning">Research, Content &amp; Experience</p>
+          <p class="resume-positioning">UX Research &amp; Experience Strategy</p>
           <p class="resume-summary">
-            I turn scattered observations into clear structures, stories,
-            and interaction flows.
+            I turn user insights into clear product direction and meaningful experiences.
           </p>
+          <p class="about-hero-meta">Based in Taiwan</p>
         </div>
       </div>
+      <figure class="about-portrait">
+        <img src="assets/profile-portrait-web.jpg" alt="Hong-Qi Lu (Benson) portrait" loading="lazy">
+      </figure>
     </div>
   </div>
   <a class="about-scroll" href="#how-i-work" aria-label="Scroll to How I Work">
@@ -270,17 +407,17 @@
       <article class="resume-entry">
         <span class="about-method-number">01</span>
         <h3>Observe</h3>
-        <p>Find where people hesitate, compare, or get lost.</p>
+        <p>I uncover where people hesitate, compare, and lose confidence.</p>
       </article>
       <article class="resume-entry">
         <span class="about-method-number">02</span>
-        <h3>Structure</h3>
-        <p>Turn scattered inputs into flows, frameworks, and priorities.</p>
+        <h3>Synthesize</h3>
+        <p>I turn evidence into patterns, opportunities, and priorities.</p>
       </article>
       <article class="resume-entry">
         <span class="about-method-number">03</span>
         <h3>Translate</h3>
-        <p>Make insights usable through content, interfaces, and experience directions.</p>
+        <p>I shape insights into clear product and experience direction.</p>
       </article>
     </div>
   </div>
@@ -289,22 +426,28 @@
 <section class="resume-section about-practice">
   <div class="wrap">
     <h2>Practice Areas</h2>
-    <div class="cap-grid">
-      <div class="cap-item">
-        <p class="cap-label">User Research</p>
-        <p class="cap-detail">Interviews, usability testing, behavioral observation, and insight synthesis.</p>
+    <div class="about-practice-groups">
+      <div class="about-practice-group">
+        <h3 class="about-practice-heading">Core Practices</h3>
+        <div class="cap-grid">
+          <div class="cap-item">
+            <p class="cap-label">User Research</p>
+          </div>
+          <div class="cap-item">
+            <p class="cap-label">Research Synthesis</p>
+          </div>
+        </div>
       </div>
-      <div class="cap-item">
-        <p class="cap-label">Experience Design</p>
-        <p class="cap-detail">User flows, information architecture, prototypes, and interaction structure.</p>
-      </div>
-      <div class="cap-item">
-        <p class="cap-label">Content Strategy</p>
-        <p class="cap-detail">Interface language, storytelling, content structure, and narrative framing.</p>
-      </div>
-      <div class="cap-item">
-        <p class="cap-label">AI Interaction</p>
-        <p class="cap-detail">Conversation flows, knowledge structure, prompt rules, and response logic.</p>
+      <div class="about-practice-group">
+        <h3 class="about-practice-heading">Complementary Skills</h3>
+        <div class="cap-grid">
+          <div class="cap-item">
+            <p class="cap-label">Experience Strategy</p>
+          </div>
+          <div class="cap-item">
+            <p class="cap-label">Content &amp; AI Interaction</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -315,13 +458,13 @@
     <h2>Background</h2>
     <div class="resume-entry">
       <p>
-        I am currently pursuing an M.A. in Communication Studies at
-        National Yang Ming Chiao Tung University, with previous training
-        in English Language and Literature and International Business.
+        I am pursuing an M.A. in Communication Studies at National Yang Ming
+        Chiao Tung University, with prior training in English Language and
+        Literature and International Business.
       </p>
       <p class="paragraph-spaced">
-        This background shapes how I approach design problems:
-        through people, context, information, and systems.
+        This multidisciplinary background shapes how I study language, behavior,
+        context, and trust in digital experiences.
       </p>
     </div>
   </div>
@@ -343,6 +486,33 @@
           Download Chinese Resume
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-next" aria-labelledby="selected-work-title">
+  <div class="wrap">
+    <h2 class="about-next__heading" id="selected-work-title">Selected Work</h2>
+    <div class="about-work-carousel">
+      <button class="about-work-control" type="button" data-work-direction="-1" aria-label="Previous project">←</button>
+      <div class="about-work-track" data-about-work-track tabindex="0" aria-label="Project carousel">
+        <a class="about-work-card" href="project-melu.html" aria-label="View Melu project">
+          <img src="assets/melu/melu-cover-icon.svg" alt="" loading="lazy">
+        </a>
+        <a class="about-work-card" href="project-kkday.html" aria-label="View KKday project">
+          <img src="assets/kkday/kkday-project-cover.svg" alt="" loading="lazy">
+        </a>
+        <a class="about-work-card" href="project-bamboofox-chatbot.html" aria-label="View BambooFox chatbot project">
+          <img src="assets/bamboofox-chatbot/bamboofox-chatbot-cover.png" alt="" loading="lazy">
+        </a>
+        <a class="about-work-card" href="project-enigma.html" aria-label="View Enigma project">
+          <img src="assets/enigma/cover-fox-forest.jpg" alt="" loading="lazy">
+        </a>
+        <a class="about-work-card" href="project-meichu.html" aria-label="View Meichu Games project">
+          <img src="assets/meichu-games/bamboofox-meichugames.svg" alt="" loading="lazy">
+        </a>
+      </div>
+      <button class="about-work-control" type="button" data-work-direction="1" aria-label="Next project">→</button>
     </div>
   </div>
 </section>
@@ -376,6 +546,80 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
     items.forEach(function(el){ io.observe(el); });
+  })();
+
+  (function(){
+    var track = document.querySelector('[data-about-work-track]');
+    var controls = document.querySelectorAll('[data-work-direction]');
+    if(!track || !controls.length) return;
+
+    var originals = Array.prototype.slice.call(track.querySelectorAll('.about-work-card'));
+    if(!originals.length) return;
+
+    function makeLoopClone(card){
+      var clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.setAttribute('tabindex', '-1');
+      clone.setAttribute('data-loop-clone', '');
+      return clone;
+    }
+
+    var leadingClones = originals.map(makeLoopClone).reverse();
+    var trailingClones = originals.map(makeLoopClone);
+    leadingClones.forEach(function(clone){ track.insertBefore(clone, track.firstChild); });
+    trailingClones.forEach(function(clone){ track.appendChild(clone); });
+
+    var setWidth = 0;
+    var scrollTimer;
+    var resizeTimer;
+
+    function cardStep(){
+      var gap = parseFloat(window.getComputedStyle(track).gap) || 14;
+      return originals[0].getBoundingClientRect().width + gap;
+    }
+
+    function jumpTo(left){
+      var previousBehavior = track.style.scrollBehavior;
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft = left;
+      track.style.scrollBehavior = previousBehavior;
+    }
+
+    function measureLoop(isInitial){
+      var previousSetWidth = setWidth;
+      var relativePosition = previousSetWidth ? track.scrollLeft % previousSetWidth : 0;
+      setWidth = cardStep() * originals.length;
+      jumpTo(isInitial ? setWidth : setWidth + relativePosition);
+    }
+
+    function keepLoopContinuous(){
+      if(!setWidth) return;
+      var left = track.scrollLeft;
+      if(left < setWidth * .35){
+        jumpTo(left + setWidth);
+      } else if(left > setWidth * 1.65){
+        jumpTo(left - setWidth);
+      }
+    }
+
+    track.addEventListener('scroll', function(){
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(keepLoopContinuous, 80);
+    }, { passive:true });
+
+    controls.forEach(function(control){
+      control.addEventListener('click', function(){
+        var direction = Number(control.getAttribute('data-work-direction')) || 1;
+        track.scrollBy({ left: cardStep() * direction, behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('resize', function(){
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(function(){ measureLoop(false); }, 150);
+    });
+
+    window.requestAnimationFrame(function(){ measureLoop(true); });
   })();
 </script>
 
