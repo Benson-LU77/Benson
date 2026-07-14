@@ -84,7 +84,27 @@
     toggle();
   });
   panel.addEventListener("click", (e) => {
-    if (e.target.closest("a")) close();
+    const a = e.target.closest("a");
+    if (!a) return;
+    e.preventDefault();
+    const el = document.getElementById(a.getAttribute("href").slice(1));
+    close();
+    if (!el) return;
+    if (history.replaceState) {
+      history.replaceState(null, "", a.getAttribute("href"));
+    }
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Lazy images above can shift layout mid-scroll; re-align once it settles
+    const margin = 40;
+    const settle = () => {
+      const target = Math.max(
+        0,
+        el.getBoundingClientRect().top + window.scrollY - margin
+      );
+      if (Math.abs(window.scrollY - target) > 6) window.scrollTo(0, target);
+    };
+    setTimeout(settle, 480);
+    setTimeout(settle, 900);
   });
   document.addEventListener("click", (e) => {
     if (!panel.contains(e.target) && e.target !== fab) close();
