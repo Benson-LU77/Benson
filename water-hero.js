@@ -70,7 +70,7 @@
   }
 
   function drawRipples(now) {
-    const duration = 1350;
+    const duration = 850;
     motion.ripples = motion.ripples.filter(function (ripple) {
       return now - ripple.born < duration;
     });
@@ -80,8 +80,8 @@
       const progress = Math.max(0, Math.min(1, (now - ripple.born) / duration));
       const fade = Math.pow(1 - progress, 2);
       const radius = 24 + progress * 112;
-      const lightAlpha = 0.24 * fade * ripple.strength;
-      const darkAlpha = 0.13 * fade * ripple.strength;
+      const lightAlpha = 0.14 * fade * ripple.strength;
+      const darkAlpha = 0.06 * fade * ripple.strength;
 
       ctx.save();
       ctx.translate(ripple.x, ripple.y);
@@ -91,15 +91,15 @@
       ctx.beginPath();
       ctx.ellipse(0, 0, radius * 1.35, radius * 0.68, 0, -2.45, 1.15);
       ctx.strokeStyle = "rgba(255,255,253," + lightAlpha.toFixed(3) + ")";
-      ctx.lineWidth = 2.2 + progress * 1.6;
+      ctx.lineWidth = 1.6 + progress * 1.2;
       ctx.shadowColor = "rgba(255,255,253," + (lightAlpha * 0.7).toFixed(3) + ")";
-      ctx.shadowBlur = 9;
+      ctx.shadowBlur = 6;
       ctx.stroke();
 
       ctx.beginPath();
       ctx.ellipse(0, 0, radius * 1.08, radius * 0.54, 0, -0.15, 2.2);
       ctx.strokeStyle = "rgba(58,56,52," + darkAlpha.toFixed(3) + ")";
-      ctx.lineWidth = 1.8 + progress * 1.3;
+      ctx.lineWidth = 1.3 + progress;
       ctx.shadowBlur = 0;
       ctx.stroke();
       ctx.restore();
@@ -113,8 +113,8 @@
     blobs.forEach(function (b) {
       const entranceX = (1 - entrance) * b.ex * W;
       const entranceY = (1 - entrance) * b.ey * H;
-      const pointerX = motion.pointerX * W * 0.042 * b.depth;
-      const pointerY = motion.pointerY * H * 0.032 * b.depth;
+      const pointerX = motion.pointerX * W * 0.032 * b.depth;
+      const pointerY = motion.pointerY * H * 0.024 * b.depth;
       const scrollX = Math.sin(motion.scroll * Math.PI * 2 + b.bp) * W * 0.035 * b.depth;
       const scrollY = Math.cos(motion.scroll * Math.PI * 1.5 + b.bp) * H * 0.028 * b.depth;
       const x = b.fx * W
@@ -193,15 +193,15 @@
         const dy = e.clientY - motion.rippleAnchorY;
         const distance = Math.hypot(dx, dy);
         const now = performance.now();
-        if (distance >= 32 && now - motion.lastRippleAt >= 110) {
+        if (distance >= 48 && now - motion.lastRippleAt >= 140) {
           motion.ripples.push({
             x: e.clientX,
             y: e.clientY,
             born: now,
             angle: Math.atan2(dy, dx),
-            strength: Math.min(1, 0.38 + distance / 150),
+            strength: Math.min(0.82, 0.28 + distance / 190),
           });
-          if (motion.ripples.length > 4) motion.ripples.shift();
+          if (motion.ripples.length > 2) motion.ripples.shift();
           motion.rippleAnchorX = e.clientX;
           motion.rippleAnchorY = e.clientY;
           motion.lastRippleAt = now;
