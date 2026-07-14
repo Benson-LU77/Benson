@@ -14,11 +14,15 @@
 <meta property="og:description" content="Portfolio in user research, content strategy, and experience design.">
 <meta property="og:image" content="https://benson-lu77.github.io/Benson/assets/logo/hongqi-h-logo.png">
 <meta property="og:url" content="https://benson-lu77.github.io/Benson/">
-<link rel="stylesheet" href="style.css?v=20260714-water-ripple2">
+<link rel="stylesheet" href="style.css?v=20260714-home-five-panels1">
 <style>
-  /* Full-page scroll-snap: 4 content screens + Get in Touch (desktop only) */
+  /* Full-page scroll-snap: 5 homepage screens (desktop only) */
   @media (min-width: 761px){
-    html{ scroll-snap-type: y proximity; }
+    html{
+      scroll-snap-type:y mandatory;
+      scroll-behavior:smooth;
+    }
+    .page-home{ overscroll-behavior-y:none; }
     /* nav overlays so every screen snaps cleanly to the top */
     .page-home .site-nav{
       position: fixed;
@@ -26,14 +30,12 @@
       z-index: 50;
     }
     .water-hero{ min-height: 100svh; }
-    .water-hero,
-    .work-intro,
-    .project-showcase,
-    .home-profile,
-    .site-footer{
+    [data-home-panel]{
       scroll-snap-align: start;
       scroll-snap-stop: always;
     }
+    .water-hero,
+    .work-intro,
     .project-showcase,
     .home-profile,
     .site-footer{
@@ -50,6 +52,20 @@
       border-top: 0;
       background: transparent;
     }
+  }
+  @media (min-width:901px) and (max-height:820px){
+    .page-home .project-showcase{
+      padding-top:82px;
+      padding-bottom:34px;
+    }
+    .page-home .project-panel__row{ padding:11px 0; }
+    .page-home .project-panel__title{ font-size:clamp(1.15rem,1.7vw,1.55rem); }
+    .page-home .project-panel__meta{ padding-top:6px; }
+    .page-home .project-panel__desc{ font-size:.82rem; line-height:1.5; }
+    .page-home .project-index__viewall{ margin-top:16px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
   }
 </style>
 </head>
@@ -83,7 +99,7 @@
   </div>
 </nav>
 
-<section class="water-hero" id="main-content" aria-labelledby="water-hero-title">
+<section class="water-hero" id="main-content" aria-labelledby="water-hero-title" data-home-panel>
   <div class="water-hero__frame wrap">
     <div class="water-hero__identity">
       <div class="water-hero__title water-reveal">
@@ -116,7 +132,7 @@
 </section>
 
 
-<section class="work-intro water-section" id="selected-work">
+<section class="work-intro water-section" id="selected-work" data-home-panel>
   <div class="wrap work-intro__inner">
     <p class="case-label water-reveal">
       Selected Work
@@ -132,7 +148,7 @@
   </div>
 </section>
 
-<section class="project-showcase project-panel water-section" aria-label="Selected projects">
+<section class="project-showcase project-panel water-section" aria-label="Selected projects" data-home-panel>
   <div class="project-panel__inner water-reveal">
 
     <div class="project-panel__media" aria-hidden="true">
@@ -226,7 +242,7 @@
   </div>
 </section>
 
-<section class="home-profile water-section">
+<section class="home-profile water-section" data-home-panel>
   <div class="wrap home-profile__inner">
     <p class="case-label water-reveal">
       Profile
@@ -252,7 +268,7 @@
   </div>
 </section>
 
-<footer class="site-footer">
+<footer class="site-footer" data-home-panel>
   <div class="wrap">
     <a href="contact.html" class="footer-getintouch">
       <span class="footer-getintouch__eyebrow">Get in Touch</span>
@@ -265,5 +281,6 @@
 <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script src="water-hero.js?v=20260714-water-ripple2"></script>
+<script src="home-scroll.js?v=20260714-home-five-panels7"></script>
 </body>
 </html>
