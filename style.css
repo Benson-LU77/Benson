@@ -544,6 +544,155 @@ body {
   opacity: 0.85;
 }
 
+/* ── At a glance (case-page summary) ── */
+.at-glance {
+  padding: clamp(30px, 4vw, 48px) 0;
+  border-top: 1px solid rgba(37, 37, 34, 0.12);
+  border-bottom: 1px solid rgba(37, 37, 34, 0.12);
+}
+.at-glance__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+}
+.at-glance__label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 10px;
+}
+.at-glance__value {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--charcoal);
+  opacity: 0.85;
+  margin: 0;
+  max-width: none;
+}
+@media (max-width: 640px) {
+  .at-glance__inner { grid-template-columns: 1fr; gap: 22px; }
+}
+
+/* ── Floating case-page contents (side, hover to reveal) ── */
+html { scroll-behavior: smooth; }
+.case-section[id] { scroll-margin-top: 40px; }
+
+.case-toc-widget {
+  position: fixed;
+  z-index: 60;
+  left: 26px;
+  bottom: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+.case-toc-widget.is-ready {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+/* transparent bridge so moving from button to panel keeps hover */
+.case-toc-widget::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 50px;
+  width: 54px;
+  height: 22px;
+}
+.case-toc-fab {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  border: 1px solid rgba(37, 37, 34, 0.14);
+  border-radius: 50%;
+  background: rgba(247, 246, 242, 0.86);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--olive);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(37, 37, 34, 0.1);
+  transition: color 0.2s ease, box-shadow 0.25s ease;
+}
+.case-toc-widget:hover .case-toc-fab,
+.case-toc-fab:focus-visible { color: var(--charcoal); box-shadow: 0 8px 22px rgba(37, 37, 34, 0.14); }
+.case-toc-fab:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+.case-toc-fab svg { width: 24px; height: 24px; display: block; }
+
+.case-toc-panel {
+  position: absolute;
+  left: 0;
+  bottom: 64px;
+  width: min(280px, calc(100vw - 52px));
+  max-height: min(68vh, 540px);
+  overflow-y: auto;
+  background: rgba(249, 248, 245, 0.97);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--charcoal);
+  border: 1px solid rgba(37, 37, 34, 0.12);
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 14px 34px rgba(37, 37, 34, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transform-origin: bottom left;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+.case-toc-widget:hover .case-toc-panel,
+.case-toc-panel.is-open { opacity: 1; visibility: visible; transform: none; }
+.case-toc-panel__title {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  opacity: 0.9;
+  margin: 0 0 14px;
+}
+.case-toc-panel ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.case-toc-panel li { margin: 0; counter-increment: toc; }
+.case-toc-panel a {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  line-height: 1.4;
+  color: rgba(37, 37, 34, 0.58);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(37, 37, 34, 0.08);
+  transition: color 0.2s ease;
+}
+.case-toc-panel li:last-child a { border-bottom: 0; }
+.case-toc-panel a::before {
+  content: counter(toc, decimal-leading-zero);
+  color: rgba(37, 37, 34, 0.3);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+}
+.case-toc-panel a:hover,
+.case-toc-panel a.is-current { color: var(--charcoal); }
+.case-toc-panel a.is-current::before { color: var(--clay); }
+
+@media (max-width: 760px) {
+  .case-toc-widget { left: 16px; bottom: 20px; }
+  .case-toc-widget::before { bottom: 46px; width: 48px; }
+  .case-toc-fab { width: 48px; height: 48px; }
+  .case-toc-fab svg { width: 22px; height: 22px; }
+  .case-toc-panel { bottom: 60px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-toc-panel { transition: opacity 0.2s ease, visibility 0.2s; transform: none; }
+}
+
 /* Previous / Next Project Navigation */
 .project-nav-footer {
   border-top: 1px solid rgba(37, 37, 34, 0.12);
@@ -2779,6 +2928,24 @@ body { overflow-x: hidden; }
   transform: translateY(0);
 }
 
+/* Hero content is visible by default and animates in immediately on load
+   (not gated on the scroll observer) — prevents a blank first paint and
+   the SCROLL cue appearing only after scrolling. */
+.water-hero .water-reveal {
+  opacity: 1;
+  transform: none;
+  animation: heroReveal 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.water-hero .water-hero__intro.water-reveal { animation-delay: 130ms; }
+.water-hero .water-hero__bottom.water-reveal { animation-delay: 260ms; }
+@keyframes heroReveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .water-hero .water-reveal { animation: none; }
+}
+
 /* ── Hero ── */
 .water-hero {
   min-height: calc(100svh - 92px);
@@ -2813,12 +2980,12 @@ body { overflow-x: hidden; }
 .water-hero__scroll {
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: 0.66rem;
+  font-size: 0.68rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(66, 70, 64, 0.72);
+  color: rgba(52, 56, 50, 0.92);
 }
 
 .water-hero__identity {
@@ -2834,11 +3001,11 @@ body { overflow-x: hidden; }
 .water-hero__kicker {
   margin: 0 0 26px;
   font-family: "Inter", sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 400;
   letter-spacing: 0.17em;
   text-transform: uppercase;
-  color: rgba(66, 70, 64, 0.72);
+  color: rgba(52, 56, 50, 0.92);
 }
 
 .water-hero h1 {
@@ -2859,10 +3026,10 @@ body { overflow-x: hidden; }
 .water-hero__intro p {
   margin: 0;
   font-family: "Inter", sans-serif;
-  font-size: clamp(0.94rem, 1.2vw, 1.08rem);
-  font-weight: 300;
+  font-size: clamp(0.96rem, 1.2vw, 1.1rem);
+  font-weight: 400;
   line-height: 1.9;
-  color: rgba(53, 55, 50, 0.78);
+  color: rgba(40, 43, 38, 0.94);
 }
 
 .water-hero__intro p + p {
@@ -3149,12 +3316,12 @@ body { overflow-x: hidden; }
 .home-profile__copy > p.home-profile__role {
   margin-top: 10px;
   font-family: "Inter", sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(66, 70, 64, 0.62);
+  color: rgba(52, 56, 50, 0.86);
 }
 
 .home-profile__copy a {
@@ -3210,6 +3377,31 @@ body { overflow-x: hidden; }
   .home-profile__portrait {
     max-width: 300px;
     margin-top: 12px;
+  }
+
+  /* P1-6: comfortable tap targets (>=44px) */
+  .site-nav a.nav-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 2px;
+  }
+  .contact-list a,
+  .contact-list__items a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-getintouch {
+    padding: 8px 0;
+  }
+
+  /* P2-10: no blur-to-focus on mobile — just a quick fade */
+  .home-profile__portrait img,
+  .home-profile__portrait.is-visible img {
+    filter: none;
+    transform: none;
+    transition: opacity 0.5s ease;
   }
 
   .expertise-strip__list {

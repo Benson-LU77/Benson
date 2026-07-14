@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="description" content="UX case study of KKday's web booking experience — user interviews, competitive analysis, heuristic evaluation, and usability testing.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260705-fullwidth2">
+<link rel="stylesheet" href="style.css?v=20260714b">
 </head>
 <body>
 
@@ -59,8 +59,22 @@
   </div>
 </section>
 
+<!-- At a glance -->
+<section class="at-glance" aria-label="At a glance">
+  <div class="wrap at-glance__inner">
+    <div class="at-glance__item">
+      <p class="at-glance__label">Key finding</p>
+      <p class="at-glance__value">Feature-complete ≠ usable — filtering, visibility and consistency broke decisions at key moments (SUS 65.5).</p>
+    </div>
+    <div class="at-glance__item">
+      <p class="at-glance__label">Outcome</p>
+      <p class="at-glance__value">Converged multi-stage research into prioritized interface problems and concrete design recommendations.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ── 01 Project Overview ── -->
-<section class="case-section">
+<section class="case-section" id="overview">
   <div class="wrap">
     <p class="case-label">Project Overview</p>
 
@@ -211,7 +225,7 @@
 </section>
 
 <!-- ── 05 User Research ── -->
-<section class="case-section">
+<section class="case-section" id="research">
   <div class="wrap">
     <p class="case-label">User Research</p>
 
@@ -303,7 +317,7 @@
 </section>
 
 <!-- ── 06 Comparative Analysis ── -->
-<section class="case-section">
+<section class="case-section" id="comparative">
   <div class="wrap">
     <p class="case-label">Comparative Analysis</p>
 
@@ -325,7 +339,7 @@
 </section>
 
 <!-- ── 07 Survey ── -->
-<section class="case-section">
+<section class="case-section" id="survey">
   <div class="wrap">
     <p class="case-label">Survey</p>
 
@@ -364,7 +378,7 @@
 </section>
 
 <!-- ── 08 Heuristic Evaluation ── -->
-<section class="case-section">
+<section class="case-section" id="heuristic">
   <div class="wrap">
     <p class="case-label">Heuristic Evaluation</p>
 
@@ -430,7 +444,7 @@
 </section>
 
 <!-- ── 09 Usability Testing ── -->
-<section class="case-section">
+<section class="case-section" id="usability">
   <div class="wrap">
     <p class="case-label">Usability Testing</p>
 
@@ -553,7 +567,7 @@
 </section>
 
 <!-- ── 10 Key Findings ── -->
-<section class="case-section">
+<section class="case-section" id="findings">
   <div class="wrap">
     <p class="case-label">Integrated Findings</p>
     <h2>整合不同研究方法後的關鍵介面問題</h2>
@@ -686,7 +700,7 @@
 </section>
 
 <!-- ── 11 Design Recommendations ── -->
-<section class="case-section">
+<section class="case-section" id="recommendations">
   <div class="wrap">
     <p class="case-label">Design Recommendations</p>
 
@@ -926,5 +940,6 @@
 <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script src="back-to-top.js?v=20260705-fullwidth2"></script>
+<script src="case-toc.js?v=20260714d"></script>
 </body>
 </html>
