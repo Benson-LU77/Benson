@@ -94,17 +94,19 @@
       history.replaceState(null, "", a.getAttribute("href"));
     }
     el.scrollIntoView({ behavior: "smooth", block: "start" });
-    // Lazy images above can shift layout mid-scroll; re-align once it settles
-    const margin = 40;
-    const settle = () => {
+    // Lazy images above can shift layout mid-scroll; re-align once, instantly
+    // (temporarily disable smooth so the correction doesn't stack another animation)
+    setTimeout(() => {
+      const root = document.documentElement;
+      const prev = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
       const target = Math.max(
         0,
-        el.getBoundingClientRect().top + window.scrollY - margin
+        el.getBoundingClientRect().top + window.scrollY - 40
       );
-      if (Math.abs(window.scrollY - target) > 6) window.scrollTo(0, target);
-    };
-    setTimeout(settle, 480);
-    setTimeout(settle, 900);
+      if (Math.abs(window.scrollY - target) > 8) window.scrollTo(0, target);
+      root.style.scrollBehavior = prev;
+    }, 620);
   });
   document.addEventListener("click", (e) => {
     if (!panel.contains(e.target) && e.target !== fab) close();
