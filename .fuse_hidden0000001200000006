@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="description" content="UX case study of KKday's web booking experience — user interviews, competitive analysis, heuristic evaluation, and usability testing.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260717-nav3">
+<link rel="stylesheet" href="style.css?v=20260717-nav2">
 <style>
   .site-nav{ border-bottom:0; }
 </style>
@@ -943,6 +943,5 @@
 
 <script src="back-to-top.js?v=20260714-project-footer1"></script>
 <script src="case-toc.js?v=20260714f"></script>
-<script src="nav.js?v=20260717a"></script>
 </body>
 </html>

@@ -103,7 +103,7 @@ body {
 }
 .nav-toggle svg { width: 28px; height: 28px; display: block; }
 .nav-menu:hover .nav-toggle,
-.nav-menu:has(:focus-visible) .nav-toggle { color: var(--clay); }
+.nav-menu.is-open .nav-toggle { color: var(--clay); }
 .nav-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
 
 .site-nav .nav-menu > ul {
@@ -129,51 +129,64 @@ body {
   transform: translateX(10px);
   transition: opacity 0.28s ease, transform 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-/* hover opens it; keyboard focus (not a mouse click) also opens it, so a
-   click never leaves the menu stuck open */
+/* Opened by hover (pointer devices) or by the .is-open class that nav.js sets */
 .nav-menu:hover > ul,
-.nav-menu:has(:focus-visible) > ul {
+.nav-menu.is-open > ul {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 .nav-menu:hover > ul li,
-.nav-menu:has(:focus-visible) > ul li {
+.nav-menu.is-open > ul li {
   opacity: 1;
   transform: none;
 }
 /* stagger outwards from the icon */
 .nav-menu:hover > ul li:nth-last-child(1),
-.nav-menu:has(:focus-visible) > ul li:nth-last-child(1) { transition-delay: 0.02s; }
+.nav-menu.is-open > ul li:nth-last-child(1) { transition-delay: 0.02s; }
 .nav-menu:hover > ul li:nth-last-child(2),
-.nav-menu:has(:focus-visible) > ul li:nth-last-child(2) { transition-delay: 0.06s; }
+.nav-menu.is-open > ul li:nth-last-child(2) { transition-delay: 0.06s; }
 .nav-menu:hover > ul li:nth-last-child(3),
-.nav-menu:has(:focus-visible) > ul li:nth-last-child(3) { transition-delay: 0.1s; }
+.nav-menu.is-open > ul li:nth-last-child(3) { transition-delay: 0.1s; }
 .nav-menu:hover > ul li:nth-last-child(4),
-.nav-menu:has(:focus-visible) > ul li:nth-last-child(4) { transition-delay: 0.14s; }
+.nav-menu.is-open > ul li:nth-last-child(4) { transition-delay: 0.14s; }
 
-/* Small screens: icon keeps its original size, links drop below */
+/* Small screens: icon keeps its original size, links drop into a compact panel */
 @media (max-width: 640px) {
   .nav-toggle { width: 44px; height: 44px; }
   .nav-toggle svg { width: 22px; height: 22px; }
   .site-nav .nav-menu > ul {
     right: 0;
-    top: 100%;
+    top: calc(100% + 6px);
     transform: none;
     flex-direction: column;
-    align-items: flex-end;
-    gap: 2px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    background: rgba(244, 241, 234, 0.97);
+    align-items: stretch;
+    gap: 0;
+    min-width: 148px;
+    padding: 6px;
+    border: 1px solid rgba(37, 37, 34, 0.08);
+    border-radius: 10px;
+    background: rgba(246, 244, 238, 0.98);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    box-shadow: 0 12px 28px rgba(37, 37, 34, 0.12);
+    box-shadow: 0 10px 24px rgba(37, 37, 34, 0.14);
   }
-  .site-nav .nav-menu > ul li { transform: translateY(-6px); }
-  /* touch has no hover — tapping the icon opens it */
-  .nav-menu:focus-within > ul { opacity: 1; visibility: visible; pointer-events: auto; }
-  .nav-menu:focus-within > ul li { opacity: 1; transform: none; }
+  .site-nav .nav-menu > ul li { transform: none; }
+  .site-nav .nav-menu > ul .nav-link {
+    display: block;
+    min-height: 0;
+    padding: 11px 14px;
+    border: 0;
+    border-radius: 6px;
+    text-align: right;
+    font-size: 14px;
+  }
+  .site-nav .nav-menu > ul .nav-link:hover,
+  .site-nav .nav-menu > ul .nav-link.active {
+    color: var(--clay);
+    border: 0;
+    background: rgba(169, 112, 90, 0.09);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-nav .nav-menu > ul li { transition: opacity 0.2s ease; transform: none; }

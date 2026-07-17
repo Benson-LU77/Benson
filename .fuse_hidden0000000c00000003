@@ -14,7 +14,7 @@
 <meta property="og:description" content="Portfolio in user research, content strategy, and experience design.">
 <meta property="og:image" content="https://benson-lu77.github.io/Benson/assets/logo/hongqi-h-logo.png">
 <meta property="og:url" content="https://benson-lu77.github.io/Benson/">
-<link rel="stylesheet" href="style.css?v=20260717-nav3">
+<link rel="stylesheet" href="style.css?v=20260717-nav2">
 <style>
   /* Full-page scroll-snap: 5 homepage screens (desktop only) */
   @media (min-width: 761px){
@@ -291,6 +291,5 @@
 
 <script src="water-hero.js?v=20260714-water-ripple2"></script>
 <script src="home-scroll.js?v=20260714-home-five-panels7"></script>
-<script src="nav.js?v=20260717a"></script>
 </body>
 </html>
