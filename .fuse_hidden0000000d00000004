@@ -10,9 +10,6 @@
 <meta name="description" content="The Enigma of Bamboo Fox — an interactive narrative experience structured, designed, and prototyped in Figma.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260717-nav">
-<style>
-  .site-nav{ border-bottom:0; }
-</style>
 </head>
 <body>
 

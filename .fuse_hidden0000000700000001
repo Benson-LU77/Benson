@@ -116,9 +116,6 @@
     .melu-shots{ grid-template-columns:1fr; gap:24px; }
   }
 </style>
-<style>
-  .site-nav{ border-bottom:0; }
-</style>
 </head>
 <body>
 

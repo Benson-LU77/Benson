@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="description" content="About Hong-Qi Lu — working across UX research, research synthesis, experience strategy, and AI interaction.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260714-about-refresh1">
+<link rel="stylesheet" href="style.css?v=20260717-nav">
 <style>
   html{ scroll-behavior:smooth; }
   .site-nav{ border-bottom:0; }
@@ -326,6 +326,12 @@
   .about-resume-buttons {
     margin-top: 28px;
   }
+  /* both download buttons share one width */
+  .about-resume-buttons .btn-outline {
+    flex: 0 1 260px;
+    max-width: 100%;
+    text-align: center;
+  }
   @media (max-width: 860px) {
     .about-method-grid {
       grid-template-columns: 1fr;
@@ -366,12 +372,21 @@
         class="site-logo-image"
       >
     </a>
-    <ul>
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="projects.html" class="nav-link">Projects</a></li>
-      <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
-      <li><a href="contact.html" class="nav-link">Contact</a></li>
-    </ul>
+    <div class="nav-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="about.html" class="nav-link active" aria-current="page">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+          <rect x="3" y="11.2" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+          <rect x="3" y="16.4" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </nav>
 
