@@ -104,11 +104,8 @@ body {
 .nav-toggle svg { width: 28px; height: 28px; display: block; }
 .nav-menu.is-open .nav-toggle { color: var(--clay); }
 .nav-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
-/* no grey/black flash on tap — use a soft tint instead */
-.nav-toggle,
-.site-nav .nav-link,
-.case-toc-fab,
-.case-toc-panel a {
+/* no grey/black flash on tap anywhere — use soft tints for feedback instead */
+html {
   -webkit-tap-highlight-color: transparent;
 }
 .site-nav .nav-menu > ul .nav-link:active { background: rgba(169, 112, 90, 0.12); }
@@ -3077,6 +3074,11 @@ body { overflow-x: hidden; }
   z-index: 1;
 }
 
+/* The nav must outrank those sections: they share z-index 1 and come later in
+   the DOM, so the (transparent) hero would otherwise swallow taps meant for the
+   dropdown menu. */
+.site-nav { z-index: 30; }
+
 /* ── Scroll Reveal ── */
 .water-reveal {
   opacity: 0;
@@ -3502,6 +3504,23 @@ body { overflow-x: hidden; }
 
 .home-profile__copy a:hover {
   color: #242421;
+}
+
+.home-profile__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.link-arrow {
+  width: 11px;
+  height: 11px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.home-profile__link:hover .link-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* ── Mobile ── */
