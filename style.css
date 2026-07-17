@@ -102,7 +102,6 @@ body {
   transition: color 0.2s ease;
 }
 .nav-toggle svg { width: 28px; height: 28px; display: block; }
-.nav-menu:hover .nav-toggle,
 .nav-menu.is-open .nav-toggle { color: var(--clay); }
 .nav-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
 
@@ -129,26 +128,32 @@ body {
   transform: translateX(10px);
   transition: opacity 0.28s ease, transform 0.34s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-/* Opened by hover (pointer devices) or by the .is-open class that nav.js sets */
-.nav-menu:hover > ul,
+/* Opened via the .is-open class that nav.js sets.
+   NOTE: :hover is deliberately gated behind a real-pointer media query —
+   iOS Safari emulates a sticky :hover on tap, which would leave the menu
+   stuck open and swallow the first tap on a link. */
 .nav-menu.is-open > ul {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
-.nav-menu:hover > ul li,
 .nav-menu.is-open > ul li {
   opacity: 1;
   transform: none;
 }
+@media (hover: hover) and (pointer: fine) {
+  .nav-menu:hover .nav-toggle { color: var(--clay); }
+  .nav-menu:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .nav-menu:hover > ul li { opacity: 1; transform: none; }
+}
 /* stagger outwards from the icon */
-.nav-menu:hover > ul li:nth-last-child(1),
 .nav-menu.is-open > ul li:nth-last-child(1) { transition-delay: 0.02s; }
-.nav-menu:hover > ul li:nth-last-child(2),
 .nav-menu.is-open > ul li:nth-last-child(2) { transition-delay: 0.06s; }
-.nav-menu:hover > ul li:nth-last-child(3),
 .nav-menu.is-open > ul li:nth-last-child(3) { transition-delay: 0.1s; }
-.nav-menu:hover > ul li:nth-last-child(4),
 .nav-menu.is-open > ul li:nth-last-child(4) { transition-delay: 0.14s; }
 
 /* Small screens: icon keeps its original size, links drop into a compact panel */
@@ -742,14 +747,14 @@ html { scroll-behavior: smooth; }
   width: min(280px, calc(100vw - 52px));
   max-height: min(68vh, 540px);
   overflow-y: auto;
-  background: rgba(249, 248, 245, 0.97);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  background: rgba(249, 248, 245, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   color: var(--charcoal);
-  border: 1px solid rgba(37, 37, 34, 0.12);
+  border: 1px solid rgba(37, 37, 34, 0.1);
   border-radius: 16px;
-  padding: 18px 18px 20px;
-  box-shadow: 0 14px 34px rgba(37, 37, 34, 0.12);
+  padding: 16px 16px 18px;
+  box-shadow: 0 12px 30px rgba(37, 37, 34, 0.1);
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
@@ -760,32 +765,32 @@ html { scroll-behavior: smooth; }
 .case-toc-panel.is-open { opacity: 1; visibility: visible; transform: none; }
 .case-toc-panel__title {
   font-family: "Inter", sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--clay);
   opacity: 0.9;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 .case-toc-panel ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
 .case-toc-panel li { margin: 0; counter-increment: toc; }
 .case-toc-panel a {
   display: flex;
-  gap: 12px;
-  padding: 8px 0;
+  gap: 11px;
+  padding: 7px 0;
   font-family: "Inter", sans-serif;
-  font-size: 13px;
-  line-height: 1.4;
-  color: rgba(37, 37, 34, 0.58);
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(37, 37, 34, 0.62);
   text-decoration: none;
-  border-bottom: 1px solid rgba(37, 37, 34, 0.08);
+  border-bottom: 1px solid rgba(37, 37, 34, 0.07);
   transition: color 0.2s ease;
 }
 .case-toc-panel li:last-child a { border-bottom: 0; }
 .case-toc-panel a::before {
   content: counter(toc, decimal-leading-zero);
-  color: rgba(37, 37, 34, 0.3);
-  font-size: 11px;
+  color: rgba(37, 37, 34, 0.32);
+  font-size: 10px;
   letter-spacing: 0.06em;
   padding-top: 2px;
 }
