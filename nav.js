@@ -16,18 +16,24 @@
   if (canHover) {
     menu.addEventListener("mouseenter", () => setOpen(true));
     menu.addEventListener("mouseleave", () => setOpen(false));
+    // Keyboard access — only on pointer devices. On touch, a focusout fires the
+    // moment a link is tapped, which would hide the menu before the click lands
+    // on the link and silently cancel the navigation.
+    menu.addEventListener("focusin", () => setOpen(true));
+    menu.addEventListener("focusout", (e) => {
+      if (!menu.contains(e.relatedTarget)) setOpen(false);
+    });
   }
 
-  // Touch / click toggle
+  // Tap / click the icon to toggle
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
     setOpen(!menu.classList.contains("is-open"));
   });
 
-  // Keyboard access
-  menu.addEventListener("focusin", () => setOpen(true));
-  menu.addEventListener("focusout", (e) => {
-    if (!menu.contains(e.relatedTarget)) setOpen(false);
+  // Let the link navigate first, then collapse
+  menu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", () => setOpen(false));
   });
 
   document.addEventListener("click", (e) => {

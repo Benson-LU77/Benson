@@ -104,6 +104,15 @@ body {
 .nav-toggle svg { width: 28px; height: 28px; display: block; }
 .nav-menu.is-open .nav-toggle { color: var(--clay); }
 .nav-toggle:focus-visible { outline: 2px solid var(--clay); outline-offset: 2px; }
+/* no grey/black flash on tap — use a soft tint instead */
+.nav-toggle,
+.site-nav .nav-link,
+.case-toc-fab,
+.case-toc-panel a {
+  -webkit-tap-highlight-color: transparent;
+}
+.site-nav .nav-menu > ul .nav-link:active { background: rgba(169, 112, 90, 0.12); }
+.nav-toggle:active { color: var(--clay); }
 
 .site-nav .nav-menu > ul {
   position: absolute;
@@ -162,31 +171,31 @@ body {
   .nav-toggle svg { width: 22px; height: 22px; }
   .site-nav .nav-menu > ul {
     right: 0;
-    top: calc(100% + 6px);
+    top: calc(100% + 4px);
     transform: none;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    min-width: 148px;
-    padding: 6px;
+    min-width: 124px;
+    padding: 4px;
     border: 1px solid rgba(37, 37, 34, 0.08);
-    border-radius: 10px;
-    background: rgba(246, 244, 238, 0.98);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 10px 24px rgba(37, 37, 34, 0.14);
+    border-radius: 9px;
+    background: rgba(246, 244, 238, 0.94);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(37, 37, 34, 0.12);
   }
   .site-nav .nav-menu > ul li { transform: none; }
   .site-nav .nav-menu > ul .nav-link {
     display: block;
     min-height: 0;
-    padding: 11px 14px;
+    padding: 7px 11px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 5px;
     text-align: right;
-    font-size: 14px;
+    font-size: 12.5px;
+    line-height: 1.5;
   }
-  .site-nav .nav-menu > ul .nav-link:hover,
   .site-nav .nav-menu > ul .nav-link.active {
     color: var(--clay);
     border: 0;
