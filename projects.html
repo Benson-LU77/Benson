@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="description" content="Selected projects in user research, product evaluation, conversational AI, and interactive storytelling.">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260717-nav6">
+<link rel="stylesheet" href="style.css?v=20260717-nav7">
 <style>
   /* ── Projects index (hover reveals a full-bleed cover) ── */
   .proj-bg{
@@ -22,7 +22,9 @@
   body.proj-active .proj-bg{ opacity:1; }
 
   /* keep page content above the background layer */
-  .site-nav, .site-header, .work{ position:relative; z-index:1; }
+  .site-header, .work{ position:relative; z-index:1; }
+  /* nav outranks them so the dropdown menu isn't swallowed by the list below it */
+  .site-nav{ position:relative; z-index:30; }
   /* list sits at the top under the heading, fixed row spacing (one screen, no scroll) */
   .work{
     min-height:calc(100vh - 168px);
@@ -199,6 +201,10 @@
 
 <script>
   (function(){
+    // Cover reveal is a pointer-only flourish. On touch, iOS synthesises
+    // mouseenter on tap, so the first tap would be spent on the transition
+    // instead of opening the project — skip it entirely there.
+    if(!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     var body = document.body;
     var bg = document.querySelector('.proj-bg');
     var index = document.querySelector('.proj-index');
