@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="MELU — 一座藏在森林裡的 AI 音樂陪伴電台原型，結合 AI 對話、音樂推薦與情緒紀錄。">
+<meta name="description" content="MELU — 一座藏在森林裡的 AI 音樂陪伴電台，結合 AI 對話、音樂推薦與情緒紀錄，已上線於 melu-fm.com。">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260717-nav7">
 <style>
@@ -42,6 +42,15 @@
   }
   /* Full-width banner images (hero sheet, diagram) share one radius */
   .melu-wide img{ border-radius:12px; }
+  /* Origin-film video */
+  .melu-film video{
+    width:100%;
+    display:block;
+    border-radius:12px;
+    background:#0b1712;
+    aspect-ratio:16 / 9;
+    object-fit:cover;
+  }
   /* Even 3-column grids (for 3- or 6-item rows, so nothing sits alone) */
   .melu-grid-3{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
   @media (max-width:1000px){ .melu-grid-3{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
@@ -159,7 +168,7 @@
   <div class="wrap">
     <a href="projects.html" class="back-link">← Back to Projects</a>
 
-    <p class="eyebrow">AI INTERACTION PROTOTYPE</p>
+    <p class="eyebrow">AI MUSIC COMPANION</p>
 
     <h1>MELU</h1>
 
@@ -170,7 +179,7 @@
         Product Concept · Interaction Design · UX Writing · AI Conversation Design
       </span>
 
-      <span>Jun 2026 – Jul 2026</span>
+      <span>Jun 2026 – ongoing</span>
     </div>
   </div>
 </header>
@@ -194,7 +203,7 @@
     </div>
     <div class="at-glance__item">
       <p class="at-glance__label">Outcome</p>
-      <p class="at-glance__value">A solo-built, working prototype with guardrails that stop the AI from fabricating songs or facts.</p>
+      <p class="at-glance__value">Solo-built and shipped as a live, installable PWA at melu-fm.com, with guardrails that stop the AI from fabricating songs or facts.</p>
     </div>
   </div>
 </section>
@@ -207,10 +216,10 @@
     <h2>一座藏在森林裡的 AI 音樂陪伴電台</h2>
 
     <p>
-      MELU 是一個森林電台風格的 AI 音樂陪伴原型。使用者透過與外星播音員「梅露」對話，把當下的心情換成一段貼近此刻狀態的音樂訊號——不是單純從播放清單挑一首歌，而是先被聽見、被理解之後，再收到那段剛好適合此刻的旋律。</p>
+      MELU 是一個森林電台風格的 AI 音樂陪伴產品。使用者透過與外星播音員「梅露」對話，把當下的心情換成一段貼近此刻狀態的音樂訊號——不是單純從播放清單挑一首歌，而是先被聽見、被理解之後，再收到那段剛好適合此刻的旋律。</p>
 
     <p class="paragraph-spaced">
-      這是我個人獨立開發的專案——從一個對「音樂與情緒」的好奇出發，一手把概念、角色、對話與介面兜成一個能實際運作的原型。它不是團隊產品，而是我用來把想法做出來、並持續打磨的個人作品。</p>
+      這是我個人獨立開發的專案——從一個對「音樂與情緒」的好奇出發，一手把概念、角色、對話與介面兜成一個能實際運作、並已上線的產品。它不是團隊產品，而是我用來把想法做出來、並持續打磨的個人作品。</p>
 
     <div class="meta-grid">
 
@@ -225,24 +234,25 @@
 
       <div class="meta-item">
         <p class="meta-label">Duration</p>
-        <p>Jun 2026 – Jul 2026</p>
+        <p>Jun 2026 – ongoing</p>
       </div>
 
       <div class="meta-item">
         <p class="meta-label">Type</p>
-        <p>Self-initiated Prototype</p>
+        <p>Self-initiated Product</p>
       </div>
 
       <div class="meta-item">
         <p class="meta-label">Tools</p>
         <p>
-          Next.js · React · Anthropic API · Apple MusicKit
+          Next.js · React · Anthropic API · Apple MusicKit ·
+          Supabase · PWA · Vercel + Cloudflare
         </p>
       </div>
 
       <div class="meta-item">
         <p class="meta-label">Status</p>
-        <p>Working prototype · public demo</p>
+        <p>Live at melu-fm.com · installable PWA</p>
       </div>
 
     </div>
@@ -251,7 +261,7 @@
       <p class="meta-label">My Contribution</p>
 
       <p>
-        這是一個個人規模、仍持續演進中的原型專案。我獨立完成產品概念、互動設計、UX 文案、AI 對話設計與視覺方向——從角色設計、美術方向，到對話腳本與技術整合皆一手包辦。</p>
+        這是一個個人規模、已上線並持續演進的產品。我獨立完成產品概念、互動設計、UX 文案、AI 對話設計與視覺方向——從角色設計、美術方向，到對話腳本與技術整合皆一手包辦。</p>
     </div>
   </div>
 </section>
@@ -337,6 +347,22 @@
       <span>MELU ON AIR</span>
       <span>Signal Found</span>
     </div>
+
+    <p class="melu-steps-lead">世界觀，影像化</p>
+
+    <figure class="case-image case-image--wide case-image--push melu-film">
+      <video
+        controls
+        playsinline
+        preload="none"
+        poster="assets/melu/melu-first-signal-poster.jpg"
+      >
+        <source src="assets/melu/melu-first-signal-720p.mp4" type="video/mp4">
+        你的瀏覽器不支援內嵌影片。
+      </video>
+      <figcaption>
+        <strong>MELU — The First Signal</strong>｜43 秒起源短片：駕駛艙一鏡到底 → 失訊翻滾 → 墜入月光松林 → 出艙 → 組裝森林電台 → 首次廣播。以 Higgsfield Cinema Studio 生成、六場分鏡、「末格接力」跨段連戲，再用 ffmpeg 精剪節奏與黑幕呼吸。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -471,7 +497,7 @@
 <section class="case-section">
   <div class="wrap">
     <p class="case-label">Features</p>
-    <h2>四個把「電台」變成產品的功能</h2>
+    <h2>把「電台」變成產品的功能</h2>
     <div class="melu-shots">
       <figure>
         <img src="assets/melu/melu-player.png" alt="MELU 黑膠風格播放器特寫，含唱片、唱臂與播放控制" loading="lazy">
@@ -482,13 +508,45 @@
         <figcaption><strong>Play Queue</strong><span>現在播放／接下來／播放過三段；可拖曳排序、隨機、立即播放或排到下一首。</span></figcaption>
       </figure>
       <figure>
-        <img src="assets/melu/melu-chat-tile.png" alt="MELU 陪伴模式聊天面板特寫" loading="lazy">
+        <img src="assets/melu/melu-companion-night.png" alt="MELU 陪伴頁夜間實機畫面，含對話與收斂後頂欄" loading="lazy">
         <figcaption><strong>Companion Chat</strong><span>先接住情緒、再自然承接一段音樂推薦的陪伴式對話。</span></figcaption>
       </figure>
       <figure>
         <img src="assets/melu/melu-signal-log.png" alt="MELU Signal Log 情緒紀錄時間軸" loading="lazy">
         <figcaption><strong>Signal Log</strong><span>輕量的心情簽到時間軸，讓情緒可以被隨手留下、只存在本機。</span></figcaption>
       </figure>
+    </div>
+
+    <p class="melu-steps-lead">上線後又長出的功能</p>
+
+    <div class="melu-shots">
+      <figure>
+        <img src="assets/melu/melu-mymelu-panel.png" alt="My MELU 個人面板，含帳號、品味來源、喜歡的歌、日誌與對話紀錄" loading="lazy">
+        <figcaption><strong>My MELU</strong><span>暱稱＋MELU ID 的輕量身份；喜歡的歌、播放與對話紀錄（含 AI 摘要）、品味檔都能回顧。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/melu/melu-nav-more-open.png" alt="MELU 頂欄「⋯」橫向展開，滑出環境音與開新對話" loading="lazy">
+        <figcaption><strong>Ambient Mixer</strong><span>頂欄「⋯」滑出環境音混音器：森林聲＋電台底噪，播歌時自動 ducking。</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="meta-grid melu-grid-2">
+      <div class="meta-item">
+        <p class="meta-label">Cloud Sync</p>
+        <p>Supabase（Row Level Security）local-first 同步；匿名使用，綁定 email 即可跨裝置還原。</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Sleep Timer</p>
+        <p>「15 分後輕輕收針」，搭配 10 秒淡出，讓電台自己安靜下來。</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Share Card</p>
+        <p>一鍵產生含梅露入畫的歌曲卡片（Canvas 生成、不含對話隱私）。</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Know This Song</p>
+        <p>以 web search 查證的歌曲故事，維持反幻覺設計、不憑空杜撰。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -617,7 +675,7 @@
     <p class="case-label">Testing &amp; Iteration</p>
     <h2>把它當成真的產品用，然後修</h2>
     <p>
-      這個原型不是「做完就結束」——我持續把它當真的產品在用，
+      這個產品不是「做完就結束」——我持續把它當真的產品在用，
       而真正冒出來的問題，往往比想像的更基本。以下是幾個「用著用著發現 → 找到根因 → 修好」的例子。</p>
 
     <figure class="case-image case-image--wide case-image--push">
@@ -789,7 +847,7 @@
   <div class="wrap">
     <p class="case-label">Next Steps</p>
 
-    <h2>持續把這個原型養大</h2>
+    <h2>持續把這個產品養大</h2>
 
     <div class="outcome-grid">
 
@@ -810,7 +868,7 @@
 
       <div>
         <p class="meta-label">Polish</p>
-        <p>補齊介面截圖、打磨日／夜場景與角色動態的細節。</p>
+        <p>打磨日／夜場景與角色動態的細節，讓整體氣質更一致。</p>
       </div>
 
     </div>
@@ -821,10 +879,10 @@
 <section class="case-section melu-cta">
   <div class="wrap">
     <h2>想親自調頻看看？</h2>
-    <p class="paragraph-spaced">MELU 有一個可以實際玩的公開原型。</p>
+    <p class="paragraph-spaced">MELU 已經上線，你可以直接調頻看看。</p>
     <p>
-      <a class="melu-cta__btn" href="https://melu-beta.vercel.app" target="_blank" rel="noopener">
-        View the prototype →
+      <a class="melu-cta__btn" href="https://melu-fm.com" target="_blank" rel="noopener">
+        Open MELU →
       </a>
     </p>
   </div>
