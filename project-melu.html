@@ -42,6 +42,41 @@
   }
   /* Full-width banner images (hero sheet, diagram) share one radius */
   .melu-wide img{ border-radius:12px; }
+  /* Phone screenshots — keep their tall shape instead of the 16:10 crop */
+  .melu-phones{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:flex-end;
+    gap:clamp(28px,4vw,56px);
+    margin-top:40px;
+  }
+  .melu-phones figure{ margin:0; flex:0 1 258px; max-width:258px; }
+  /* no forced ratio: the two screenshots differ slightly, so cropping either
+     one would cut the interface off at the edges */
+  .melu-phones img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+    background:#0b1712;
+  }
+  .melu-phones figcaption{ margin-top:14px; }
+  .melu-phones figcaption strong{ display:block; font-weight:500; color:var(--charcoal); }
+  .melu-phones figcaption span{
+    display:block; margin-top:6px;
+    color:var(--text-muted); line-height:1.7; font-size:0.95rem;
+  }
+  @media (max-width:640px){
+    .melu-phones figure{ flex:0 1 220px; max-width:220px; }
+  }
+  /* Feature text cards sit under a pair of shots — no extra rule needed */
+  .melu-feature-cards{ border-top:0; padding-top:0; margin-top:36px; }
+  /* Launch cards: the iteration row above already draws a rule */
+  .melu-launch-grid{ border-top:0; padding-top:0; margin-top:40px; }
+  /* Next steps: three even columns */
+  .melu-next{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  @media (max-width:760px){ .melu-next{ grid-template-columns:1fr !important; } }
   /* Origin-film video */
   .melu-film video{
     width:100%;
@@ -289,29 +324,10 @@
     <h2>如何讓 AI 產品有陪伴感，卻不誇大它真正是什麼？</h2>
 
     <p>
-      MELU 不是醫療產品，也刻意避免把自己定位為「音樂治療」——它提供的是陪伴與一個整理心情的空間，而不是治療或診斷。這條界線既是倫理考量，也是設計挑戰：如何讓對話保持溫暖同理，同時不做出承諾、也不誘導使用者的情緒回答。</p>
+      MELU 不是醫療產品，也刻意避免把自己定位為「音樂治療」——它提供的是陪伴與一個整理心情的空間，而不是治療或診斷。這條界線既是倫理考量，也是設計挑戰：如何讓對話保持溫暖同理，同時不做出承諾、也不誘導使用者的情緒回答；如何給 AI 一個具體、可記憶的角色，又不讓角色蓋過體驗本身；以及，如何讓它生成的內容始終待在可信的範圍裡。</p>
 
-    <div class="challenge-grid">
-
-      <article>
-        <span>01</span>
-        <h3>Warm, Not Overpromising</h3>
-        <p>讓對話溫柔有同理，卻不越界成為治療或診斷角色。</p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Character with Restraint</h3>
-        <p>給 AI 一個具體、可記憶的角色，又不讓角色蓋過體驗本身。</p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Trustworthy Output</h3>
-        <p>讓 AI 生成內容維持在可控、可信的範圍。</p>
-      </article>
-
-    </div>
+    <p class="paragraph-spaced">
+      這三道題最後各自收斂成一個決定，貫穿了整個產品——後面的章節，其實都是在回答它們。</p>
   </div>
 </section>
 
@@ -340,14 +356,6 @@
     <p class="paragraph-spaced">
       這個框架把「被 AI 回應」轉化為「接收到一段為你調頻的訊號」，多了一層溫柔的距離感與儀式感。名字本身也是概念的一部分：<strong>MELU = Melo（旋律）+ Lux（光）</strong>——音樂與光的結合。</p>
 
-    <div class="narrative-themes">
-      <span>MELU FM 77.7</span>
-      <span>CODE 22</span>
-      <span>Forest Signal</span>
-      <span>MELU ON AIR</span>
-      <span>Signal Found</span>
-    </div>
-
     <p class="melu-steps-lead">世界觀，影像化</p>
 
     <figure class="case-image case-image--wide case-image--push melu-film">
@@ -361,7 +369,7 @@
         你的瀏覽器不支援內嵌影片。
       </video>
       <figcaption>
-        <strong>MELU — The First Signal</strong>｜43 秒起源短片：駕駛艙一鏡到底 → 失訊翻滾 → 墜入月光松林 → 出艙 → 組裝森林電台 → 首次廣播。以 Higgsfield Cinema Studio 生成、六場分鏡、「末格接力」跨段連戲，再用 ffmpeg 精剪節奏與黑幕呼吸。</figcaption>
+        <strong>MELU — The First Signal</strong>｜43 秒起源短片，也是產品裡「關於梅露」的完整版身世：駕駛艙 → 失訊翻滾 → 墜入月光松林 → 出艙 → 組裝森林電台 → 首次廣播。我寫好分鏡後用 AI 影像工具分段生成，再讓每段接續前一段的最後一格以維持連戲，最後手動剪掉多餘的秒數、調整段落之間的呼吸。</figcaption>
     </figure>
   </div>
 </section>
@@ -424,25 +432,25 @@
 
       <figure>
         <img
-          src="assets/melu/melu-companion-page.png"
+          src="assets/melu/melu-hero-night.png"
+          alt="MELU 首頁夜間森林場景，含角色梅露與「接收訊號」按鈕"
+          loading="lazy"
+        >
+        <figcaption>
+          <strong>調頻進站</strong>
+          <span>首頁是一個沉浸式的森林場景，點下「接收訊號」才進站，而不是直接落在功能介面上。</span>
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img
+          src="assets/melu/melu-companion-day.png"
           alt="MELU 陪伴模式頁面，包含對話介面與音樂播放器"
           loading="lazy"
         >
         <figcaption>
           <strong>Companion Mode</strong>
           <span>與梅露聊聊當下狀態，先收到情緒回應，再自然地承接一段音樂推薦，並透過黑膠風格播放器繼續聽下去。</span>
-        </figcaption>
-      </figure>
-
-      <figure>
-        <img
-          src="assets/melu/melu-about-panel.png"
-          alt="「關於梅露」故事面板，介紹梅露的身世與 MELU 名稱由來"
-          loading="lazy"
-        >
-        <figcaption>
-          <strong>About Melu</strong>
-          <span>品牌故事面板，說明梅露的身世與 MELU 這個名字的由來。</span>
         </figcaption>
       </figure>
 
@@ -513,7 +521,7 @@
       </figure>
       <figure>
         <img src="assets/melu/melu-signal-log.png" alt="MELU Signal Log 情緒紀錄時間軸" loading="lazy">
-        <figcaption><strong>Signal Log</strong><span>輕量的心情簽到時間軸，讓情緒可以被隨手留下、只存在本機。</span></figcaption>
+        <figcaption><strong>Signal Log</strong><span>輕量的心情簽到時間軸，讓情緒可以被隨手留下；預設留在自己的裝置，綁定後才跨裝置同步。</span></figcaption>
       </figure>
     </div>
 
@@ -526,14 +534,14 @@
       </figure>
       <figure>
         <img src="assets/melu/melu-nav-more-open.png" alt="MELU 頂欄「⋯」橫向展開，滑出環境音與開新對話" loading="lazy">
-        <figcaption><strong>Ambient Mixer</strong><span>頂欄「⋯」滑出環境音混音器：森林聲＋電台底噪，播歌時自動 ducking。</span></figcaption>
+        <figcaption><strong>Ambient Mixer</strong><span>頂欄「⋯」滑出環境音混音器：森林聲＋電台底噪，播歌時會自動退到背景，不搶歌。</span></figcaption>
       </figure>
     </div>
 
-    <div class="meta-grid melu-grid-2">
+    <div class="meta-grid melu-grid-2 melu-feature-cards">
       <div class="meta-item">
         <p class="meta-label">Cloud Sync</p>
-        <p>Supabase（Row Level Security）local-first 同步；匿名使用，綁定 email 即可跨裝置還原。</p>
+        <p>資料預設留在自己的裝置，可以完全匿名使用；綁定 email 後才同步，且每個人只讀得到自己的紀錄。</p>
       </div>
       <div class="meta-item">
         <p class="meta-label">Sleep Timer</p>
@@ -541,11 +549,11 @@
       </div>
       <div class="meta-item">
         <p class="meta-label">Share Card</p>
-        <p>一鍵產生含梅露入畫的歌曲卡片（Canvas 生成、不含對話隱私）。</p>
+        <p>一鍵產生含梅露入畫的歌曲卡片，只帶歌，不帶對話內容。</p>
       </div>
       <div class="meta-item">
         <p class="meta-label">Know This Song</p>
-        <p>以 web search 查證的歌曲故事，維持反幻覺設計、不憑空杜撰。</p>
+        <p>歌曲背後的故事一律先查證再說，查不到就誠實說不知道，不憑空杜撰。</p>
       </div>
     </div>
   </div>
@@ -590,7 +598,7 @@
     </div>
 
     <div class="melu-note">
-      <p>像素字體（Press Start 2P）只保留給 logo、狀態文字與英文標籤；中文一律使用系統字型。角色與場景的動態維持低頻、不急促，光效只在需要時出現，避免過量的粒子效果。</p>
+      <p>像素字體只保留給 logo、狀態文字與英文標籤；中文一律使用系統字型。角色與場景的動態維持低頻、不急促，光效只在需要時出現，避免過量的粒子效果。</p>
     </div>
   </div>
 </section>
@@ -606,26 +614,7 @@
       MELU 的對話設計遵循幾個核心原則：先接住感受，再推薦音樂；不用暗示性的問題誘導使用者的情緒回答；不越界成為治療或診斷角色。</p>
 
     <p class="paragraph-spaced">
-      同時內建一道安全網——一旦偵測到危機語言，立即停止推薦並浮現求助資源，把使用者的安全放在對話流暢度之前。</p>
-
-    <div class="limitation-list melu-grid-3">
-
-      <article>
-        <h3>Hold the Feeling First</h3>
-        <p>先讓情緒被聽見，音樂推薦自然承接在後。</p>
-      </article>
-
-      <article>
-        <h3>No Leading Questions</h3>
-        <p>不以暗示性問題引導使用者的情緒答案。</p>
-      </article>
-
-      <article>
-        <h3>Safety Net</h3>
-        <p>偵測到危機語言即停止推薦，改為浮現求助資源。</p>
-      </article>
-
-    </div>
+      安全網則做了三層，把使用者的安全放在對話流暢度之前：角色設定本身就要求遇到危機語句立刻停止推薦；前端另有一組關鍵詞獨立把關，不完全依賴模型判斷；真的觸發時，浮現的是台灣在地的求助資源，而不是一句泛泛的關心。</p>
   </div>
 </section>
 
@@ -664,7 +653,7 @@
     </div>
 
     <div class="melu-techstack">
-      <p><strong>技術堆疊</strong>　Next.js ＋ React、Anthropic API（讓 AI 的輸出鎖進固定格式）、Apple MusicKit（安全地存取正版曲庫）。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
+      <p><strong>技術堆疊</strong>　Next.js ＋ React、Anthropic API（讓 AI 的輸出鎖進固定格式）、Apple MusicKit（安全地存取正版曲庫）、Supabase（帳號與跨裝置同步）；以 Vercel 部署、Cloudflare 管網域，並支援加到手機主畫面。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
     </div>
   </div>
 </section>
@@ -758,37 +747,54 @@
   </div>
 </section>
 
-<!-- Design Process -->
+<!-- Mobile & Launch -->
 <section class="case-section">
   <div class="wrap">
-    <p class="case-label">Design Process</p>
-    <h2>先定世界觀，再一層層往內收</h2>
-    <div class="development-stages">
-      <article>
-        <p class="meta-label">01 · Curiosity</p>
-        <h3>從一個對「音樂 × 情緒」的好奇開始</h3>
-        <p>同一首歌在不同心情下完全不同——我想在「按下播放之前」多做一件事：先被理解。</p>
+    <p class="case-label">Mobile &amp; Launch</p>
+    <h2>從「能在電腦上跑」到「能裝進口袋」</h2>
+
+    <p>
+      多數人聽音樂是在手機上，所以手機版不是把桌機縮小，而是重新排過：頂部收成漢堡選單與一條迷你播放列，聊天貼在畫面底部，讓拇指最容易搆到的位置留給最常用的動作。播放佇列改成從底部滑上來的面板，可以半開、拖到全開，背景則鎖住不跟著捲。它也能像 App 一樣加到主畫面，開啟後沒有瀏覽器外框。</p>
+
+    <div class="melu-phones">
+      <figure>
+        <img src="assets/melu/melu-mobile-home-night.jpg" alt="MELU 手機版首頁夜間畫面" loading="lazy">
+        <figcaption><strong>Mobile Home</strong><span>手機版首頁，加到主畫面後沒有瀏覽器外框，等同一支獨立 App。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/melu/melu-mobile-chat-night.jpg" alt="MELU 手機版聊天頁夜間畫面，含迷你播放列與貼底輸入框" loading="lazy">
+        <figcaption><strong>Mobile Chat</strong><span>迷你播放列置頂、對話貼底，單手就能完成從聊天到播放的整段流程。</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="melu-iter">
+      <article class="melu-iter__row">
+        <div class="melu-iter__head">
+          <p class="meta-label">Debug · iOS</p>
+          <h3>裝到 iPhone 主畫面後，畫面底部被切掉一截</h3>
+        </div>
+        <div class="melu-iter__body">
+          <p>
+            <strong class="melu-lbl melu-lbl--q">問題：</strong>加到主畫面、以獨立 App 開啟時，第一次啟動的版面會比螢幕短一截，底部的輸入框被切掉，而且它不會自己修正。<br>
+            <strong class="melu-lbl melu-lbl--c">根因：</strong>iOS 在這個模式下冷啟動時，回報的可用高度少算了狀態列，且算完就不再更新——這是系統本身的已知問題，不是我的版面寫錯。<br>
+            <strong class="melu-lbl melu-lbl--f">修正：</strong>啟動時放一個看不見的探針去實測真正的螢幕高度，把「系統說的」和「實際的」差值算出來，再用兩個變數補回版面——之後所有高度都以修正後的數值為準。</p>
+        </div>
       </article>
-      <article>
-        <p class="meta-label">02 · World before features</p>
-        <h3>先定世界觀，功能才有容器</h3>
-        <p>把體驗包成一座森林電台，讓「被 AI 回應」變成「接收一段為你調頻的訊號」，功能都收進這個框架。</p>
-      </article>
-      <article>
-        <p class="meta-label">03 · Character rules</p>
-        <h3>角色定成外星播音員，不是客服</h3>
-        <p>先立下「會觀察、會安靜、有自己節奏」的行為規則，再據此設計動作與對話語氣。</p>
-      </article>
-      <article>
-        <p class="meta-label">04 · Guardrails</p>
-        <h3>把 AI 關進可控範圍</h3>
-        <p>對話上：先接情緒、不誘導、危機停手；選歌上：把可信度交給架構（見 Under the Hood）。安全與可信先於「聰明」。</p>
-      </article>
-      <article>
-        <p class="meta-label">05 · Converge &amp; polish</p>
-        <h3>收斂與打磨</h3>
-        <p>日夜場景、低頻動態、播放佇列互動、簡→繁防漏——最後階段都在做「更少但更對」。</p>
-      </article>
+    </div>
+
+    <div class="meta-grid melu-grid-3 melu-launch-grid">
+      <div class="meta-item">
+        <p class="meta-label">觸控細節</p>
+        <p>面板打開時整頁鎖住捲動，避免手勢在 iOS 上被下層頁面接走，出現「拖到一半整頁跟著滑」。</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">上線</p>
+        <p>自訂網域 melu-fm.com，部署與網域分開管理，讓它有一個真正屬於自己的位置，而不是一串 demo 網址。</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">手機上的減法</p>
+        <p>手機版不是桌機的縮小版：只留聊天、播放與佇列這條主線；連黑膠的唱臂與紋理細節也一併收斂，把餘裕留給流暢度。</p>
+      </div>
     </div>
   </div>
 </section>
@@ -798,29 +804,32 @@
   <div class="wrap">
     <p class="case-label">Design Decisions</p>
 
-    <h2>幾個決定產品氣質的取捨</h2>
+    <h2>三道題，三個決定</h2>
+
+    <p>
+      前面那三道設計挑戰，最後各自收斂成一個明確的取捨。它們不只是想法，而是決定了整個產品長什麼樣子。</p>
 
     <div class="development-stages">
 
       <article>
-        <p class="meta-label">01 · An Alien, Not a Bot</p>
-        <h3>梅露被設計成外星播音員</h3>
+        <p class="meta-label">01 · 溫暖，但不誇大</p>
+        <h3>把角色定成外星播音員，不是客服</h3>
         <p>
-          而非服務型機器人——這讓角色有空間去觀察、安靜、依自己的節奏行動，而不是像隨時待命的客服。「音樂治療」也刻意不作為對外定位，MELU 提供的是陪伴，而非治療或診斷。</p>
+          先立下「會觀察、會安靜、有自己節奏」的行為規則，再據此設計動作與對話語氣。角色有了自己的節奏，就不會變成隨時待命、過度殷勤的助理，也讓「陪伴而非治療」這條界線自然成立。</p>
       </article>
 
       <article>
-        <p class="meta-label">02 · Trust by Architecture</p>
-        <h3>可信度靠架構，不靠模型自律</h3>
+        <p class="meta-label">02 · 可信，但不靠自律</p>
+        <h3>把可信度做進架構</h3>
         <p>
-          歌曲一律來自真實目錄、由架構保證不可捏造（詳見 Under the Hood）——把「能不能被信任」做進系統，而不是寄望模型不出錯。</p>
+          歌曲一律來自真實目錄、由架構保證不可捏造（見 Under the Hood）。與其反覆調整提示詞、期待模型不出錯，不如讓它從一開始就沒有捏造的餘地。</p>
       </article>
 
       <article>
-        <p class="meta-label">03 · Restraint by Default</p>
-        <h3>用克制換取陪伴感</h3>
+        <p class="meta-label">03 · 有存在感，但不搶戲</p>
+        <h3>先定世界觀，功能才有容器</h3>
         <p>
-          安靜的場景、低頻的動態、一個不急著填滿沉默的角色——陪伴感來自留白，而不是更多動畫或更熱情的文案。</p>
+          把體驗包成一座森林電台，功能全部收進這個框架；再用克制去收尾——安靜的場景、低頻的動態、只在需要時出現的光效。角色有存在感，卻不會蓋過體驗本身。</p>
       </article>
 
     </div>
@@ -832,13 +841,13 @@
   <div class="wrap">
     <p class="case-label">Reflection</p>
 
-    <h2>陪伴感不是靠更多動畫，而是靠克制</h2>
+    <h2>把東西送出去，才知道什麼是真的</h2>
 
     <p>
-      這個專案讓我清楚看見：陪伴感往往來自克制——安靜的場景、低頻的動態、一個不急著填滿沉默的角色，而不是更多動畫或更熱情的文案。</p>
+      從「能跑的原型」到「有人真的在用的產品」，中間隔的不是更多功能，而是一堆我原本沒想到的問題：手機上的視口會少算、佇列點了不出聲、指名的歌手混進別人的歌。這些都不是在 Figma 裡看得出來的，只有把它當真的產品用，問題才會自己浮出來。</p>
 
     <p class="paragraph-spaced">
-      它也讓我學會在「角色魅力」與「不越界、不誇大」之間拿捏分寸——把可信度做進架構、而不是寄望模型不出錯，是我在這個專案學到最實際的一課。</p>
+      也因為這樣，我對「設計決定」的理解變得比較具體：讓 AI 可信，靠的不是把提示詞寫得更漂亮，而是從架構上拿掉它出錯的空間；讓產品有陪伴感，靠的也不是加更多動畫，而是知道哪裡該留白。一個人從概念做到上線，最大的收穫是這些判斷都得自己承擔後果——而承擔過，它們才真的變成我的。</p>
   </div>
 </section>
 
@@ -847,28 +856,23 @@
   <div class="wrap">
     <p class="case-label">Next Steps</p>
 
-    <h2>持續把這個產品養大</h2>
+    <h2>接下來想驗證的事</h2>
 
-    <div class="outcome-grid">
+    <div class="outcome-grid melu-next">
 
       <div>
-        <p class="meta-label">Conversation</p>
-        <p>依真實使用回饋，持續打磨陪伴模式的對話設計。</p>
+        <p class="meta-label">真實使用者</p>
+        <p>目前的判斷多半來自我自己的使用。下一步想找幾位固定使用者做訪談，確認「先被理解、再聽歌」對別人是否也成立。</p>
       </div>
 
       <div>
-        <p class="meta-label">Music Matching</p>
-        <p>優化從心情到歌曲的媒合邏輯，讓推薦更貼近當下狀態。</p>
+        <p class="meta-label">推薦是否真的準</p>
+        <p>建立一個可以回頭檢視的標準：從被跳過與被收藏的歌回推，檢驗心情與歌曲之間的媒合邏輯是否可靠。</p>
       </div>
 
       <div>
-        <p class="meta-label">Player &amp; Queue</p>
-        <p>擴充黑膠播放器與播放佇列的互動細節。</p>
-      </div>
-
-      <div>
-        <p class="meta-label">Polish</p>
-        <p>打磨日／夜場景與角色動態的細節，讓整體氣質更一致。</p>
+        <p class="meta-label">留下來的理由</p>
+        <p>觀察哪些人會回來、又是為了什麼回來——是為了音樂、為了那段對話，還是為了那個安靜的地方本身。</p>
       </div>
 
     </div>
