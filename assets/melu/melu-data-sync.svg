@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" font-family="'PingFang TC','Microsoft JhengHei',sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#7fe0b0"/>
+    </marker>
+    <marker id="arrDim" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8fa697"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="760" rx="18" fill="#0b1712"/>
+  <text x="48" y="58" fill="#e9edc9" font-size="15" letter-spacing="6" font-family="monospace">MELU · DATA — LOCAL-FIRST ＋ SUPABASE</text>
+  <text x="48" y="84" fill="#8fa697" font-size="13">資料保存：先寫本機（0 延遲、離線可用），背景才同步上雲；資料庫層用 RLS 隔離每一位使用者</text>
+
+  <!-- 使用者動作 -->
+  <rect x="48" y="130" width="240" height="240" rx="12" fill="#14231a" stroke="#2b4436"/>
+  <text x="66" y="160" fill="#e8f0ea" font-size="14" font-weight="600">使用者動作</text>
+  <text x="66" y="192" fill="#8fa697" font-size="13">♡ 喜歡一首歌</text>
+  <text x="66" y="220" fill="#8fa697" font-size="13">▶ 播放（真實播放紀錄）</text>
+  <text x="66" y="248" fill="#8fa697" font-size="13">✎ 訊號日誌（心情簽到）</text>
+  <text x="66" y="276" fill="#8fa697" font-size="13">💬 對話（關頁自動歸檔）</text>
+  <text x="66" y="304" fill="#8fa697" font-size="13">⚙ 品味檔更新</text>
+
+  <line x1="288" y1="250" x2="352" y2="250" stroke="#7fe0b0" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="292" y="236" fill="#7fe0b0" font-size="12">立刻寫入</text>
+
+  <!-- localStorage -->
+  <rect x="352" y="130" width="336" height="240" rx="12" fill="#14231a" stroke="#2e7354" stroke-width="1.5"/>
+  <text x="370" y="160" fill="#e8f0ea" font-size="14" font-weight="600">localStorage（本機，真相的第一份）</text>
+  <text x="370" y="190" fill="#8fa697" font-size="12" font-family="monospace">melu:&lt;MELU ID&gt;:likes</text>
+  <text x="370" y="212" fill="#8fa697" font-size="12" font-family="monospace">melu:&lt;MELU ID&gt;:history</text>
+  <text x="370" y="234" fill="#8fa697" font-size="12" font-family="monospace">melu:&lt;MELU ID&gt;:journal</text>
+  <text x="370" y="256" fill="#8fa697" font-size="12" font-family="monospace">melu:&lt;MELU ID&gt;:conversations</text>
+  <text x="370" y="290" fill="#7fe0b0" font-size="12">依 MELU ID 命名空間 → 同一台電腦多人不打架</text>
+  <text x="370" y="312" fill="#7fe0b0" font-size="12">離線完全可用；雲端只是備份與跨裝置</text>
+  <text x="370" y="348" fill="#57695b" font-size="11" font-family="monospace">lib/persistence · lib/userData</text>
+
+  <!-- adapters -->
+  <line x1="688" y1="220" x2="768" y2="220" stroke="#7fe0b0" stroke-width="1.6" marker-end="url(#arr)"/>
+  <line x1="768" y1="280" x2="688" y2="280" stroke="#8fa697" stroke-width="1.4" marker-end="url(#arrDim)"/>
+  <text x="694" y="206" fill="#7fe0b0" font-size="12">背景推送</text>
+  <text x="694" y="300" fill="#8fa697" font-size="12">登入時拉回</text>
+
+  <rect x="768" y="130" width="200" height="240" rx="12" fill="#14231a" stroke="#2b4436"/>
+  <text x="786" y="160" fill="#e8f0ea" font-size="14" font-weight="600">同步層</text>
+  <text x="786" y="188" fill="#8fa697" font-size="12">雲端 adapter ×3</text>
+  <text x="786" y="210" fill="#8fa697" font-size="12">（喜歡／紀錄／日誌+對話）</text>
+  <text x="786" y="240" fill="#8fa697" font-size="12">失敗自動重試，</text>
+  <text x="786" y="260" fill="#8fa697" font-size="12">同步狀態顯示在 My MELU</text>
+  <text x="786" y="282" fill="#8fa697" font-size="12">（「已同步到雲端」）</text>
+  <text x="786" y="348" fill="#57695b" font-size="11" font-family="monospace">lib/cloudSync · cloudAuth</text>
+
+  <line x1="968" y1="250" x2="1032" y2="250" stroke="#7fe0b0" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- Supabase -->
+  <rect x="1032" y="130" width="200" height="240" rx="12" fill="#101d15" stroke="#2e7354" stroke-width="1.5"/>
+  <text x="1050" y="160" fill="#e9edc9" font-size="14" font-weight="600">Supabase</text>
+  <text x="1050" y="182" fill="#8fa697" font-size="12">PostgreSQL</text>
+  <text x="1050" y="212" fill="#e8f0ea" font-size="12" font-weight="600">Row Level Security</text>
+  <text x="1050" y="234" fill="#8fa697" font-size="12">每列資料綁定擁有者，</text>
+  <text x="1050" y="254" fill="#8fa697" font-size="12">政策在資料庫層擋下</text>
+  <text x="1050" y="274" fill="#8fa697" font-size="12">任何跨使用者讀寫</text>
+  <text x="1050" y="304" fill="#7fe0b0" font-size="12">曾以雙帳號互讀稽核驗證</text>
+  <text x="1050" y="348" fill="#57695b" font-size="11" font-family="monospace">profiles · likes · history…</text>
+
+  <!-- 分隔 -->
+  <line x1="48" y1="420" x2="1232" y2="420" stroke="#2b4436" stroke-dasharray="6 5"/>
+  <text x="48" y="452" fill="#7fe0b0" font-size="12" font-family="monospace" letter-spacing="3">IDENTITY — 匿名開始，想要才綁定</text>
+
+  <!-- 身份流程 -->
+  <rect x="48" y="474" width="260" height="150" rx="12" fill="#14231a" stroke="#2b4436"/>
+  <text x="66" y="504" fill="#e8f0ea" font-size="14" font-weight="600">① 匿名身份</text>
+  <text x="66" y="530" fill="#8fa697" font-size="12">暱稱＋MELU ID 就能開始，</text>
+  <text x="66" y="550" fill="#8fa697" font-size="12">不需要 email、不需要密碼</text>
+  <text x="66" y="578" fill="#7fe0b0" font-size="12">陪伴產品的低門檻原則</text>
+
+  <line x1="308" y1="549" x2="372" y2="549" stroke="#7fe0b0" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <rect x="372" y="474" width="280" height="150" rx="12" fill="#14231a" stroke="#2b4436"/>
+  <text x="390" y="504" fill="#e8f0ea" font-size="14" font-weight="600">② 綁定 email（選擇性）</text>
+  <text x="390" y="530" fill="#8fa697" font-size="12">寄送一次性驗證碼（OTP），</text>
+  <text x="390" y="550" fill="#8fa697" font-size="12">驗證通過即完成綁定；</text>
+  <text x="390" y="570" fill="#8fa697" font-size="12">本機舊資料自動遷移歸戶</text>
+
+  <line x1="652" y1="549" x2="716" y2="549" stroke="#7fe0b0" stroke-width="1.6" marker-end="url(#arr)"/>
+
+  <rect x="716" y="474" width="280" height="150" rx="12" fill="#14231a" stroke="#2b4436"/>
+  <text x="734" y="504" fill="#e8f0ea" font-size="14" font-weight="600">③ 跨裝置還原</text>
+  <text x="734" y="530" fill="#8fa697" font-size="12">新裝置輸入 email → OTP →</text>
+  <text x="734" y="550" fill="#8fa697" font-size="12">喜歡、紀錄、日誌、對話</text>
+  <text x="734" y="570" fill="#8fa697" font-size="12">全部拉回本機繼續 local-first</text>
+
+  <rect x="1036" y="474" width="196" height="150" rx="12" fill="none" stroke="#2b4436" stroke-dasharray="6 5"/>
+  <text x="1054" y="504" fill="#e8f0ea" font-size="13" font-weight="600">隱私邊界</text>
+  <text x="1054" y="530" fill="#8fa697" font-size="12">研究模式資料</text>
+  <text x="1054" y="550" fill="#8fa697" font-size="12">只存本機、可匯出，</text>
+  <text x="1054" y="570" fill="#8fa697" font-size="12">絕不上任何雲端</text>
+  <text x="1054" y="590" fill="#57695b" font-size="11">（與陪伴模式分離）</text>
+
+  <text x="48" y="700" fill="#57695b" font-size="12">設計取捨：雲端故障或斷網時，MELU 完全照常運作——雲端是「備份與跨裝置」，不是依賴。</text>
+  <text x="48" y="724" fill="#57695b" font-size="12" font-family="monospace">Supabase P1–P4：schema＋RLS → adapters → 匿名遷移 → 雙帳號稽核＋E2E</text>
+</svg>

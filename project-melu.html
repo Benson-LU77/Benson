@@ -9,8 +9,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <meta name="description" content="MELU — 一座藏在森林裡的 AI 音樂陪伴電台，結合 AI 對話、音樂推薦與情緒紀錄，已上線於 melu-fm.com。">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
-<link rel="stylesheet" href="style.css?v=20260717-nav7">
+<link rel="stylesheet" href="style.css?v=20260726-melu">
 <style>
+  /* Section rhythm: give each section more air and a firmer title hierarchy */
+  .case-section{ padding:76px 0; }
+  .case-section .case-label{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.14em;
+    margin-bottom:16px;
+  }
+  .case-section > .wrap > h2{
+    font-size:clamp(23px,3.2vw,30px);
+    line-height:1.32;
+    margin-bottom:20px;
+  }
+  @media (max-width:700px){
+    .case-section{ padding:56px 0; }
+  }
+
   /* MELU case study — uniform image sizing (scoped to this page) */
   .melu-shots{
     display:grid;
@@ -103,13 +120,34 @@
   .melu-grid-2{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
   @media (max-width:700px){ .melu-grid-2{ grid-template-columns:1fr !important; } }
   /* Lead line before the six steps — lower & larger */
+  /* Sub-heading inside a section: clearly below the serif h2, clearly above body
+     copy. The clay rule gives it a visual anchor without competing with h2. */
+  /* line-height stays generous: Newsreader carries no CJK, so Chinese falls back
+     to a system serif whose glyphs are taller than the Latin ones — a tight line
+     box would crowd them against the rule above. */
   .melu-steps-lead{
-    margin-top:56px;
-    font-size:19px;
+    position:relative;
+    margin-top:64px;
+    margin-bottom:20px;
+    padding-top:22px;
+    font-family:'Newsreader',serif;
+    font-size:18px;
     font-weight:500;
+    line-height:1.7;
     color:var(--charcoal);
     opacity:1;
   }
+  .melu-steps-lead::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:34px;
+    height:2px;
+    background:var(--clay);
+    opacity:.7;
+  }
+  /* a lead that directly follows a figure needs less air above */
+  figure + .melu-steps-lead{ margin-top:52px; }
   /* Tech-stack callout — pushed down, subtle tinted background */
   .melu-techstack{
     margin-top:48px;
@@ -557,6 +595,14 @@
         <p>「15 分後輕輕收針」，搭配 10 秒淡出，讓電台自己安靜下來。</p>
       </div>
     </div>
+
+    <figure class="case-image case-image--wide case-image--push">
+      <img src="assets/melu/melu-data-sync.svg"
+           alt="MELU 資料同步流程：喜歡的歌、日誌與對話先寫進本機，再於背景同步到雲端；綁定 email 後可跨裝置還原"
+           loading="lazy" style="border-radius:16px;">
+      <figcaption>
+        資料一律先寫進你自己的裝置，雲端只在背景備份。所以斷網或雲端出狀況時，MELU 照常運作——同步是加分，不是前提。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -623,7 +669,20 @@
 <section class="case-section">
   <div class="wrap">
     <p class="case-label">Under the Hood</p>
-    <h2>讓 AI 永遠不會憑空捏造一首歌</h2>
+    <h2>一個人，把整座電台從頭接到尾</h2>
+
+    <p>
+      畫面、後端、資料與部署都在同一個專案裡，由我一個人完成。瀏覽器這一側是聊天、黑膠播放器與佇列；伺服器那一側負責接住每一次請求，再往外接三個各司其職的服務：一個負責聽懂與回應、一個提供真實曲庫與播放、一個把資料安全地留下來。每個服務都只拿到自己需要的最小權限。</p>
+
+    <figure class="case-image case-image--wide case-image--push">
+      <img src="assets/melu/melu-architecture.svg"
+           alt="MELU 系統架構圖：瀏覽器端的介面與本機資料、伺服器端的 API 與防護層，以及對話 AI、音樂服務、資料庫三個外部服務"
+           loading="lazy" style="border-radius:16px;">
+      <figcaption>System Map｜前端、後端與外部服務的分工，以及資料流的方向。</figcaption>
+    </figure>
+
+    <p class="melu-steps-lead">最重要的一段：讓 AI 永遠不會憑空捏造一首歌</p>
+
     <p>
       這類產品最怕 AI「報一首其實不存在的歌」。MELU 用<strong>兩段式選歌</strong>把這件事從架構上擋掉：
       模型永遠不直接輸出歌曲，它只能提出搜尋語，再從伺服器向 Apple Music 目錄查回的<strong>真實候選</strong>裡挑。</p>
@@ -652,6 +711,11 @@
         <p>退為純聊天：誠實說明現在放不了歌，絕不憑空報一個曲名。</p>
       </article>
     </div>
+
+    <p class="melu-steps-lead">聽得到，也是一種設計</p>
+
+    <p>
+      能不能播出聲音，牽涉到使用者有沒有音樂服務的訂閱。與其讓沒授權的人撞上一片空白，我做了三層後援：授權後可以聽完整首歌；沒授權時退成三十秒試聽；連試聽都拿不到，才走最後一層備援。梅露也不會引用歌詞原文——一方面是版權，一方面是不想用歌詞去替使用者的情緒下定論。</p>
 
     <div class="melu-techstack">
       <p><strong>技術堆疊</strong>　Next.js ＋ React、Anthropic API（讓 AI 的輸出鎖進固定格式）、Apple MusicKit（安全地存取正版曲庫）、Supabase（帳號與跨裝置同步）；以 Vercel 部署、Cloudflare 管網域，並支援加到手機主畫面。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
@@ -741,6 +805,11 @@
         </div>
       </article>
     </div>
+
+    <p class="melu-steps-lead">修好之後，讓它不會再壞回去</p>
+
+    <p>
+      每修好一個問題，我就補一條自動測試把那個行為鎖住——目前累積 81 條，涵蓋選歌只能從真實候選裡挑、插播不能吞掉待播的歌、危機語句一定要被攔下來等關鍵規則。每次改動送出前都會全部跑一次，避免修 A 弄壞 B。這是一個人開發最需要的安全網：沒有同事幫你 code review，就讓測試當那個會說「你剛剛弄壞了」的人。</p>
 
     <div class="melu-note">
       <p>這些迭代有個共同點：問題常常不在「AI 夠不夠聰明」，而在<strong>互動的可預期性</strong>與<strong>輸出的可信度</strong>——按下去有沒有如預期反應、拿到的東西是不是真的。把這兩件事做對，產品才站得住。</p>
