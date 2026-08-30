@@ -6,7 +6,7 @@
 <title>MELU — Hong-Qi Lu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
 <meta name="description" content="MELU — 一座藏在森林裡的 AI 音樂陪伴電台，結合 AI 對話、音樂推薦與情緒紀錄，已上線於 melu-fm.com。">
 <link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
 <link rel="stylesheet" href="style.css?v=20260726-melu">
@@ -98,11 +98,6 @@
     color:var(--charcoal);
     margin-bottom:8px;
   }
-  /* Launch cards: the iteration row above already draws a rule */
-  .melu-launch-grid{ border-top:0; padding-top:0; margin-top:40px; }
-  /* Next steps: three even columns */
-  .melu-next{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
-  @media (max-width:760px){ .melu-next{ grid-template-columns:1fr !important; } }
   /* Origin-film video */
   .melu-film video{
     width:100%;
@@ -116,6 +111,14 @@
   .melu-grid-3{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
   @media (max-width:1000px){ .melu-grid-3{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
   @media (max-width:700px){ .melu-grid-3{ grid-template-columns:1fr !important; } }
+  /* Two decisions instead of three: give each one more room to breathe */
+  .melu-decisions{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:clamp(40px,5vw,72px) !important;
+  }
+  @media (max-width:760px){
+    .melu-decisions{ grid-template-columns:1fr !important; gap:36px !important; }
+  }
   /* Even 2×2 grid (roomier for dense text cards) */
   .melu-grid-2{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
   @media (max-width:700px){ .melu-grid-2{ grid-template-columns:1fr !important; } }
@@ -261,7 +264,7 @@
         Product Concept · Interaction Design · UX Writing · AI Conversation Design
       </span>
 
-      <span>Jun 2026 – ongoing</span>
+      <span>Jun 2026 – Present</span>
     </div>
   </div>
 </header>
@@ -285,7 +288,7 @@
     </div>
     <div class="at-glance__item">
       <p class="at-glance__label">Outcome</p>
-      <p class="at-glance__value">Solo-built and shipped as a live, installable PWA at melu-fm.com, with guardrails that stop the AI from fabricating songs or facts.</p>
+      <p class="at-glance__value">Solo-built and shipped as a live, installable PWA at melu-fm.com. Seven weeks in: 44 users with real activity, 50 conversations, 115 plays.</p>
     </div>
   </div>
 </section>
@@ -316,7 +319,7 @@
 
       <div class="meta-item">
         <p class="meta-label">Duration</p>
-        <p>Jun 2026 – ongoing</p>
+        <p>Jun 2026 – Present</p>
       </div>
 
       <div class="meta-item">
@@ -374,7 +377,7 @@
       MELU 不是醫療產品，也刻意避免把自己定位為「音樂治療」——它提供的是陪伴與一個整理心情的空間，而不是治療或診斷。這條界線既是倫理考量，也是設計挑戰：如何讓對話保持溫暖同理，同時不做出承諾、也不誘導使用者的情緒回答；如何給 AI 一個具體、可記憶的角色，又不讓角色蓋過體驗本身；以及，如何讓它生成的內容始終待在可信的範圍裡。</p>
 
     <p class="paragraph-spaced">
-      這三道題最後各自收斂成一個決定，貫穿了整個產品——後面的章節，其實都是在回答它們。</p>
+      這三道題最後收斂成兩個決定——因為前兩題的答案，其實是同一個。</p>
   </div>
 </section>
 
@@ -398,7 +401,7 @@
     <h2>把整個體驗，包裝成一座森林電台</h2>
 
     <p>
-      使用者收到的不是「AI 回覆」，而是「訊號」——由梅露發送。牠是一名意外墜落地球的外星人，用飛船零件在森林裡修建了一座小電台，以身份代號 <strong>CODE 22</strong>、在 <strong>MELU FM 77.7</strong> 上向外廣播。</p>
+      使用者收到的不是「AI 回覆」，而是「訊號」——由梅露發送。她是一名意外墜落地球的外星人，用飛船零件在森林裡修建了一座小電台，以身份代號 <strong>CODE 22</strong>、在 <strong>MELU FM 77.7</strong> 上向外廣播。</p>
 
     <p class="paragraph-spaced">
       這個框架把「被 AI 回應」轉化為「接收到一段為你調頻的訊號」，多了一層溫柔的距離感與儀式感。名字本身也是概念的一部分：<strong>MELU = Melo（旋律）+ Lux（光）</strong>——音樂與光的結合。</p>
@@ -429,7 +432,7 @@
     <h2>梅露是一名外星播音員，不是服務型機器人</h2>
 
     <p>
-      這個區別很重要：牠會觀察、會安靜、有自己的節奏，而不是隨時待命、過度殷勤的助理。牠的外殼保留了自己動手修補的痕跡，胸口那顆會發光的「訊號核心」就是名字裡的 Lux，也是牠對外發送與接收訊號的部位。</p>
+      這個區別很重要：她會觀察、會安靜、有自己的節奏，而不是隨時待命、過度殷勤的助理。她的外殼保留了自己動手修補的痕跡，胸口那顆會發光的「訊號核心」就是名字裡的 Lux，也是她對外發送與接收訊號的部位。</p>
 
     <figure class="case-image case-image--wide case-image--push">
       <img
@@ -452,7 +455,7 @@
       <div class="meta-item">
         <p class="meta-label">Salvaged Body</p>
         <p>
-          輕微不對稱的機身與外殼接縫，暗示牠是東拼西湊修好的，而非工廠量產。</p>
+          輕微不對稱的機身與外殼接縫，暗示她是東拼西湊修好的，而非工廠量產。</p>
       </div>
 
       <div class="meta-item">
@@ -508,7 +511,7 @@
            alt="MELU 使用者流程圖：首頁 → 接收訊號（連接儀式）→ 陪伴對話（先接住情緒）→ 收到訊號（推薦歌曲/歌單）→ 聆聽（放下唱針、播放器＋佇列）；About 與 Signal Log 隨時可開啟；偵測到危機語句時進入最高優先的安全網支線"
            loading="lazy" style="border-radius:16px;">
       <figcaption>
-        User Flow｜主流程五步，加上「隨時可開啟」的 About / Signal Log，以及凌駕一切的安全網支線。</figcaption>
+        User Flow｜主流程，加上「隨時可開啟」的 About / Signal Log，以及凌駕一切的安全網支線。</figcaption>
     </figure>
 
     <p class="melu-steps-lead">實際操作，是這樣六步：</p>
@@ -570,30 +573,6 @@
         <img src="assets/melu/melu-signal-log.png" alt="MELU Signal Log 情緒紀錄時間軸" loading="lazy">
         <figcaption><strong>Signal Log</strong><span>輕量的心情簽到時間軸，讓情緒可以被隨手留下；預設留在自己的裝置，綁定後才跨裝置同步。</span></figcaption>
       </figure>
-    </div>
-
-    <p class="melu-steps-lead">上線後又長出的功能：</p>
-
-    <div class="melu-shots">
-      <figure>
-        <img src="assets/melu/melu-mymelu-panel.png" alt="My MELU 個人面板，含帳號、品味來源、喜歡的歌、日誌與對話紀錄" loading="lazy">
-        <figcaption><strong>My MELU</strong><span>暱稱＋MELU ID 的輕量身份；喜歡的歌、播放與對話紀錄（含 AI 摘要）、品味檔都能回顧。</span></figcaption>
-      </figure>
-      <figure>
-        <img src="assets/melu/melu-nav-more-open.png" alt="MELU 頂欄「⋯」橫向展開，滑出環境音與開新對話" loading="lazy">
-        <figcaption><strong>Ambient Mixer</strong><span>頂欄「⋯」滑出環境音混音器：森林聲＋電台底噪，播歌時會自動退到背景，不搶歌。</span></figcaption>
-      </figure>
-    </div>
-
-    <div class="meta-grid melu-grid-2 melu-feature-cards">
-      <div class="meta-item">
-        <p class="meta-label">Cloud Sync</p>
-        <p>資料預設留在自己的裝置，可以完全匿名使用；綁定 email 後才同步，且每個人只讀得到自己的紀錄。</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">Sleep Timer</p>
-        <p>「15 分後輕輕收針」，搭配 10 秒淡出，讓電台自己安靜下來。</p>
-      </div>
     </div>
 
     <figure class="case-image case-image--wide case-image--push">
@@ -660,8 +639,18 @@
     <p>
       MELU 的對話設計遵循幾個核心原則：先接住感受，再推薦音樂；不用暗示性的問題誘導使用者的情緒回答；不越界成為治療或診斷角色。</p>
 
+    <p class="melu-steps-lead">不只一種溫柔：讓使用者決定被說話的方式</p>
+
+    <p>
+      同一個梅露，有三種說話溫度：溫柔傾聽、直率回應、靜靜陪伴。這不是換個語助詞而已——「直率」會中英夾雜、會直接站隊，會說出「他這樣太扯了吧」；「靜靜陪伴」則幾乎不提問，只留白。</p>
+
     <p class="paragraph-spaced">
-      安全網則做了三層，把使用者的安全放在對話流暢度之前：角色設定本身就要求遇到危機語句立刻停止推薦；前端另有一組關鍵詞獨立把關，不完全依賴模型判斷；真的觸發時，浮現的是台灣在地的求助資源，而不是一句泛泛的關心。</p>
+      但無論切到哪一個頻率，安全守則完全不變。這是刻意的架構決定：<strong>語氣是使用者可以調的，安全不是</strong>。三種頻率被鎖成固定選項、不開放自由輸入，每一層都明文宣告不覆蓋任何既有規則——使用者無法透過選語氣來繞過任何一條防線。</p>
+
+    <p class="melu-steps-lead">安全，優先於流暢</p>
+
+    <p>
+      安全網做了三層：<strong>角色設定</strong>遇到危機語句立刻停止推薦、優先給求助資源；<strong>客戶端關鍵詞</strong>獨立把關，不完全依賴模型判斷；即使模型回了別的，<strong>伺服器</strong>也會覆蓋成安全回應。觸發時浮現的是台灣在地的求助專線，而不是一句泛泛的關心。</p>
   </div>
 </section>
 
@@ -715,7 +704,7 @@
     <p class="melu-steps-lead">聽得到，也是一種設計</p>
 
     <p>
-      能不能播出聲音，牽涉到使用者有沒有音樂服務的訂閱。與其讓沒授權的人撞上一片空白，我做了三層後援：授權後可以聽完整首歌；沒授權時退成三十秒試聽；連試聽都拿不到，才走最後一層備援。梅露也不會引用歌詞原文——一方面是版權，一方面是不想用歌詞去替使用者的情緒下定論。</p>
+      能不能播出聲音，牽涉到使用者有沒有音樂服務的訂閱。與其讓沒授權的人撞上一片空白，我做了兩層播放層級加一道誠實的退場：授權後可以聽完整首歌；沒授權時退成三十秒試聽；連試聽都沒有的舊曲目，介面會直說「暫時沒有音源」並自動跳下一首——不假裝能播。梅露也不會引用歌詞原文——一方面是版權，一方面是不想用歌詞去替使用者的情緒下定論。</p>
 
     <div class="melu-techstack">
       <p><strong>技術堆疊</strong>　Next.js ＋ React、Anthropic API（讓 AI 的輸出鎖進固定格式）、Apple MusicKit（安全地存取正版曲庫）、Supabase（帳號與跨裝置同步）；以 Vercel 部署、Cloudflare 管網域，並支援加到手機主畫面。另有一層簡→繁轉換，確保回覆不漏出簡體字。</p>
@@ -809,7 +798,7 @@
     <p class="melu-steps-lead">修好之後，讓它不會再壞回去</p>
 
     <p>
-      每修好一個問題，我就補一條自動測試把那個行為鎖住——目前累積 81 條，涵蓋選歌只能從真實候選裡挑、插播不能吞掉待播的歌、危機語句一定要被攔下來等關鍵規則。每次改動送出前都會全部跑一次，避免修 A 弄壞 B。這是一個人開發最需要的安全網：沒有同事幫你 code review，就讓測試當那個會說「你剛剛弄壞了」的人。</p>
+      每修好一個問題，我就補一條自動測試把那個行為鎖住——目前累積 107 個測試案例、177 條斷言，涵蓋選歌只能從真實候選裡挑、插播不能吞掉待播的歌、危機語句一定要被攔下來等關鍵規則。每次改動送出前都會全部跑一次，避免修 A 弄壞 B。這是一個人開發最需要的安全網：沒有同事幫你 code review，就讓測試當那個會說「你剛剛弄壞了」的人。</p>
 
     <div class="melu-note">
       <p>這些迭代有個共同點：問題常常不在「AI 夠不夠聰明」，而在<strong>互動的可預期性</strong>與<strong>輸出的可信度</strong>——按下去有沒有如預期反應、拿到的東西是不是真的。把這兩件事做對，產品才站得住。</p>
@@ -837,34 +826,19 @@
       </figure>
     </div>
 
-    <div class="melu-iter">
-      <article class="melu-iter__row">
-        <div class="melu-iter__head">
-          <p class="meta-label">Debug · iOS</p>
-          <h3>裝到 iPhone 主畫面後，畫面底部被切掉一截</h3>
-        </div>
-        <div class="melu-iter__body">
-          <p>
-            <strong class="melu-lbl melu-lbl--q">問題：</strong>加到主畫面、以獨立 App 開啟時，第一次啟動的版面會比螢幕短一截，底部的輸入框被切掉，而且它不會自己修正。<br>
-            <strong class="melu-lbl melu-lbl--c">根因：</strong>iOS 在這個模式下冷啟動時，回報的可用高度少算了狀態列，且算完就不再更新——這是系統本身的已知問題，不是我的版面寫錯。<br>
-            <strong class="melu-lbl melu-lbl--f">修正：</strong>啟動時放一個看不見的探針去實測真正的螢幕高度，把「系統說的」和「實際的」差值算出來，再用兩個變數補回版面——之後所有高度都以修正後的數值為準。</p>
-        </div>
-      </article>
-    </div>
-
-    <div class="meta-grid melu-grid-3 melu-launch-grid">
-      <div class="meta-item">
-        <p class="meta-label">觸控細節</p>
+    <div class="development-stages">
+      <article>
+        <p class="meta-label">01 · 觸控細節</p>
         <p>面板打開時整頁鎖住捲動，避免手勢在 iOS 上被下層頁面接走，出現「拖到一半整頁跟著滑」。</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">上線</p>
+      </article>
+      <article>
+        <p class="meta-label">02 · 上線</p>
         <p>自訂網域 melu-fm.com，部署與網域分開管理，讓它有一個真正屬於自己的位置，而不是一串 demo 網址。</p>
-      </div>
-      <div class="meta-item">
-        <p class="meta-label">手機上的減法</p>
+      </article>
+      <article>
+        <p class="meta-label">03 · 手機上的減法</p>
         <p>手機版不是桌機的縮小版：只留聊天、播放與佇列這條主線；連黑膠的唱臂與紋理細節也一併收斂，把餘裕留給流暢度。</p>
-      </div>
+      </article>
     </div>
   </div>
 </section>
@@ -874,32 +848,29 @@
   <div class="wrap">
     <p class="case-label">Design Decisions</p>
 
-    <h2>三道題，三個決定</h2>
+    <h2>兩個決定，決定了其他所有事</h2>
 
     <p>
-      前面那三道設計挑戰，最後各自收斂成一個明確的取捨。它們不只是想法，而是決定了整個產品長什麼樣子。</p>
+      回頭看，這個產品真正的取捨只有兩個。其餘的選擇，幾乎都是從它們推導出來的。</p>
 
-    <div class="development-stages">
+    <div class="development-stages melu-decisions">
 
       <article>
-        <p class="meta-label">01 · 溫暖，但不誇大</p>
-        <h3>把角色定成外星播音員，不是客服</h3>
+        <p class="meta-label">01 · 角色靠克制</p>
+        <h3>把梅露定成外星播音員，不是客服</h3>
         <p>
-          先立下「會觀察、會安靜、有自己節奏」的行為規則，再據此設計動作與對話語氣。角色有了自己的節奏，就不會變成隨時待命、過度殷勤的助理，也讓「陪伴而非治療」這條界線自然成立。</p>
+          先立下「會觀察、會安靜、有自己節奏」的行為規則，再據此設計動作與對話語氣。角色有了自己的節奏，就不會變成隨時待命、過度殷勤的助理，「陪伴而非治療」這條界線也自然成立。</p>
+        <p class="paragraph-spaced">
+          同一個判斷延伸到整個介面：安靜的場景、低頻的動態、只在需要時出現的光效。角色有存在感，卻不會蓋過體驗本身。</p>
       </article>
 
       <article>
-        <p class="meta-label">02 · 可信，但不靠自律</p>
-        <h3>把可信度做進架構</h3>
+        <p class="meta-label">02 · 可信靠架構</p>
+        <h3>與其期待模型不出錯，不如讓它沒有出錯的餘地</h3>
         <p>
-          歌曲一律來自真實目錄、由架構保證不可捏造（見 Under the Hood）。與其反覆調整提示詞、期待模型不出錯，不如讓它從一開始就沒有捏造的餘地。</p>
-      </article>
-
-      <article>
-        <p class="meta-label">03 · 有存在感，但不搶戲</p>
-        <h3>先定世界觀，功能才有容器</h3>
-        <p>
-          把體驗包成一座森林電台，功能全部收進這個框架；再用克制去收尾——安靜的場景、低頻的動態、只在需要時出現的光效。角色有存在感，卻不會蓋過體驗本身。</p>
+          歌曲一律來自真實目錄、由架構保證不可捏造（見 Under the Hood）。安全網也是同一個思路：不押注在模型的判斷上，而是讓角色設定、前端與伺服器三層各自獨立把關。</p>
+        <p class="paragraph-spaced">
+          反覆調整提示詞只能讓它「比較不容易錯」；把規則做進系統，它才是真的不能錯。</p>
       </article>
 
     </div>
@@ -926,26 +897,9 @@
   <div class="wrap">
     <p class="case-label">Next Steps</p>
 
-    <h2>接下來想驗證的事</h2>
+    <h2>最前面的流失點</h2>
 
-    <div class="outcome-grid melu-next">
-
-      <div>
-        <p class="meta-label">真實使用者</p>
-        <p>目前的判斷多半來自我自己的使用。下一步想找幾位固定使用者做訪談，確認「先被理解、再聽歌」對別人是否也成立。</p>
-      </div>
-
-      <div>
-        <p class="meta-label">推薦是否真的準</p>
-        <p>建立一個可以回頭檢視的標準：從被跳過與被收藏的歌回推，檢驗心情與歌曲之間的媒合邏輯是否可靠。</p>
-      </div>
-
-      <div>
-        <p class="meta-label">留下來的理由</p>
-        <p>觀察哪些人會回來、又是為了什麼回來——是為了音樂、為了那段對話，還是為了那個安靜的地方本身。</p>
-      </div>
-
-    </div>
+    <p>上線七週有 44 位使用者產生實際行為，但六成的人開了帳號後就沒進到第一次對話——這個流失點比我預期的更前面。下一步想找幾位真的用下去的人訪談，也想弄懂那六成卡在哪。</p>
   </div>
 </section>
 
