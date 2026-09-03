@@ -1204,11 +1204,16 @@ body { overflow-x: hidden; }
   width: 100%;
   max-width: 100%;
   height: auto;
+  /* One frame for every case page, keyed to MELU's native 16:10 cover:
+     MELU shows uncropped; the 16:9 covers lose ~5% at the sides; Tata's
+     2.4:1 panorama is cropped to the same frame. */
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center;
   margin: 0 auto;
   padding: 0;
   border: 0;
   border-radius: 0;
-  object-fit: contain;
 }
 
 /* ── Persona grid: two personas side by side (breakout) ── */
@@ -2041,8 +2046,7 @@ body { overflow-x: hidden; }
 
 .campaign-framework img,
 .event-concept img,
-.activity-details img,
-.project-hero img {
+.activity-details img {
   display: block;
   width: 100%;
   height: auto;
@@ -2182,7 +2186,6 @@ body { overflow-x: hidden; }
    INTERACTIVE NARRATIVE — The Enigma of Bamboo Fox
 ===================================================== */
 
-.enigma-hero img,
 .character-card img,
 .artifact-figure img,
 .prototype-grid img,

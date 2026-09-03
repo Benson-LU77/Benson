@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tata — Hong-Qi Lu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Tata — 一座用日記長成的像素城市。每晚寫一頁，字會變成一棟樓；零伺服器、零帳號，字永遠只住在使用者自己的裝置裡。已上線於 tata.page。">
+<link rel="icon" type="image/png" href="assets/logo/hongqi-h-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tata — 把日子寫成一座城">
+<meta property="og:description" content="Local-first 像素日記城市。每晚寫一頁，字會變成一棟樓。">
+<meta property="og:image" content="https://benson-lu77.github.io/Benson/assets/tata/tata-og.png">
+<meta property="og:url" content="https://benson-lu77.github.io/Benson/project-tata.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css?v=20260903-hero4">
+<style>
+  /* Section rhythm: give each section more air and a firmer title hierarchy */
+  .case-section{ padding:76px 0; }
+  .case-section .case-label{
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.14em;
+    margin-bottom:16px;
+  }
+  .case-section > .wrap > h2{
+    font-size:clamp(23px,3.2vw,30px);
+    line-height:1.32;
+    margin-bottom:20px;
+  }
+  @media (max-width:700px){
+    .case-section{ padding:56px 0; }
+  }
+
+  /* Tata is a black / white / amber pixel world — every image sits on its own black */
+  .tata-shots{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:28px;
+    margin-top:40px;
+  }
+  .tata-shots figure{ margin:0; }
+  .tata-shots img{
+    width:100%;
+    aspect-ratio:16 / 10;
+    object-fit:cover;
+    display:block;
+    border-radius:12px;
+    background:#0a0a0c;
+    image-rendering:auto;
+  }
+  .tata-shots figcaption{ margin-top:14px; }
+  .tata-shots figcaption strong{
+    display:block;
+    font-weight:500;
+    color:var(--charcoal);
+  }
+  .tata-shots figcaption span{
+    display:block;
+    margin-top:6px;
+    color:var(--text-muted);
+    line-height:1.7;
+    font-size:0.95rem;
+  }
+  @media (max-width:640px){
+    .tata-shots{ grid-template-columns:1fr; gap:24px; }
+  }
+
+  /* Hero: the site-wide 16:9 frame crops this 2.4:1 image on the sides —
+     bias the crop toward the right so the "Tata" wordmark keeps its breathing room */
+  .project-hero__inner img{
+    object-position:76% center;
+    background:#010102;
+  }
+
+  /* Pixel sheets (lineup / objects) — never blur these */
+  .tata-pixel img{
+    width:100%;
+    display:block;
+    border-radius:12px;
+    background:#0b0d10;
+    image-rendering:pixelated;
+    image-rendering:crisp-edges;
+  }
+  .tata-pixel figcaption{ margin-top:14px; }
+  /* Object sheets are wide strips; show them whole. The two sheets differ slightly
+     in ratio, so they share one frame and letterbox onto the sheet's own dark —
+     invisible, and both tiles stay the same height. */
+  .tata-shots .tata-pixel img{
+    aspect-ratio:8 / 3;
+    object-fit:contain;
+  }
+  /* 08 is slightly wider than the frame, so the sides get cropped — pull the
+     crop left so the star sits where it does in frame 06. */
+  .tata-journey--start img{ object-position:44% center; }
+
+  /* Phone screenshots — four in one row, equal height (same source size) */
+  .tata-phones{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:clamp(16px,2.5vw,28px);
+    margin-top:40px;
+  }
+  .tata-phones figure{ margin:0; }
+  .tata-phones img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:14px;
+    background:#0a0a0c;
+  }
+  .tata-phones figcaption{ margin-top:14px; }
+  .tata-phones figcaption strong{ display:block; font-weight:500; color:var(--charcoal); }
+  .tata-phones figcaption span{
+    display:block; margin-top:6px;
+    color:var(--text-muted); line-height:1.7; font-size:0.9rem;
+  }
+  @media (max-width:640px){
+    .tata-phones{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+  }
+
+  /* Even 3-column grids */
+  .tata-grid-3{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  @media (max-width:1000px){ .tata-grid-3{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+  @media (max-width:700px){ .tata-grid-3{ grid-template-columns:1fr !important; } }
+
+  /* Two decisions */
+  .tata-decisions{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:clamp(40px,5vw,72px) !important;
+  }
+  @media (max-width:760px){
+    .tata-decisions{ grid-template-columns:1fr !important; gap:36px !important; }
+  }
+
+  /* Sub-heading inside a section */
+  .tata-lead{
+    position:relative;
+    margin-top:64px;
+    margin-bottom:20px;
+    padding-top:22px;
+    font-family:'Newsreader',serif;
+    font-size:18px;
+    font-weight:500;
+    line-height:1.7;
+    color:var(--charcoal);
+    opacity:1;
+  }
+  .tata-lead::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:34px;
+    height:2px;
+    background:var(--clay);
+    opacity:.7;
+  }
+  figure + .tata-lead{ margin-top:52px; }
+
+  /* Architecture diagram — pixel art on its own black, same treatment as the sheets */
+  .tata-arch{ margin-top:36px; }
+
+  /* Takeaway note */
+  .tata-note{
+    margin-top:48px;
+    padding:22px 26px;
+    background:rgba(37,37,34,0.045);
+    border-radius:12px;
+  }
+  .tata-note p{ margin:0; font-size:15px; line-height:1.9; opacity:.9; }
+  .tata-note strong{ color:var(--charcoal); }
+
+  /* Iteration rows (head left, detail right) */
+  .tata-iter{ margin-top:48px; }
+  .tata-iter__row{
+    display:grid;
+    grid-template-columns:minmax(190px,0.85fr) minmax(0,1.6fr);
+    gap:20px 44px;
+    padding:26px 0;
+    border-top:1px solid var(--border);
+  }
+  .tata-iter__row:last-of-type{ border-bottom:1px solid var(--border); }
+  .tata-iter__head .meta-label{ margin-bottom:8px; }
+  .tata-iter__head h3{ margin:0; }
+  .tata-iter__body p{ margin:0; line-height:1.9; }
+  .tata-iter--tight{ margin-top:8px; }
+  .tata-lbl{ font-weight:600; }
+  .tata-lbl--q{ color:#b0553f; }
+  .tata-lbl--c{ color:#8c7a4b; }
+  .tata-lbl--f{ color:#5e8368; }
+  @media (max-width:700px){
+    .tata-iter__row{ grid-template-columns:1fr; gap:10px; padding:22px 0; }
+  }
+
+  /* CTA */
+  .tata-cta{ text-align:center; }
+  .tata-cta .wrap > p{ margin-left:auto; margin-right:auto; }
+  .tata-cta__btn{
+    display:inline-block;
+    margin:8px 6px 0;
+    padding:15px 30px;
+    border-radius:999px;
+    background:var(--charcoal,#252525);
+    color:#fff;
+    text-decoration:none;
+    font-weight:500;
+    letter-spacing:.02em;
+    transition:transform .18s ease, opacity .18s ease;
+  }
+  .tata-cta__btn--ghost{
+    background:transparent;
+    color:var(--charcoal);
+    border:1px solid rgba(37,37,34,0.28);
+  }
+  .tata-cta__btn:hover{ transform:translateY(-2px); opacity:.92; }
+</style>
+<style>
+  .site-nav{ border-bottom:0; }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="site-nav">
+  <div class="wrap">
+    <a
+      href="index.html"
+      class="nav-name site-logo--image"
+      aria-label="Hong-Qi Lu — Home"
+    >
+      <img
+        src="assets/logo/hongqi-h-logo.png?v=20260625-transparent"
+        alt=""
+        class="site-logo-image"
+      >
+    </a>
+    <div class="nav-menu">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="6" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+          <rect x="3" y="11.2" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+          <rect x="3" y="16.4" width="18" height="1.6" rx="0.8" fill="currentColor"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="site-header compact" id="main-content">
+  <div class="wrap">
+    <a href="projects.html" class="back-link">← Back to Projects</a>
+
+    <p class="eyebrow">PIXEL JOURNAL CITY</p>
+
+    <h1>Tata</h1>
+
+    <div class="project-meta">
+      <span>Local-first × Pixel City × Daily Journaling</span>
+
+      <span>
+        Product Concept · Game Design · UX Writing · Pixel Art Direction
+      </span>
+
+      <span>Aug 2026 – Present</span>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="project-hero">
+  <div class="project-hero__inner">
+    <img
+      src="assets/tata/tata-hero.png"
+      alt="Tata 夜城遠景：黑白像素的等距城市浮在星空之中，一個琥珀色的小人站在路口"
+    >
+  </div>
+</section>
+
+<!-- At a glance -->
+<section class="at-glance" aria-label="At a glance">
+  <div class="wrap at-glance__inner">
+    <div class="at-glance__item">
+      <p class="at-glance__label">Concept</p>
+      <p class="at-glance__value">A pixel city grown from your journal: write a page each night and the words become a building. No server, no account — your words never leave your device.</p>
+    </div>
+    <div class="at-glance__item">
+      <p class="at-glance__label">Outcome</p>
+      <p class="at-glance__value">Solo-built and shipped in three and a half weeks: live as a PWA at tata.page, iOS build in App Store review. 220+ commits, 74 automated tests, $0 server cost.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Project Overview -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Project Overview</p>
+
+    <h2>一座用日記長成的像素城市</h2>
+
+    <p>
+      Tata 是一個 local-first 的筆記城市：每晚寫一頁日記，字會變成一棟像素建築，寫得越多，城市越大。沒有伺服器、沒有帳號、不收集任何資料——字只存在使用者自己的裝置裡。</p>
+
+    <p class="paragraph-spaced">
+      這是我第二個從概念做到上線的個人產品。跟 MELU 不同，這次的核心挑戰不在 AI 對話，而在「怎麼在完全沒有伺服器的前提下，把使用者最私密的字守好」——同步、合併、備份全部要在裝置端解決。</p>
+
+    <div class="meta-grid">
+
+      <div class="meta-item">
+        <p class="meta-label">Role</p>
+        <p>
+          Product Concept · Game / Interaction Design ·
+          UX Writing · Pixel Art Direction
+        </p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Duration</p>
+        <p>Aug 2026 – Present</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Type</p>
+        <p>Self-initiated Product</p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Tools</p>
+        <p>
+          React · Three.js · CodeMirror ·
+          Capacitor + Swift · PWA · GitHub Pages + Cloudflare
+        </p>
+      </div>
+
+      <div class="meta-item">
+        <p class="meta-label">Status</p>
+        <p>Live at tata.page · iOS in App Review</p>
+      </div>
+
+    </div>
+
+    <div class="contribution-note">
+      <p class="meta-label">My Contribution</p>
+      <p>
+        這是一個人規模、已上線並持續演進的產品。我負責產品概念、世界觀與角色（外太空夜城、Ash 與十二種職業的居民）、遊戲機制（瓦特經濟、好感系統、不懲罰哲學）、UX 文案與全部台詞的語氣準則、像素美術方向，以及每一次架構決策的拍板與驗收——產品鐵律、否決權與品質標準始終在我手上。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why Tata -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Why Tata</p>
+
+    <h2>最不會外洩的資料，是從沒離開過你機器的資料</h2>
+
+    <p>
+      日記是一個人最私密的東西，但多數日記 App 的第一步是「請先註冊」——你的字從第一個字開始就住在別人的伺服器上。我想反過來做：零伺服器、零帳號，字永遠留在使用者手上，而且是一般的 .md 純文字檔，隨時可以整包帶走。</p>
+
+    <p class="paragraph-spaced">
+      這不是省事，是產品定位。代價是所有同步、合併、備份都得在裝置端解決——這正是後面最有工程含量的部分。至於要讓人每天回來寫，靠的不是推播轟炸，而是讓字看得見：每一頁，都會在城裡長成一棟樓。</p>
+  </div>
+</section>
+
+<!-- Concept -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Concept</p>
+
+    <h2>每一頁，是一棟樓；每一個月，是一座島</h2>
+
+    <p>
+      城市的規則很簡單：一天一頁，一頁一棟樓，字數決定樓高；一個月是一座島，島與島之間以棧道相連。整座城只有三個顏色——黑、白、琥珀——琥珀留給使用者自己，永不販售。夜空裡的星座對應等級，月相是真實的月相。</p>
+
+    <p class="paragraph-spaced">
+      城裡有十二種職業的居民：站長、園丁、信使、天文學家、麵包師⋯⋯每一位的身分終身固定，寫得夠久，他們會記得你的名字、記得你上次選過的回話。這些不是隨機的：居民的身分、今晚誰來請託，都是對日期做確定性計算的結果——換一台裝置重算，結果完全一樣。</p>
+
+    <figure class="case-image case-image--wide case-image--push tata-pixel">
+      <img src="assets/tata/tata-lineup.png"
+           alt="城裡的人：琥珀色的你，以及站長、園丁、信使、天文學家、麵包師、修船師、守燈人、詩人、裁縫、檔案員、觀星者、鄰居十二種職業的居民，還有一隻巷貓與一隻狗"
+           loading="lazy">
+      <figcaption>城裡的人｜你是唯一的琥珀色；十二種職業終身固定，好感分四階，277 句開場台詞、554 條專屬回話，覆蓋率由測試強制為 100%。</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Opening Ritual -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Opening Ritual</p>
+
+    <h2>不放說明文，讓居民來教你</h2>
+
+    <p>
+      Tata 沒有任何一段教學文字。第一次打開，你收到的是一封封蠟的信；打開後鏡頭降臨到一座示範城市的路口，一位叫 Ash 的居民走過來跟你說話——怎麼寫字、怎麼看羅盤，都在對話裡學會。這是產品鐵律之一：能用角色和設計教的，就不寫說明。</p>
+
+    <div class="tata-shots">
+      <figure>
+        <img src="assets/tata/tata-journey-01.png" alt="開場第一幀：一封封蠟的信" loading="lazy">
+        <figcaption><strong>一封信</strong><span>打開 App，沒有登入頁，只有一封等你拆開的信。當信封開啟，城市的故事也隨之開始。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-journey-03.png" alt="鏡頭從高空降臨到示範城市的路口" loading="lazy">
+        <figcaption><strong>降臨</strong><span>鏡頭從遙遠的星空緩緩落下，最後停在一座陌生的城市。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-journey-05.png" alt="居民 Ash 走過來，對話框寫著「歡迎來到 Tata。」" loading="lazy">
+        <figcaption><strong>Ash 走來</strong><span>一位名叫 Ash 的居民從街角走來，在你身旁停下，帶你認識 Tata 與這座城市。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-journey-06.png" alt="星辰邀請" loading="lazy">
+        <figcaption><strong>星辰邀請</strong><span>「看到左下方那顆星辰了嗎？點點看。」教學由 Ash 自然地說出口，不在畫面上堆疊額外的操作說明。</span></figcaption>
+      </figure>
+      <figure class="tata-journey--compass">
+        <img src="assets/tata/tata-journey-07.png?v=3" alt="羅盤介紹：居民教你左下角的羅盤怎麼用" loading="lazy">
+        <figcaption><strong>羅盤課</strong><span>Ash 帶你認識羅盤的四個方向：上方是筆記本、左側是檔案庫、右側是鏡子、下方是補給站。</span></figcaption>
+      </figure>
+      <figure class="tata-journey--start">
+        <img src="assets/tata/tata-journey-08.png" alt="正式開始：回到自己的城市，還是空的，等第一頁" loading="lazy">
+        <figcaption><strong>正式開始</strong><span>旅程結束後，你回到屬於自己的城市。從第一篇日記開始，一筆一畫，打造只屬於你的 Tata。</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Under the Hood -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Under the Hood</p>
+
+    <h2>城市不是存下來的，是從字推導出來的</h2>
+
+    <p>
+      整個系統只有一個真相來源：使用者寫的那些 .md 檔。城市、瓦特、居民關係、今晚誰來請託——全部從字算出來，不另外儲存第二份。好處是狀態極小（一個 tata.json）、跨裝置合併簡單，而且就算資料壞了，城市也能照樣重生。</p>
+
+    <p class="paragraph-spaced">
+      兩台裝置離線各寫一段，之後要合併，順序不能影響結果：計數取最大值、時間取最早、集合取聯集、<strong>空值永不勝出</strong>。有測試專門驗證任意順序合併結果一致。</p>
+
+    <p class="tata-lead">四座橋，一顆守衛腦</p>
+
+    <p>
+      字可以住在四個地方：瀏覽器內建儲存、電腦上自選的資料夾、Obsidian 資料夾，以及 iPhone 的檔案 App。四種後端實作同一個三方法介面（讀、寫、列表），共用同一套寫入守衛——<strong>守衛只寫一次，每座橋自動繼承</strong>。要加第五座橋，守衛不用再寫。</p>
+
+    <figure class="case-image case-image--wide case-image--push tata-pixel tata-arch">
+      <img src="assets/tata/tata-architecture.png?v=1" alt="架構圖（像素風）：你寫的每晚一頁先經過站長把守的寫入守衛（草稿落地、讀遠端比對、影子備份、就地寫入、寫後驗證；缺欄位拒寫、讀不到拋錯），再走四條棧道去它住的島：瀏覽器內建儲存、電腦上自選的資料夾、Obsidian 資料夾、iPhone 檔案 App" loading="lazy">
+    </figure>
+
+    <p class="tata-lead">像素感來自畫出來的結構，不是濾鏡</p>
+
+    <p>
+      渲染沒有用現成的遊戲引擎。城市是 Three.js 上自寫的像素管線：居民與街邊小物是逐格手繪的 ASCII 圖，打包成圖集貼在虛擬像素格上；調色盤量化成八階灰加琥珀；日夜、天氣、真實月相由 shader 驅動。一條鐵則：小於兩個世界單位的東西一律手繪，因為用方塊拼出來的樹在 12px 尺度永遠不像樹。</p>
+
+    <div class="tata-shots">
+      <figure class="tata-pixel">
+        <img src="assets/tata/tata-objects-street.png" alt="街邊小物十六款：花圃、街貓石像、斜路牌、投幣望遠鏡、雨傘桶、報攤箱、信鴿棲架、風向雞等手繪像素小物" loading="lazy">
+        <figcaption><strong>街邊小物 ×16</strong><span>每日限定商品，24 小時輪替。買了就擺在城裡——花瓦特必須看得見。</span></figcaption>
+      </figure>
+      <figure class="tata-pixel">
+        <img src="assets/tata/tata-objects-stamps.png" alt="印章十四款：筆記本裡可蓋的像素印章" loading="lazy">
+        <figcaption><strong>印章 ×14</strong><span>筆記本裡的小儀式；連中文輸入法打出的全形冒號都要能觸發。</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Data Guard -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Data Guard</p>
+
+    <h2>一次真實的資料遺失，和它留下的規則</h2>
+
+    <p>
+      零伺服器的產品，最真實的威脅不是被駭，是 App 自己把使用者的字弄丟。開發第十天，它真的發生了。</p>
+
+    <div class="tata-iter">
+      <article class="tata-iter__row">
+        <div class="tata-iter__head">
+          <p class="meta-label">Incident · 08-21</p>
+          <h3>寫的字突然消失，連 Obsidian 那邊也一起被蓋掉</h3>
+        </div>
+        <div class="tata-iter__body">
+          <p>
+            <strong class="tata-lbl tata-lbl--q">問題：</strong>使用者寫好的內容不見了；因為 Obsidian 有同步，遠端的正本也被空白覆蓋。<br>
+            <strong class="tata-lbl tata-lbl--c">根因：</strong>寫入前的守衛要求「遠端的修改時間存在」才做比對。某次遠端回應解析失敗、回傳了空值，守衛把「空值」當成「沒有衝突」，整段檢查被跳過，直接覆寫。<br>
+            <strong class="tata-lbl tata-lbl--f">修正：</strong>立下契約——<strong>缺欄位一律拒寫</strong>，讀不到必須拋錯、不准回空值裝作不存在。把所有寫入收成單一通道，覆寫前先存影子備份，寫後讀回驗證；衝突時選「用他們的」，我方版本先另存成帶時間戳的檔，原稿才准死。最後用 12 個場景的特徵測試，把這次事故的形狀永久釘死。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="tata-note">
+      <p>測試的分配刻意不均：按「壞了多痛」排——<strong>字 ＞ 城市推導 ＞ 介面</strong>。介面幾乎不測；保護使用者的字的那一層測試最厚，12 個場景全是真事故的重演。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Product Rules -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Product Rules</p>
+
+    <h2>不懲罰、看得見、字勝過家具</h2>
+
+    <p>
+      所有工程決策的上游，是幾條產品鐵律。它們不是風格偏好，而是每一次「這個功能該不該做」的判準。</p>
+
+    <div class="development-stages tata-grid-3">
+      <article>
+        <p class="meta-label">01 · 不懲罰</p>
+        <h3>斷更不倒扣，刪字城不縮</h3>
+        <p>樓的高度只升不降；街燈記的是歷史最佳連寫，斷了也不滅。過去的頁定稿唯讀，永遠不會被「改壞」。城市等你回來，不催你。</p>
+      </article>
+      <article>
+        <p class="meta-label">02 · 花瓦特必須看得見</p>
+        <h3>買了看不到的東西，不如收掉</h3>
+        <p>禮物系統做完之後我把它整組拆掉——因為送出去的禮物在城裡看不見。「作為裝飾城市的遊戲，這不成立。」換成每日限定的街邊小物：買了，就擺在城裡。</p>
+      </article>
+      <article>
+        <p class="meta-label">03 · 字勝過家具</p>
+        <h3>新樓永遠優先，擺飾自動讓路</h3>
+        <p>當一棟新樓要蓋在某個位置，那裡的裝飾自動退位。這座城的主體是字，其他東西都是配角——包括我花最多時間畫的那些小物。</p>
+      </article>
+    </div>
+
+    <p class="tata-lead">鐵律之外，三個自己每天用才抓到的洞</p>
+
+    <div class="tata-iter tata-iter--tight">
+      <article class="tata-iter__row">
+        <div class="tata-iter__head">
+          <p class="meta-label">Iteration · 01</p>
+          <h3>買的樹，種在馬路正中央</h3>
+        </div>
+        <div class="tata-iter__body">
+          <p>
+            <strong class="tata-lbl tata-lbl--q">問題：</strong>花瓦特買的樹出現在環城路上，像被隨手丟在那。<br>
+            <strong class="tata-lbl tata-lbl--c">根因：</strong>裝飾座標落在路帶範圍內，程式只看「有沒有空位」，不看「那是不是路」。<br>
+            <strong class="tata-lbl tata-lbl--f">修正：</strong>立擺位鐵則——每個小物都要過一遍「描述說它在哪 vs 實際畫在哪」；樹改成手繪 sprite。</p>
+        </div>
+      </article>
+      <article class="tata-iter__row">
+        <div class="tata-iter__head">
+          <p class="meta-label">Iteration · 02</p>
+          <h3>中文輸入法叫不出印章</h3>
+        </div>
+        <div class="tata-iter__body">
+          <p>
+            <strong class="tata-lbl tata-lbl--q">問題：</strong>打兩個冒號應該跳出印章選單，中文使用者怎麼打都沒反應。<br>
+            <strong class="tata-lbl tata-lbl--c">根因：</strong>中文輸入法打出的是全形冒號，觸發規則只認半形。<br>
+            <strong class="tata-lbl tata-lbl--f">修正：</strong>觸發改成同時吃半形與全形。通則：凡是要中文使用者打的符號，都要先想全形。</p>
+        </div>
+      </article>
+      <article class="tata-iter__row">
+        <div class="tata-iter__head">
+          <p class="meta-label">Iteration · 03</p>
+          <h3>凌晨寫日記，Ash 在對話中隱形</h3>
+        </div>
+        <div class="tata-iter__body">
+          <p>
+            <strong class="tata-lbl tata-lbl--q">問題：</strong>對話框照跑，說話的人卻不在畫面上。<br>
+            <strong class="tata-lbl tata-lbl--c">根因：</strong>人口潮汐——凌晨只畫 15% 居民省效能，連正在跟你講話的也一起抽掉。<br>
+            <strong class="tata-lbl tata-lbl--f">修正：</strong>對話對象與請託者永不隱身。通則：任何「按條件略過渲染」，先問一句「它正在被互動嗎」。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- iOS -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">iOS</p>
+
+    <h2>從網頁到口袋：字要存在使用者看得到的地方</h2>
+
+    <p>
+      iOS 版用原生外掛把字存進 App 的文件夾——在「檔案」App 裡看得到、可以自己備份、可以整包匯出。這裡遇到一個網頁上不會有的硬問題：iCloud 尚未下載的檔案在磁碟上只是一個佔位符，「讀不到」和「不存在」是兩件事，混淆了就會覆寫使用者的字。</p>
+
+    <div class="tata-phones">
+      <figure>
+        <img src="assets/tata/tata-shot-01-city.png" alt="iOS 版：Tata 標題浮在夜城上" loading="lazy">
+        <figcaption><strong>夜城</strong><span>直向鎖定——筆記本是直的，往上長的城市也是。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-shot-02-notebook.png" alt="iOS 版：攤開的像素筆記本，正在寫今天這一頁" loading="lazy">
+        <figcaption><strong>筆記本</strong><span>左頁是資訊板，右頁純寫字；左下告訴你「再 N 字多一層樓」。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-shot-03-depot.png" alt="iOS 版：補給站，顯示瓦特餘額、今晚委託與可買的東西" loading="lazy">
+        <figcaption><strong>補給站</strong><span>瓦特餘額、今晚的委託、今日限定的小物。</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/tata/tata-shot-04-mirror.png" alt="iOS 版：鏡子，換裝與外觀" loading="lazy">
+        <figcaption><strong>鏡子</strong><span>捏你的角色——琥珀色永遠只有你一個。</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Design Decisions -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Design Decisions</p>
+
+    <h2>兩個決定，決定了其他所有事</h2>
+
+    <p>
+      回頭看，這個產品真正的取捨只有兩個。其餘的選擇，幾乎都是從它們推導出來的。</p>
+
+    <div class="development-stages tata-decisions">
+
+      <article>
+        <p class="meta-label">01 · 字是唯一的真相</p>
+        <h3>城市推導，不儲存</h3>
+        <p>
+          一旦決定「使用者的 .md 檔是唯一真相來源」，很多事就自動定了：狀態極小、合併簡單、壞了能重算、換裝置不用搬家。居民的身分、今晚的委託，全是對日期做確定性計算——什麼都不用存，也什麼都不會丟。</p>
+        <p class="paragraph-spaced">
+          它同時決定了產品的邊界：任何會把字送出裝置的功能——同步、分析、雲端——預設答案是不做。那是產品轉向，不是新功能。</p>
+      </article>
+
+      <article>
+        <p class="meta-label">02 · 拒寫是預設</p>
+        <h3>放行要證據，不確定就停下來</h3>
+        <p>
+          8/21 之後，寫入守衛的每一個分支都反過來問：「我有證據可以安全覆寫嗎？」沒有，就停。這不是防禦性編程的習慣，是一次真實事故換來的契約。</p>
+        <p class="paragraph-spaced">
+          衝突也刻意不自動合併：日記不適合自動合併，錯合併比衝突更傷。三選一的對話框，把決定權留給使用者。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- Reflection -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Reflection</p>
+
+    <h2>零伺服器不是少做事，是把責任全部留在自己手上</h2>
+
+    <p>
+      做 MELU 時我學到「可信度要做進架構」；做 Tata 時這句話有了更重的份量——因為這次沒有伺服器可以幫我兜底。使用者的字只在他的裝置上，App 自己就是最後一道防線。</p>
+
+    <p class="paragraph-spaced">
+      另一件事是關於克制。三個顏色、不放說明文、拆掉做好的禮物系統——每一次減法，產品的輪廓就清楚一點。三週半從第一行程式到送審，靠的不是做得多，而是很早就知道什麼不做。</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="case-section tata-cta">
+  <div class="wrap">
+    <h2>想去城裡走走？</h2>
+    <p class="paragraph-spaced">網頁版已經上線，點「先看看示範城市」就能體驗完整旅程；原始碼公開。</p>
+    <p>
+      <a class="tata-cta__btn" href="https://tata.page" target="_blank" rel="noopener">
+        Open Tata →
+      </a>
+      <a class="tata-cta__btn tata-cta__btn--ghost" href="https://github.com/Benson-LU77/tata" target="_blank" rel="noopener">
+        Source on GitHub
+      </a>
+    </p>
+  </div>
+</section>
+
+<!-- Previous / Next Project -->
+<nav class="project-nav-footer" aria-label="Project navigation">
+  <div class="wrap project-nav-footer__inner">
+    <a
+      href="project-enigma.html"
+      class="project-nav-link project-nav-link--previous"
+    >
+      <span class="project-nav-direction">Previous Project</span>
+      <span class="project-nav-title">
+        ← The Enigma of Bamboo Fox
+      </span>
+    </a>
+    <a
+      href="project-melu.html"
+      class="project-nav-link project-nav-link--next"
+    >
+      <span class="project-nav-direction">Next Project</span>
+      <span class="project-nav-title">
+        MELU — AI Forest Radio Companion →
+      </span>
+    </a>
+  </div>
+</nav>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="contact.html" class="footer-getintouch">
+      <span class="footer-getintouch__eyebrow">Get in Touch</span>
+      <span class="footer-getintouch__email">keepitupluhongqi@gmail.com</span>
+    </a>
+    <p class="footer-note">© 2026 Hong-Qi Lu</p>
+  </div>
+</footer>
+
+<button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="back-to-top.js?v=20260714-project-footer1"></script>
+<script src="case-toc.js?v=20260714f"></script>
+<script src="nav.js?v=20260717c"></script>
+</body>
+</html>
