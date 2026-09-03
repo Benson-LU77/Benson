@@ -126,15 +126,6 @@
   @media (max-width:1000px){ .tata-grid-3{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
   @media (max-width:700px){ .tata-grid-3{ grid-template-columns:1fr !important; } }
 
-  /* Two decisions */
-  .tata-decisions{
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    gap:clamp(40px,5vw,72px) !important;
-  }
-  @media (max-width:760px){
-    .tata-decisions{ grid-template-columns:1fr !important; gap:36px !important; }
-  }
-
   /* Sub-heading inside a section */
   .tata-lead{
     position:relative;
@@ -280,7 +271,7 @@
   <div class="project-hero__inner">
     <img
       src="assets/tata/tata-hero.png"
-      alt="Tata 夜城遠景：黑白像素的等距城市浮在星空之中，一個琥珀色的小人站在路口"
+      alt="Tata 夜城遠景：黑白像素的等距城市浮在星空之中，一個琥珀色的小人站在島上的街道"
     >
   </div>
 </section>
@@ -350,7 +341,7 @@
     <div class="contribution-note">
       <p class="meta-label">My Contribution</p>
       <p>
-        這是一個人規模、已上線並持續演進的產品。我負責產品概念、世界觀與角色（外太空夜城、Ash 與十二種職業的居民）、遊戲機制（瓦特經濟、好感系統、不懲罰哲學）、UX 文案與全部台詞的語氣準則、像素美術方向，以及每一次架構決策的拍板與驗收——產品鐵律、否決權與品質標準始終在我手上。</p>
+        這是一個人規模、已上線並持續演進的產品。我負責產品概念、世界觀與角色（外太空夜城、Ash 和城裡十二種職業的居民）、遊戲機制（瓦特經濟、好感系統、不懲罰哲學）、UX 文案與全部台詞的語氣準則、像素美術方向，以及每一次架構決策的拍板與驗收——產品鐵律、否決權與品質標準始終在我手上。</p>
     </div>
   </div>
 </section>
@@ -367,6 +358,9 @@
 
     <p class="paragraph-spaced">
       這不是省事，是產品定位。代價是所有同步、合併、備份都得在裝置端解決——這正是後面最有工程含量的部分。至於要讓人每天回來寫，靠的不是推播轟炸，而是讓字看得見：每一頁，都會在城裡長成一棟樓。</p>
+
+    <p class="paragraph-spaced">
+      這條定位也是一條界線：任何會把字送出裝置的功能——同步、分析、雲端——預設答案是不做。<strong>那是產品轉向，不是新功能。</strong></p>
   </div>
 </section>
 
@@ -431,77 +425,6 @@
   </div>
 </section>
 
-<!-- Under the Hood -->
-<section class="case-section">
-  <div class="wrap">
-    <p class="case-label">Under the Hood</p>
-
-    <h2>城市不是存下來的，是從字推導出來的</h2>
-
-    <p>
-      整個系統只有一個真相來源：使用者寫的那些 .md 檔。城市、瓦特、居民關係、今晚誰來請託——全部從字算出來，不另外儲存第二份。好處是狀態極小（一個 tata.json）、跨裝置合併簡單，而且就算資料壞了，城市也能照樣重生。</p>
-
-    <p class="paragraph-spaced">
-      兩台裝置離線各寫一段，之後要合併，順序不能影響結果：計數取最大值、時間取最早、集合取聯集、<strong>空值永不勝出</strong>。有測試專門驗證任意順序合併結果一致。</p>
-
-    <p class="tata-lead">四座橋，一顆守衛腦</p>
-
-    <p>
-      字可以住在四個地方：瀏覽器內建儲存、電腦上自選的資料夾、Obsidian 資料夾，以及 iPhone 的檔案 App。四種後端實作同一個三方法介面（讀、寫、列表），共用同一套寫入守衛——<strong>守衛只寫一次，每座橋自動繼承</strong>。要加第五座橋，守衛不用再寫。</p>
-
-    <figure class="case-image case-image--wide case-image--push tata-pixel tata-arch">
-      <img src="assets/tata/tata-architecture.png?v=1" alt="架構圖（像素風）：你寫的每晚一頁先經過站長把守的寫入守衛（草稿落地、讀遠端比對、影子備份、就地寫入、寫後驗證；缺欄位拒寫、讀不到拋錯），再走四條棧道去它住的島：瀏覽器內建儲存、電腦上自選的資料夾、Obsidian 資料夾、iPhone 檔案 App" loading="lazy">
-    </figure>
-
-    <p class="tata-lead">像素感來自畫出來的結構，不是濾鏡</p>
-
-    <p>
-      渲染沒有用現成的遊戲引擎。城市是 Three.js 上自寫的像素管線：居民與街邊小物是逐格手繪的 ASCII 圖，打包成圖集貼在虛擬像素格上；調色盤量化成八階灰加琥珀；日夜、天氣、真實月相由 shader 驅動。一條鐵則：小於兩個世界單位的東西一律手繪，因為用方塊拼出來的樹在 12px 尺度永遠不像樹。</p>
-
-    <div class="tata-shots">
-      <figure class="tata-pixel">
-        <img src="assets/tata/tata-objects-street.png" alt="街邊小物十六款：花圃、街貓石像、斜路牌、投幣望遠鏡、雨傘桶、報攤箱、信鴿棲架、風向雞等手繪像素小物" loading="lazy">
-        <figcaption><strong>街邊小物 ×16</strong><span>每日限定商品，24 小時輪替。買了就擺在城裡——花瓦特必須看得見。</span></figcaption>
-      </figure>
-      <figure class="tata-pixel">
-        <img src="assets/tata/tata-objects-stamps.png" alt="印章十四款：筆記本裡可蓋的像素印章" loading="lazy">
-        <figcaption><strong>印章 ×14</strong><span>筆記本裡的小儀式；連中文輸入法打出的全形冒號都要能觸發。</span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- Data Guard -->
-<section class="case-section">
-  <div class="wrap">
-    <p class="case-label">Data Guard</p>
-
-    <h2>一次真實的資料遺失，和它留下的規則</h2>
-
-    <p>
-      零伺服器的產品，最真實的威脅不是被駭，是 App 自己把使用者的字弄丟。開發第十天，它真的發生了。</p>
-
-    <div class="tata-iter">
-      <article class="tata-iter__row">
-        <div class="tata-iter__head">
-          <p class="meta-label">Incident · 08-21</p>
-          <h3>寫的字突然消失，連 Obsidian 那邊也一起被蓋掉</h3>
-        </div>
-        <div class="tata-iter__body">
-          <p>
-            <strong class="tata-lbl tata-lbl--q">問題：</strong>使用者寫好的內容不見了；因為 Obsidian 有同步，遠端的正本也被空白覆蓋。<br>
-            <strong class="tata-lbl tata-lbl--c">根因：</strong>寫入前的守衛要求「遠端的修改時間存在」才做比對。某次遠端回應解析失敗、回傳了空值，守衛把「空值」當成「沒有衝突」，整段檢查被跳過，直接覆寫。<br>
-            <strong class="tata-lbl tata-lbl--f">修正：</strong>立下契約——<strong>缺欄位一律拒寫</strong>，讀不到必須拋錯、不准回空值裝作不存在。把所有寫入收成單一通道，覆寫前先存影子備份，寫後讀回驗證；衝突時選「用他們的」，我方版本先另存成帶時間戳的檔，原稿才准死。最後用 12 個場景的特徵測試，把這次事故的形狀永久釘死。</p>
-        </div>
-      </article>
-    </div>
-
-    <div class="tata-note">
-      <p>測試的分配刻意不均：按「壞了多痛」排——<strong>字 ＞ 城市推導 ＞ 介面</strong>。介面幾乎不測；保護使用者的字的那一層測試最厚，12 個場景全是真事故的重演。</p>
-    </div>
-  </div>
-</section>
-
 <!-- Product Rules -->
 <section class="case-section">
   <div class="wrap">
@@ -530,7 +453,7 @@
       </article>
     </div>
 
-    <p class="tata-lead">鐵律之外，三個自己每天用才抓到的洞</p>
+    <p class="tata-lead">自己每天用，才會發現的兩件事</p>
 
     <div class="tata-iter tata-iter--tight">
       <article class="tata-iter__row">
@@ -557,19 +480,74 @@
             <strong class="tata-lbl tata-lbl--f">修正：</strong>觸發改成同時吃半形與全形。通則：凡是要中文使用者打的符號，都要先想全形。</p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- Under the Hood -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Under the Hood</p>
+
+    <h2>城市不是存下來的，是從字長出來的</h2>
+
+    <p>
+      你寫的那些文字檔，就是城市的全部。樓的高低、居民是誰、今晚誰來找你——都是當場從你的字算出來的，沒有另外存一份。所以換一台電腦打開，城市長得一模一樣；就算存檔壞了，城市也能照著你的字重新長回來。</p>
+
+    <p class="tata-lead">四座橋，同一套規則</p>
+
+    <p>
+      字可以住在四個地方：瀏覽器裡、你挑的資料夾、Obsidian，或 iPhone 的檔案 App。電腦上讓你自己選，手機上不用選——就存在 App 自己的文件夾裡。不管住哪，字都要先過守衛才准落地；<strong>哪天多開第五個地方，照同一套規則走就行</strong>。</p>
+
+    <figure class="case-image case-image--wide case-image--push tata-pixel tata-arch">
+      <img src="assets/tata/tata-architecture.png?v=2" alt="架構圖（像素風）：你寫的每晚一頁先經過站長把守的守衛（四座橋同一套規則：草稿落地、讀遠端比對、影子備份、就地寫入、寫後驗證；缺欄位拒寫、讀不到拋錯），再走四條棧道去它住的島：瀏覽器內建儲存、電腦上自選的資料夾、Obsidian 資料夾、iPhone 檔案 App" loading="lazy">
+    </figure>
+
+    <p class="tata-lead">像素感是畫出來的，不是套濾鏡</p>
+
+    <p>
+      城市沒有用現成的遊戲引擎，是自己一格一格畫的：居民和街邊小物都是手繪像素圖。一條鐵則：<strong>只要東西小到跟人差不多，就一定要手畫</strong>——用方塊拼出來的樹，在那個尺寸永遠不像樹。</p>
+
+    <div class="tata-shots">
+      <figure class="tata-pixel">
+        <img src="assets/tata/tata-objects-street.png" alt="街邊小物十六款：花圃、街貓石像、斜路牌、投幣望遠鏡、雨傘桶、報攤箱、信鴿棲架、風向雞等手繪像素小物" loading="lazy">
+        <figcaption><strong>街邊小物 ×16</strong><span>每日限定商品，24 小時輪替。買了就擺在城裡——花瓦特必須看得見。</span></figcaption>
+      </figure>
+      <figure class="tata-pixel">
+        <img src="assets/tata/tata-objects-stamps.png" alt="印章十四款：筆記本裡可蓋的像素印章" loading="lazy">
+        <figcaption><strong>印章 ×14</strong><span>筆記本裡的小儀式；連中文輸入法打出的全形冒號都要能觸發。</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Data Guard -->
+<section class="case-section">
+  <div class="wrap">
+    <p class="case-label">Trust</p>
+
+    <h2>開發第十天，我把使用者的字弄丟了</h2>
+
+    <p>
+      零伺服器的產品，最真實的威脅不是被駭，是 App 自己把使用者的字弄丟。它真的發生了。</p>
+
+    <div class="tata-iter tata-iter--tight">
       <article class="tata-iter__row">
         <div class="tata-iter__head">
-          <p class="meta-label">Iteration · 03</p>
-          <h3>凌晨寫日記，Ash 在對話中隱形</h3>
+          <p class="meta-label">Incident · 08-21</p>
+          <h3>寫的字突然消失，連 Obsidian 那邊也一起被蓋掉</h3>
         </div>
         <div class="tata-iter__body">
           <p>
-            <strong class="tata-lbl tata-lbl--q">問題：</strong>對話框照跑，說話的人卻不在畫面上。<br>
-            <strong class="tata-lbl tata-lbl--c">根因：</strong>人口潮汐——凌晨只畫 15% 居民省效能，連正在跟你講話的也一起抽掉。<br>
-            <strong class="tata-lbl tata-lbl--f">修正：</strong>對話對象與請託者永不隱身。通則：任何「按條件略過渲染」，先問一句「它正在被互動嗎」。</p>
+            <strong class="tata-lbl tata-lbl--q">問題：</strong>使用者寫好的內容不見了；因為 Obsidian 有同步，遠端的正本也被空白覆蓋。<br>
+            <strong class="tata-lbl tata-lbl--c">根因：</strong>存檔前本來要先跟遠端比對。某次遠端回不了資料，程式把「沒讀到」當成「沒衝突」，整段檢查被跳過，直接覆寫。<br>
+            <strong class="tata-lbl tata-lbl--f">修正：</strong>立下契約——<strong>讀不到就不准寫</strong>。所有存檔只走同一個守衛：覆寫前先留一份備份，寫完讀回來核對，有衝突就問使用者、不自己猜。最後用 12 個場景的測試，把這次事故永久釘死。</p>
         </div>
       </article>
     </div>
+
+    <p class="paragraph-spaced">
+      有一種情況 Tata 刻意不自己決定：同一頁在 Tata 和 Obsidian 兩邊都被改過——只有在電腦上和 Obsidian 共用同一份筆記的人會遇到。這時它不自動合併、也不挑一邊，而是問你：保留我的、用對方的，還是兩個都留。日記不適合自動合併，<strong>錯合併比衝突更傷</strong>。</p>
   </div>
 </section>
 
@@ -581,7 +559,7 @@
     <h2>從網頁到口袋：字要存在使用者看得到的地方</h2>
 
     <p>
-      iOS 版用原生外掛把字存進 App 的文件夾——在「檔案」App 裡看得到、可以自己備份、可以整包匯出。這裡遇到一個網頁上不會有的硬問題：iCloud 尚未下載的檔案在磁碟上只是一個佔位符，「讀不到」和「不存在」是兩件事，混淆了就會覆寫使用者的字。</p>
+      iOS 版用原生外掛把字存進 App 的文件夾——在「檔案」App 裡看得到、可以自己備份、可以整包匯出。這裡遇到一個網頁上不會有的硬問題：iCloud 尚未下載的檔案在磁碟上只是一個佔位符，「讀不到」和「不存在」是兩件事。前一段那條規則，在新平台上又被考了一次——這次它擋住了。</p>
 
     <div class="tata-phones">
       <figure>
@@ -600,40 +578,6 @@
         <img src="assets/tata/tata-shot-04-mirror.png" alt="iOS 版：鏡子，換裝與外觀" loading="lazy">
         <figcaption><strong>鏡子</strong><span>捏你的角色——琥珀色永遠只有你一個。</span></figcaption>
       </figure>
-    </div>
-  </div>
-</section>
-
-<!-- Design Decisions -->
-<section class="case-section">
-  <div class="wrap">
-    <p class="case-label">Design Decisions</p>
-
-    <h2>兩個決定，決定了其他所有事</h2>
-
-    <p>
-      回頭看，這個產品真正的取捨只有兩個。其餘的選擇，幾乎都是從它們推導出來的。</p>
-
-    <div class="development-stages tata-decisions">
-
-      <article>
-        <p class="meta-label">01 · 字是唯一的真相</p>
-        <h3>城市推導，不儲存</h3>
-        <p>
-          一旦決定「使用者的 .md 檔是唯一真相來源」，很多事就自動定了：狀態極小、合併簡單、壞了能重算、換裝置不用搬家。居民的身分、今晚的委託，全是對日期做確定性計算——什麼都不用存，也什麼都不會丟。</p>
-        <p class="paragraph-spaced">
-          它同時決定了產品的邊界：任何會把字送出裝置的功能——同步、分析、雲端——預設答案是不做。那是產品轉向，不是新功能。</p>
-      </article>
-
-      <article>
-        <p class="meta-label">02 · 拒寫是預設</p>
-        <h3>放行要證據，不確定就停下來</h3>
-        <p>
-          8/21 之後，寫入守衛的每一個分支都反過來問：「我有證據可以安全覆寫嗎？」沒有，就停。這不是防禦性編程的習慣，是一次真實事故換來的契約。</p>
-        <p class="paragraph-spaced">
-          衝突也刻意不自動合併：日記不適合自動合併，錯合併比衝突更傷。三選一的對話框，把決定權留給使用者。</p>
-      </article>
-
     </div>
   </div>
 </section>
