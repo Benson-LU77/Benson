@@ -433,52 +433,23 @@
     <h2>不懲罰、看得見、字勝過家具</h2>
 
     <p>
-      所有工程決策的上游，是幾條產品鐵律。它們不是風格偏好，而是每一次「這個功能該不該做」的判準。</p>
+      這三條不是風格偏好，是擋過東西的判準——第二條砍掉了一整套做完的功能。</p>
 
     <div class="development-stages tata-grid-3">
       <article>
         <p class="meta-label">01 · 不懲罰</p>
         <h3>斷更不倒扣，刪字城不縮</h3>
-        <p>樓的高度只升不降；街燈記的是歷史最佳連寫，斷了也不滅。過去的頁定稿唯讀，永遠不會被「改壞」。城市等你回來，不催你。</p>
+        <p>別的日記 App 靠「連續天數」逼你回來，斷一天歸零。Tata 反過來：樓只升不降，街燈記的是你最好的那次連寫。會罵人的日記本，沒人想打開第二次。</p>
       </article>
       <article>
         <p class="meta-label">02 · 花瓦特必須看得見</p>
         <h3>買了看不到的東西，不如收掉</h3>
-        <p>禮物系統做完之後我把它整組拆掉——因為送出去的禮物在城裡看不見。「作為裝飾城市的遊戲，這不成立。」換成每日限定的街邊小物：買了，就擺在城裡。</p>
+        <p>禮物系統做完之後，我把它整組拆掉——送出去的禮物在城裡看不見。換成每日限定的街邊小物：買了，就擺在城裡。</p>
       </article>
       <article>
         <p class="meta-label">03 · 字勝過家具</p>
         <h3>新樓永遠優先，擺飾自動讓路</h3>
-        <p>當一棟新樓要蓋在某個位置，那裡的裝飾自動退位。這座城的主體是字，其他東西都是配角——包括我花最多時間畫的那些小物。</p>
-      </article>
-    </div>
-
-    <p class="tata-lead">自己每天用，才會發現的兩件事</p>
-
-    <div class="tata-iter tata-iter--tight">
-      <article class="tata-iter__row">
-        <div class="tata-iter__head">
-          <p class="meta-label">Iteration · 01</p>
-          <h3>買的樹，種在馬路正中央</h3>
-        </div>
-        <div class="tata-iter__body">
-          <p>
-            <strong class="tata-lbl tata-lbl--q">問題：</strong>花瓦特買的樹出現在環城路上，像被隨手丟在那。<br>
-            <strong class="tata-lbl tata-lbl--c">根因：</strong>裝飾座標落在路帶範圍內，程式只看「有沒有空位」，不看「那是不是路」。<br>
-            <strong class="tata-lbl tata-lbl--f">修正：</strong>立擺位鐵則——每個小物都要過一遍「描述說它在哪 vs 實際畫在哪」；樹改成手繪 sprite。</p>
-        </div>
-      </article>
-      <article class="tata-iter__row">
-        <div class="tata-iter__head">
-          <p class="meta-label">Iteration · 02</p>
-          <h3>中文輸入法叫不出印章</h3>
-        </div>
-        <div class="tata-iter__body">
-          <p>
-            <strong class="tata-lbl tata-lbl--q">問題：</strong>打兩個冒號應該跳出印章選單，中文使用者怎麼打都沒反應。<br>
-            <strong class="tata-lbl tata-lbl--c">根因：</strong>中文輸入法打出的是全形冒號，觸發規則只認半形。<br>
-            <strong class="tata-lbl tata-lbl--f">修正：</strong>觸發改成同時吃半形與全形。通則：凡是要中文使用者打的符號，都要先想全形。</p>
-        </div>
+        <p>新的一天要蓋樓時，擋路的裝飾自動退位，城市跳一句「地標為新的樓讓了路」——東西不會消失，只是回到原位。連我花最多時間畫的那些小物，都是配角。</p>
       </article>
     </div>
   </div>
